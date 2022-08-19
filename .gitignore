@@ -1,0 +1,14 @@
+# mac
+.DS_Store
+# rstudio and bookdown
+.Rproj.user
+.Rhistory
+.RData
+_publish.R
+_book
+_bookdown_files
+rsconnect
+
+# project specific
+figure
+decisiontheory.log
