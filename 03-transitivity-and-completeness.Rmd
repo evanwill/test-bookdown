@@ -1,0 +1,239 @@
+
+# Transitivity and Completeness
+
+So far we have been using *ordinal utilities* to represent preferences, without having said much about exactly what utilities are other than we can rank them from best to worst (with possible ties). There are different accounts of what preferences are, and we'll get to some details later. All accounts of preferences, however, seem to agree on some core axioms - "obvious claims" - that govern preferences. We'll cover two in this chapter that apply to ordinal utilities. Other axioms will require us to have covered the concept of probabilities and other notions of utilities in more detail, so we'll wait to introduce those axioms later.
+
+The two axioms we cover here are known as **transitivity** and  **completeness**. Let's use ice cream flavours to briefly illustrate these. Transitivity says that if I prefer strawberry to chocolate, and I prefer chocolate to vanilla, then I prefer strawberry to vanilla. Completeness says that either I prefer strawberry to chocolate, or I prefer chocolate to strawberry, or I'm indifferent between the two flavours. The same goes when comparing these to vanilla.
+
+Transitivity and completeness play important roles in thinking about what preferences are, particularly in the context of using ordinal utilities to rank things. In fact, they apply not only to the case of individuals making decisions, but also in thinking about how to aggregate preferences of individuals into a collective group preference. There are several ways of doing that aggregation, like voting, but we might think that some are better than others depending on how well they reflect the preferences of individuals. 
+
+The thought is, preferences are or should be transitive and complete, regardless of whether those preferences belong to an individual or to a group. The very rough reason is that decision making seems to require putting options into some kind of ordering (with possible ties), and any ordering will satisfy both the transivity and completeness axioms. The tools we have been developing won't work without being able to order things. But as we'll see, there are independent arguments for transitivity and completeness that go beyond the convenience they provide for being able to use our decision theory tools. 
+
+## Notation
+
+It will help to have some notation to express transitivity and completeness more succinctly. Let's say that '$a\succ b$'  means that $a$ is wanted more than, or preferred to, $b$.^[The symbol '$\succ$' is just like $>$ except it applies to preferences between objects or outcomes, whereas $>$ applies to the magnitude of two quantities. But for both symbols, imagine they are mouths about to eat the preferred things.] If instead we want to say that $b$ is preferred to $a$, then we would write '$b\succ a$'. If we want to express indifference between the two, because you'd be equally happy (or sad) with one or the other, then we'll say '$a\sim b$' or '$b\sim a$'. In some cases we'll want to say that '$a$ is at least as good as $b$' and we'll use the notation '$a\succeq b$'.^[You can read this as '$a$ is strictly preferred to or equally as good as $b$'.]
+
+Here are the two axioms using this notation, using $x,y,z$ as variables for outcomes (or objects). 
+
+Transitivity
+
+:   If $x\succ y$ and $y\succ z$, then $x\succ z$.
+  
+Completeness
+
+:   Either $x\succ y$ or $y\succ x$ or $x\sim y$.
+
+
+Notice that the axioms are stated in a way that leaves them ambiguous to descriptive and normative interpretations. If the decision theory we're doing is descriptive, then these axioms describe real decision makers. If the decision theory is normative, then these axioms describe ideal decision makers - how people *ought* to approach decisions.
+
+In the descriptive case, the transitivity axiom is false if John prefers strawberry to chocolate and chocolate to vanilla, but prefers vanilla to strawberry. In the normative case, we would say that John is not being rational.
+
+If John claims that he neither prefers strawberry over vanilla, nor vice versa, and moreover that he's also not indifferent to them, then the completeness axiom is false under the descriptive interpretation. In other words, completeness is false if strawberry and vanilla cannot be compared. Under the normative reading, John is failing to be rational: surely he's at least indifferent to either flavour if he doesn't prefer one over the other!
+
+This last point almost sounds like an argument for why we expect people to have preferences that obey completeness - normatively, and perhaps descriptively too. The arguments that we're going to look at are typically used for the normative interpretation of the axioms. We'll look at arguments for or against each axiom in more detail in the following sections. But first, we need to understand a particular kind of conceptual tool that is used in these arguments.
+
+## Money Pump Arguments for Axioms
+
+We might dig in our heels and insist that the whole point of calling the above principles 'axioms' is that they do not require justification. Most decision theorists, however, think we can do better than that, i.e., we can provide arguments that justify the axioms. 
+
+Arguments for preference axioms tend to be pragmatic ones. Pragmatic arguments show that if someone violates an axiom, then they are guaranteed to lose in a decision problem - a decision problem that 'rational' agents would not accept. One of the most famous pragmatic arguments is known as the *Dutchbook Argument* which we'll get to when we cover the axioms of probability theory. When it comes to axioms of preference, the type of argument we'll see is known as a **Money Pump Argument**.^[Some think that pragmatic arguments are a weakness and it would be preferable to justify axioms and other principles in some purely theoretical way. Others think that pragmatic arguments are actually a strength of the theory because it connects it to practice and actions.] 
+
+Here's an example of a money pump argument. Suppose, contrary to our definition, that $a\succ b$ and $b\succ a$, which is like saying that John prefers strawberry to vanilla, and also prefers vanilla to strawberry. If you're scratching your head as to how that's even possible, good. That means you're getting the feeling of this very odd scenario, and we're going to turn that tension into an argument. Suppose that John has some strawberry ice cream and you have some vanilla ice cream. Since John prefers strawberry to vanilla, you offer John one cent to trade. John accepts. In fact this is a good deal for him since the one cent cost is negligible. Now that John has the vanilla and you have the strawberry, you again offer John to trade for one cent. John should again accept, since he also prefers vanilla to strawberry. Since John's preferences are such that $a\succ b$ and $b\succ a$, you can 'pump money' out of John over and over again by cycling back and forth between his preferences. The pragmatic argument now says that this is absurd. Surely even John should recognize his failure and give up at least one of the two preferences.^[TODO: Make and insert a diagram.]
+
+
+The strategy behind money pump arguments is to build a sequence of trades where the agent accepts each one, but by the end of the sequence of trades they are right back where they started, except with less money. In John's case, he started with strawberry ice cream, made two trades, ending up where he started (with strawberry) but with two cents less.
+
+## Arguments for Transitivity
+
+It's important to recognize that not all relations are transitive. 'Birth mother' is not transitive: If Sally is the birth mother of Laura, and Laura is the birth mother of Jill, it is not the case that Sally is the birth mother of Jill. Another example of a non-transitive relation is '$x$ is a better team than $y$'. It is not uncommon that team A wins a game against team B, that team B wins against team C, but also that C wins against A. On the other hand, 'is taller than' is transitive: if John is taller than Bob, and Bob is taller than Paul, then John is taller than Paul. 
+
+Decision theorists claim that preferences are transitive. That is, whenever there are two preferences, $x\succ y$ and $y\succ z$, then there is a third, $x\succ z$. If preferences are transitive, then it serves as a reason for avoiding the following money pump decision scenario.
+
+Let's say, contrary to the transitivity axiom, that John's ice cream preferences are such that S$\succ$C, C$\succ$V, and V$\succ$S (where 'S', 'C', and 'V' stand for strawberry, chocolate, and vanilla, respectively). We're going to set up a sequence of trades that John should accept, but land him in the same starting position, except with less money. Say John starts with chocolate. Then since S$\succ$C, he'll accept a trade for strawberry for a very small price, say one cent. Now with strawberry in hand, John would also accept a trade for vanilla, especially if this trade is free. Finally, John should also accept a trade back for chocolate, especially if, again, it's free. Now John is back in the original starting place (with chocolate), except with one cent less. We could also have charged John a small for the other two trades, or for any one of them - it doesn't matter so long as some cost, no matter how small, is charged somewhere along the way. Since the sequence of trades takes us back to the same starting condition, we can repeat the sequence again, and thereby 'pump' money out of John indefinitely.^[TODO Make and insert a diagram.]
+
+Compare Sally to John. She also holds that S $\succ$ C and C$\succ$V, but contrary to John, her preferences are consistent with the transitivity axiom and she holds that S$\succ$V. So, like John, she would accept a trade for chocolate if she had vanilla, and she would also accept a trade for strawberry if she had chocolate. But unlike John, she would not trade for vanilla if she had strawberry, because that is the opposite of her preferences given that they are transitive. Sally thereby avoids the money pump scenario. Because Sally's preferences are transitive, she breaks the cycle that John cannot.
+
+The transitivity axiom for decision theory claims that preferences are transitive. What it says is that some ordering of preferences are to be excluded, namely those that are not transitive. It is this ability to exclude non-transitive preference orderings that provides a reason for avoiding the type of money-pump scenario just described. A non-transitive preference ordering either has no reason for avoiding the scenario (which seems bad) or at the very least has the burden to provide some other reason. A person like John might foresee how they're going to be money pumped and decide not to accept any more trades. But that alone seems like a poor reason, since it acknowledges the badness of the consequences of non-transitive preferences, without suggesting an alternative. The burden falls on them to provide an explanation of how they can avoid being money pumped. That's why money pump arguments are pragmatic - it is a kind of burden shift, rather than a proof that no other reason exists.
+
+## Arguments for Completeness
+
+Our ice cream example makes completeness seem almost trivial: either strawberry is preferred to chocolate, or chocolate is preferred to strawberry, or one is indifferent between the two. But the completeness axiom doesn't just hold for ice cream flavours, it holds for all objects and options that we can have preferences over.
+
+It is often said that you can't put a price on a human life. In our way of putting it, that means for any given dollar amount $x$ and for any life $l$, it is neither the case that $x\succ l$, nor $l\succ x$, nor $x\sim l$. This claim is saying that money and lives are not comparable. That is, they are *incommensurable*.^[Arguably there are word meanings that are incommensurable across languages. For example, some have argued that there is no translation in English of the German word 'Weltanschauung'.]
+
+The completeness axiom says that you *can* compare money and lives. We might not like it, but the completeness axiom says it can be done. If government decision making is any indication, the completeness axiom is probably correct, though no politician would probably admit it. Here's a brief reason to think that governments do, at least implicitly, compare lives and money. If a citizen is lost at sea, for example, we may be willing to pay out a lot of money to organize a search and rescue party. Surely, however, there is a limit to how much money we would be willing to put up. Maybe we'd pay a million, or even more, but surely there is an upper bound, some value where, though it pains us deeply to have to admit it, the life is not worth the inordinate cost. While this example may be extreme, more route examples abound. Decreasing speed limits on highways would save lives, but people save time by driving faster, and that time can be used for work or leisure - and either way we can put a dollar amount on that. So the decision of where to set a speed limit is implicitly comparing lives to other things, like time and money.
+
+Examples aside, there is a money pump argument for the completeness axiom. Not everyone finds it as compelling as the money pump argument for transitivity, but nevertheless, here it is. Suppose there are two objects, $x$ and $y$ that are said to be incommensurable. In addition, suppose that $y^+$ is just like $y$ but is strictly preferred to it.^[Think of + like a small bonus.] Because $y^+ \succ  y$, a small cost would be acceptable to trade $y$ in order to get $y^+$. If we accept that it is permissible to swap incommensurable objects, then the money pump argument is up and running: start with $x$, swap for $y$, now pay to get $y^+$, then swap back for $x$, which is where we started.^[TODO Make and insert diagram] 
+
+This money pump argument isn't quite as compelling because it relies on the assumption that incommensurable objects can be swapped. One might try to argue that incommensurability is supposed to be conceptually distinct from indifference. If we are indifferent between two objects, then it seems perfectly fine to swap between them. But the main thrust of saying that two objects are incommensurable is to say that is not straightforwardly permissible to swap (note this is not quite the same thing as saying that it is impermissible).
+
+Putting aside the question about the conceptual difference between incommensurability and indifference, we can ask how it might show up in behavior. When you make a choice, we take this to "reveal" or provide evidence of your preferences. For example, suppose a subject is presented with objects $a$ and $b$, and they choose $a$. This is evidence that they prefer $a$ over $b$, i.e., $a\succ b$. (I'm cheating here by letting $a$ and $b$ refer to both the objects and the corresponding options, but not much is to be gained by being pedantic.) Of course mitigating circumstances might explain why they chose $a$ even though they prefer $b$: perhaps $a$ would give them an opportunity to still choose $b$ later (but not vice versa), or they were threatened (unbeknown to us) or something else. So it is a tricky business to infer preferences from choices that people make, but in some idealized circumstances, there is at least a rough inference we can make that goes from behavior to preference (more on this when we analyze utilities in more detail). How could we ever tell the difference, however, between incommensurability and indifference? The objection, from this perspective, is that any behavioral test for incommensurability can also be used for detecting indifference. We might for example, observe that sometimes $a$ is chosen - in which case we would say that $a$ is at least as good as $b$ ($a\succeq b$) - and other times $b$ is chosen - in which case $b$ is at least as good as $a$ ($b\succeq a$). Since each object is at least as good as the other, we are invited to infer $a \sim b$. It is unclear how to design a behavioral test that would detect incommensurability without inviting the inference to indifference.
+<!-- Peterson - small improvement argument, and revealed preference - p170-171 -->
+
+Another way to handle the possibility that some objects are incommensurable could be to restrict the domain of decision theory. If some objects are incommensurable, then those aren't the kinds of things we can have preferences over, and the theory can't make decisions about those things. This response somewhat captures the difficulty raised by the claim that, e.g., you can't put a dollar amount on a human life. One can understand this sentiment as trying to express that we can't, or ought not to be engaging in decisions when these objects are being considered.^[But as we suggested above, we may not like it and may not want to make it explicit, but we do make implicit comparisons between money and life.]
+
+The issues we've raised about completeness assume that comparisons must be done on a single scale. One strategy for handling these difficulties is to allow for different scales and then find ways of comparing the scales.  This is known as the multi-attribute approach. However, to understand this approach requires a more sophisticated understanding of what sorts of things utilities are, and we'll cover that in a following chapter.
+
+For now, we're going to look at other applications of decision making when we assume that preferences are transitive and complete. More specifically, we'll look at how groups can make decisions given preferences of individuals.
+
+## Social Choice
+
+### Group decisions are not mere sets of individual decisions
+
+Almost all of the examples we have covered have been about individual choices. In many cases, however, it is not an individual that makes a choice, but a group of individuals. This leads to a separate set of questions about how groups do/should make choices. At the very least, the way a group makes a choice should in some way reflect the preferences of the individuals. It would be extremely odd if everyone unanimously agreed that the best option for the group is A, but then some other option is picked ``by the group'' that is unanimously agreed on to be the worst option. 
+
+That said, we will see that there are different ways in which we can be explicit about how a group (a collective of indivbiduals) should be connected to the preferences of the individuals that make up the collective. Social choice theory is about how to aggregate preferences of individuals into a single collective preference. It turns out that there are many ways of doing this aggregation. However, there can be tensions between the individual level and the collective level, particularly concerning the notion of rationality.
+
+Here's a brief illustration of how such a tension could come about. Suppose that there are three judges, J1, J2, and J3. Each judge is "rational", which means at the very least that they subscribe to a rule of inference philosophers call **modus ponens** (a latin name for affirming the consequent). Modus ponens says that if you believe a conditional like 'If A then B' is true and you also believe that 'A' is true, then you should infer that 'B' is true. For example, suppose you know that if Johnny eats peanuts then he will have an allergic reaction, and you also know that Johnny is eating peanuts, then you should infer that Johnny will have an allergic reaction!^[Note that the other direction isn't valid, i.e., if you know that Johnny is having an allergic reaction, it's not guaranteed that that's because Johnny ate peanuts - he might have eaten something else that he's allergic to.]  
+
+Now suppose that each of our judges has been called on to make a decision about a case. The case is concerned about a purported incidence of theft of a water bottle. The judges are asked to assess the truth of the following three claims:
+
+**S1** The defendent stole the water bottle.
+
+**S2** If S1, then the defendant should go to jail.
+
+**S3** The defendant should go to jail.
+
+Each judge makes their own decision about the case, which are then collected in the table below.
+
+ Judge       S1          S2          S3
+--------    --------    --------   ---------
+J1            True        False       False
+J2            False       True        False
+J3            True        True        True
+
+Notice that each judge meets the rationality constraint of obeying modus ponens: the only judge that says S3 (the defendant should go to jail) is the judge that also says S1 and S2 are true. In order to say that S3 is false, at least one of S1 or S2 would have to be false, and indeed that is consistent with what Judges J1 and J2 say.
+
+In other words, each judge is individually rational. But what about the collective? For example, what if we aggregate the judgments of the judges and use the idea of majority to assign truth or falsity to the three statements? In other words, we might use **majority ruling** to aggregate the decisions into a group decision. If we do that, then we would have:
+
+   Judge       S1          S2          S3
+  --------    --------    --------   ---------
+   J1           True        False       False
+   J2           False       True        False
+   J3           True        True        True
+   Group       True        True        False
+
+Notice that the collective judgment *violates* modus ponens, that is, it says that S1 and S2 are true, but S3 is false. Aggregating judgments by majority voting does not, in other words, preserve rationality from the individual level to the collective level.
+
+Rationality is not the only thing that we might be concerned about when we aggregate things from the individual to the collective level. Not to mention, rationality is somewhat complex even at the individual level. So let's turn to something simpler.
+
+What we'll focus on for the remainder of this chapter is whether there are ways to aggregate preferences in a consistently acceptable way. What counts as ''acceptable'' is something we'll discuss. To start, we'll look at some examples of how preferences might be aggregated, keeping track of advantages and disadvantages.
+
+### Plurality and Runoffs
+
+One common form of aggregation, especially in elections in the United States, is plurality voting, also known as 'first past the post' or 'winner takes all'. Let's look at it in a simple context. Suppose there are seven people, P1, P2, ..., P7, that are long time friends and are deciding on where to go to dinner together. There are four restaurants they are considering, R1, R2, R3, and R4. Each person gets one vote. Suppose the table below summarizes the results of their vote.
+
+        P1        P2        P3        P4        P5        P6        P7        Total
+----  -------   -------   -------   -------   -------   --------  -------   ---------  
+R1      Yes       Yes       Yes                                                   3
+R2                                    Yes       Yes                               2
+R3                                                        Yes                     1
+R4                                                                  Yes           1
+
+By these results, it looks like R1 should be the choice of the group, because it has the most 'plurality' of votes.
+
+Note, however, that while R1 has the most number of votes, it does not have the majority of votes. Suppose the P4-P7 are all strongly opposed to going to R1. Then an odd consequence of plurality voting is that that group goes to a restaurant that the majority of people in the group oppose. 
+
+One way to handle this is to have a 'runoff' vote. If no option, such as an election candidate or restaurant (in our case), is the majority, then we hold a second vote between the top two vote getters. In our case that is R1 and R2. Suppose that such a second vote is held and we get the following results. 
+
+        P1        P2        P3        P4        P5        P6        P7        Total
+----  -------   -------   -------   -------   -------   --------  -------   ---------  
+R1      Yes       Yes       Yes                                                   3
+R2                                    Yes       Yes        Yes      Yes           4
+
+In a runoff vote the recommendation we get for the group is to go to R2.
+
+What plurality and runoff voting have in common is that they are aggregating people's first preferences. Little to no weight is given to people's second, third, or even last preferences. 
+
+This has some advantages. We saw above money pump arguments for thinking that individual preferences should be transitive and complete. One might like this to also be true of group preferences. So long as we restrict ourselves to the combination of plurality and runoff voting, the group preference will also be transitive and complete. But the reason for this is because the plurality+runoff system is ultimately just aggregating preferences for two options. Either there is an option that gets a majority of first preferences or not. If an option $a$ gets a majority of first preferences, then $a$ received at least one more than half the votes. Then for any other candidate $x$, they can have at most one less than half the votes. So, $a$ will be preferred to $x$ and it's not possible to violate either transitivity or completeness. If an option $a$ does not get a majority of first preferences, then it might be possible that $a$ has more votes than another or less. But if $a$ is one of the two options with the highest votes, then the runoff vote forces another vote between those to options, say $a$ and $b$. In this runoff vote, either $a$ will get more than half, exactly half, or less than half of all the votes, which correspond respectively to the group preference being $a\succ b$, $a\sim b$, or $b\succ a$. In each scenario, neither transitivity nor completeness are violated.
+
+But a system that effectively ignores everything but people's "first" preference seems like an impoverished system. The consensus we get in the plurality+runoff system is forced. To see this, consider another system that takes into account other preferences besides the first. This is called the *Borda count*.
+
+### The Borda Count and an Impossible Task
+
+We'll illustrate the **Borda count** with our restaurant example. Let's suppose that each person ranks the restaurants, so that 4 points goes to the most preferred restaurant, 3 to the second, 2 to the third, and 1 to the least preferred. If we had five restaurants, we would have 5 points go the first, 4 to the second, etc. In general, if there are $n$ restaurants, we give $n$ points to the most preferred, $n-1$ to the second, $n-2$ to the third, etc. This method of aggregation is used in some college sports in ranking teams. Notice that it doesn't just take into account people's first preferences, but all preferences. Also notice that it does not capture how much more you might like one option over another. Again, all we are doing here is putting the outcomes in an order using ordinal utilities (an ordering that, at the individual level, will be transitive and complete).
+
+Suppose we get the following results in our restaurant example.
+
+        P1        P2        P3        P4        P5        P6        P7        Total
+----  -------   -------   -------   -------   -------   --------  -------   ---------  
+R1      4        4         4           1        1         1           1         16
+R2      1           3       3           4       4        2            2       19
+R3      3           2       2         3           3       4         3           20
+R4      2           1       2         2           2       3           4       15
+
+Notice that the first preferences still align with our previous tables (all the 4's are in the 'yes' positions). Also notice that R1 is still the least preferred for P4-7, which means we preserve the result we got from the runoff vote. However, unlike the recommendations of the plurality vote and the runoff vote, the Borda count recommends that the group go to restaurant R3.
+
+So the Borda count has a nice feature in that it builds consensus by considering people's preferences beyond their first. Even though the group goes to a restaurant that is almost no one's first preference (in our example R3 does happen to be P6's most preferred), it finds a restaurant that is broadly acceptable in the group. 
+
+So far so good, but we might now ask: is the Borda count a way of aggregating individual preferences so that, if the individual preferences are transitive and complete, the group preference will be transitive and complete as well?
+
+Let's look at the following example. It will help to organize our table a little differently so that we can tell just by looking what the vote tallies would be. Rather than put options in the rows, we'll organize the rows in terms of people's most to least preferred options, going from the top to the bottom. Let's say we have three people, P1, P2, and P3, and they are deciding between three books to read together next month: A, B, or C. The table below summarizes the three people's preferences from best (1st) to worst (3rd).
+
+
+Preference        P1        P2        P3    
+------------  -------   -------   -------   
+ 1st            A           B       C
+ 2nd            B           C       A
+ 3rd            C           A       B
+
+If we just compare the preferences between books A and B, then A would get 2 out of the 3 votes (whatever those points would be). If we just compare B and C, then B gets 2 out of 3 votes (2/3). So this might suggest that, in terms of the group preference, A is preferred to B and B is preferred to C.  But when we inspect further and compare A and C, we'll see that C gets 2/3 votes. Our pairwise comparison produces a cyclical group preference: $A\succ B$, $B\succ C$, and $C\succ A$. This is in violation of the constraints that group preferences should be transitive, i.e., if $A\succ B$ and $B\succ C$, then $A\succ C$, not $C\succ A$!
+
+One potential response to this cyclical situation is to say that the group should be indifferent to A, B, and C, i.e., $A\sim B\sim C$.  The problem with this suggestion is that we can't both accept it and the condition called **the independence of irrelevant alternatives** (or IIA). Suppose, for example, that book C is on back order and will not be delivered in time for the group to read next month. Book C is now an "irrelevant alternative" and we should drop it. But here is the problem. If we agreed that the group should be indifferent between the three groups, $A\sim B\sim C$, then dropping $C$, the irrelevant alternative, should not affect whatever preference holds between $A$ and $B$. That is, after dropping $C$, the group should still be indifferent between $A$ and $B$, i.e. $A\sim B$. The preference between $A$ and $B$ is said to be *independent* of the *irrelevant alternative*. But let's look at the table again if we drop $C$ there:
+
+Preference        P1        P2        P3    
+------------  -------   -------   -------   
+ 1st            A           B       A
+ 2nd            B           A       B
+
+The table makes it pretty clear that the group should prefer A to B. But maybe the group decides to hold themselves to their original agreement and uphold IIA.  That is, since they had agreed that $A\sim B\sim C$ before they knew that C was on back order, the group preference should still be $A\sim B$ - despite what the new table says. The problem with this proposal is that it does not maintain the implicit fairness that each person's preferences gets equal weight in the group. To be indifferent between $A$ and $B$, the new table would have to assume that P2's preference for B is worth twice as much as P1's preference for A (and likewise P3's). That goes against the very point of aggregating their preferences through something like the Borda count. P2 would be something like a ''dictator'' in shaping the group preference.
+
+Maybe another strategy is to leave behind the Borda count method entirely and instead require a consensus - a unanimous vote - in order for the group to prefer one option to another. If there is no consensus among the voters between two options, then the group shall be indifferent between those options. Looking at our tables, it is clear that there is no consensus that A is preferred to B, since P2 prefers B to A. This 'method of consensus' is nice in that it satisfies IIA (independence of irrelevant alternatives) and does not give more weight to one person's vote over others. In fact, this 'method of consensus' seems like the only possible solution to the 'cyclical preferences' issue.
+
+The problem with the consensus method suggestion, however, is that it violates transitivity. Suppose instead of the summary tables above, we had these results instead. 
+ 
+Preference        P1        P2        P3    
+------------  -------   -------   -------   
+ 1st            A           B       C
+ 2nd            B           C       A
+ 3rd            C           A       B
+ 
+The group unanimously votes that A is preferred to C, and so by consensus we get $A\succ C$. If we compare A and B, we notice that there is no consensus, and so by this method the group should be indifferent, i.e., $A\sim B$. Similar inspection of the table means $B\sim C$. Since we have $A\sim B$ and $B\sim C$, then by the transitivity constraint we should have $A\sim C$, but our consensus method told us $A\succ C$!
+ 
+The tension we are feeling is actually a very deep problem. It can be laid out explicitly in a formal argument and is known as **Arrow's Impossibility Theorem**. What it says, put intuitively, is that for any voting system that allows for three or more options, at least one of these three things will *not* hold:
+
+1. Unanimity: If everyone prefers A to B, then the group prefers A to B.
+2. Independence of Irrelevant Alternatives: If nobody changes their mind about the relative ordering of A and 	B, then the group can’t change its mind about the relative ordering of A and B.
+3. No Dictators: For each voter, it is possible that the group’s ranking will be different to their ranking.
+
+To be clear, we are not saying that all voting systems are bad: some are worse than others. Presumably a voting system that satisfied none of these conditions is pretty unacceptable, especially in comparison to a voting system that at least satisfies No Dictators and Unanimity. What Arrow's Impossibility Theorem tells us is that it's impossible to have it all, i.e. a voting system that obeys all three features.
+
+## Limitations and Key Take Aways
+
+All that said, we have narrowed in on a result about group preferences that is deep, but not without a fair number of substantial background assumptions (some of which we have left implicit). For many group decisions, like friends choosing what restaurant to go to, some of the assumptions either might not hold, or the conditions don't impose a level of unfairness that we care too much about. For example, while we might have to allow one friend to dictate what restaurant to go to this Friday night, we might allow another friend to dictate where to go the following week. Or we might allow the group to split and go to do different restaurants (whereas in elections it is not typically possible to elect two presidents simultaneously).  In any case, the range of Arrow's Impossibility Theorem is limited to several background assumptions, and while many political elections meet those assumptions and thereby face certain impossibilities, lots of group decisions don't meet those same background assumptions. 
+
+So we have seen the kinds of uses that ordinal utilities provide us with, particularly as a tool for ranking things, both on the individual and group level. They have also helped us introduce important concepts like transitivity and completeness, which we will make further use of in later chapters. But they have important limitations. Two are particularly relevant.
+
+First, while ordinal utilities allow us to order outcomes from best to worst, they don't provide us with a way to say *how much more* we might like one outcome over another. In our restaurant example, each person ordered or ranked their restaurants from most preferred to least preferred. But it possible that the difference between one person's first and second choice is very small, while for another person it is very large.
+
+Second, ordinal utilities don't give us a way to compare how much one person's first choice is liked in comparison to another's: one person might absolutely love their first choice, while another person sees their first choice as bad, but the least bad among all the options.  We'll see whether a different kind of numbering system that uses *cardinal* utilities will help us with these two limitations. (Spoiler: they help for one, but not the other.)
+
+
+## Exercises {-}
+
+1. Transitivity is a kind of pattern that some relations have. Intuitively, a relation can be anything that involves two objects. Examples include "John is left of Sally", "this stone is heavier than this chair", and "Oliver is funnier than Connan".  It's helpful to think of transitivity in terms of a pattern that a relation R might have: if $x$R$y$ and $y$R$z$, then $x$R$z$. Think of different kinds of relations you could plug into R and the kinds of objects that $x$, $y$, and $z$ are related by R.
+
+    - What are examples of relations that are transitive?
+    - What are examples of relations that are not transitive?
+    
+1. Similarly to above, completeness is a kind of pattern that some relations have: either $x$R$y$ or $y$R$x$.
+
+    - What are examples of relations that are complete?
+    - What are examples of relations that are not complete?
+
+1. `r newthought("Money Pump Arguments.")` Suppose you have two roommates named Peter and Sally. The three of you watch an episode from a series together every night of the week except Sundays. There are three different series that the three of you have been following together: Show A, Show B, and Show C. Because you own the device and pay for the streaming subscription, you get to pick which show to watch on any given night. Peter claims that he always prefers Show A over Show B, that he always prefers Show C over Show A, and that he always prefers Show B over Show C. Sally, on the other hand, is always indifferent between Show B and Show C, but she prefers Show A over either those two. Your preferences, however, change on a day to day basis, but you prefer not to watch the same show two days in a row and you want to see at least one episode from each show in any given week. That said, let's suppose that you'd be willing to let one of your roommates pick the show in exchange for one dollar. Explain how you could "money pump" one of these roommates but not the other. In your explanation, feel free to imagine that you'll make offers to Peter on every day for one week, and then to Sally on every day another week. What sequence of selections in a week would guarantee that you'll get \$6 from exactly one of those roommates?
+
+1. Make a table like the Borda count restaurant example, but so that the group choice is not anyone's most preferred choice.
+
+1. Make a table like the Borda count restaurant example, but so that the group choice is at least one person's least preferred choice.
+

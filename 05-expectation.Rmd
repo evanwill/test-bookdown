@@ -1,0 +1,495 @@
+
+# Expected Utilities
+
+
+
+<!-- CONSIDER A BUILD UP FOR THE NEXT CHAPTERS THAT INVITE MORE THAN JUST THE CDT AND EDT DEBATE. HERE, CONSIDER KENNY EASWARAN'S PAPER "A classification of Newcomb problems and decision theories". There is a great plot on where we think the intervention is. -->
+
+We developed the lottery option procedure to help us build interval scales for people's preferences, which lets us both order preferences and say how much more one thing is preferred to another.^[Recall how the lottery option procedure worked: given options A$\succ$B$\succ$C, where A and C make up a lottery L, what percent of L's tickets need to be A in order for the person to be indifferent between A and B? The percent of A tickets is the percent of B's desirability of A.] But we noted a curiousity about this procedure. Saying that you prefer a lottery is quite a different thing than saying you prefer a particular outcome, like a book. It seems intuitive enough to think about selecting book B rather than another: we purchase it, put it beside our bed, read it, etc. But what does it mean to act on or choose a lottery? Yes, you can purchase a ticket. But you can't *choose* the *winning* ticket in the sense that your choice guarantees the ticket is a winning one. Whether your ticket wins or loses is the outcome of some chancy process. How can we make better sense of this?
+
+The central concept that will help us here is *expectation*. Informally, we think of expectations as strong beliefs that something will occur. When walking I almost always expect that the ground will support my weight. When I set my alarm I expect it to wake me up. When I work at my job I expect to get paid. These examples are in contrast to things we might *merely* hope or desire to be true.
+
+There is also a more technical meaning of what it is to have an expectation. Here we make use of the concept of probabilities in making a kind of measured prediction. We move away from a strong belief that something *will* occur, and more towards what could occur to some degree of chance. 
+
+## Expected Utility by Example
+
+Here is an example. Suppose you have a rash on your hand. In half of all cases the rash goes away by itself, for the other half it doesn't. So, if you do nothing, there's a 50/50 chance the rash gets better. There's an over the counter cream you can use that helps the rash get better, but it's not perfect: 85\% of the time the rash goes away, but there's a 15\% chance that it continues even when using the cream.^[We have to be careful that we're conceiving of the "rash gets better" state as those aspects of the cream that are outside of our control. The state can't be those aspects of the action that correspond to the use of the cream, otherwise we violate the constraint that states and options have to be independent. We have to think of the "rash gets better" state as those properties related to the efficacy of the cream that are outside our control - like the sensitivity of your skin.]
+
+
+                             Rash gets better               Rash continues
+-------------------------   -------------------------   -------------------------
+  Use Cream                   85%                              15%
+  Do Nothing                    50%                           50%
+
+The notion of expectation that we are going to use combines this kind of information about probabilities with cardinal utilities. In fact, we'll have a new strategy called **maximize expected utility**, which will use information about how probable outcomes are, like in the table above, in combination with our utilities of those outcomes. That is, we use the probabilities *to weight* a preference assignment. 
+
+To make the example easier, let's think of utilities in terms of money.^[Some authors will distinguish between *expected monetary value* and *expected utility* in order to acknowledge the concerns we raised in the previous chapter. Here we're just trying to highlight how to think about *expectation*, and so for most of this chapter we'll treat utilities and monetary value the same.] There are two costs we need to think about: the cost of the over the counter hand cream and the cost of seeing the doctor if the rash continues. (Strictly speaking, there is also a third "cost" if we assume that the price of doing neither is \$0.) Let's say that the cost of the hand cream is \$20 and the cost of going to the doctor is \$100. In the event that you tried the hand cream and it didn't work, you still have to go to the doctor (who may prescribe a stronger cream), so you're paying both costs. In terms of a preference assignment, we then get the following table.
+
+
+
+                             Rash gets better         Rash continues
+-------------------------   ---------------------   ----------------------------
+  Use Cream                     -\$20                  -$20+(-\$100) = -\$120
+  Do Nothing                    -\$0                          -\$100
+
+
+
+If all that matters are these utilities, then we can apply the rules we used in the previous chapters. For example, dominance reasoning would tell us not to use hand cream because for each state, the option not to use cream is better (i.e. less expensive) than the option to use cream. 
+
+But utilities are not all that matter. We also have other information: the probabilities of each of these outcomes. 
+
+The rule for maximizing expected utility proceeds in two steps: 
+
+    -Step One: combine the utility and probability tables to calculate the expected utility of each option. 
+    -Step Two: select the option with the maximum expected utility. 
+
+Let's go through these separately.
+
+### Step One: Compute EU of each option
+
+Here's how we calculate the expected utility of an option. First, for each outcome, multiple the utility of that outcome (using the utilities table) by the probability of that outcome (using the probability table). Second, take the sum of these products.
+
+For example, to calculate the expected utility of using cream, I would first do this:
+
+                             Rash gets better         Rash continues
+-------------------------   ---------------------   ----------------------------
+  Use Cream                     -\$20 x 0.85           -\$120 x0.15
+
+Which gives me this:
+
+
+                             Rash gets better         Rash continues
+-------------------------   ----------------------   ---------------------------
+  Use Cream                  -\$20 x 0.85 = -$17         -\$120 x0.15 = -\$18
+
+I then take the sum of these outcomes, which is -\$35. We say that the expected utility of using the hand cream is a *loss* of 35 dollars (recall we're ignoring a bunch of complications for now, like whether the hand cream makes my hands feel greasy, how my hands smell, etc.). We'll represent this expected utility as **EU** and put it in as column to the very right, being careful not to interpret that column as another state.
+
+
+                   Rash gets better         Rash continues                EU
+---------------   ---------------------   -------------------    -----------  
+  Use Cream              -\$17                  -\$18             (-\$17) + (-\$18) = **-\$35**
+
+
+We then do the same computation to calculate the expected utility of Do Nothing. So our complete table would look like this (showing the work for Do Nothing):
+
+                   Rash gets better         Rash continues                 EU
+---------------   ---------------------   -------------------     -----------  
+  Use Cream              -\$17                  -\$18              **-\$35**
+  Do Nothing        -\$0 x 0.5 = \$0       -\$100 x 0.5 = -\$50     (-\$0)+(-\$50) = **-\$50**
+
+This makes up our first step.
+
+### Step Two: Find maximum EU
+
+Once we have our table where we have calculated the expected utility for each option, we then look for which one is the maximum. We have to be a bit careful here, because the signs of the numbers matter, not just the magnitude. So while \$50 is more than \$35, what we are concerned with is avoiding the loss of money. In other words, when utilities are positive we want to take the largest one, but when utilities are negative we want to take the smallest one. In the current context the utilities are negative, so we are trying to maximize the least amount of loss. Hence the option with the maximum expected utility is Use Cream. We'll sometimes put an explanation point beside the maximum expected utility number.
+
+                   Rash gets better         Rash continues                 EU
+---------------   ---------------------   -------------------     -----------  
+  Use Cream              -\$17                  -\$18              **-\$35!**
+  Do Nothing               \$0                  -\$50              **-\$50**
+  
+If two options have the same expected utility, and all other expected utilities are smaller than those options, then there is a tie. A common suggestion is that such ties mean that either option is equally as good (or least bad) as the other. We will see, however, that we might want to be more nuanced than merely maximizing expected utilities. For example, it's possible that two options have the same expected utilities, but one of them has a higher "risk" in that one of the outcomes has a very low utility, but also a very low probability. We will consider such possibilities shortly when we examine criticisms of the strategy of maximizing expected utilities. 
+  
+
+## (MEU) Maximize Expected Utility Strategy
+
+It will be helpful to have some notation. Let's say that $U(A|S_1)$ means "the utility of option A given state 1''. So we could write $U\text{(Use cream}|\text{rash gets better})$ to refer to the \$20 cost. Or we could write it like an equation. Here's how we might refer to the case where we use cream and the rash continues:
+\[
+U(\text{Use cream} | \text{rash continues}) = -\$120
+\]
+
+In addition to using $U$ to refer to utilities, we also need a handy way to refer to the probabilities of outcomes in a probability table.
+Let's use $P(A|S_1)$ to mean the probability of the outcome when option A is selected and state 1 occurs. So in order to refer to the chance that the rash gets better given that you use hand cream, which is 85\%, we would write 
+
+\[
+P(\text{Use cream} | \text{rash gets better}) = 0.85
+\]
+
+Now that we have a way to refer to utilities and a way to refer to probabilities, we can write down a general way of how expected utilities are calculation. The expected utility of an option (say A) where there are two states can be written like this:^[Don't forget your order of operations!]
+
+$$
+EU(A) = P(A|S_1)\times U(A|S_1) +  P(A|S_2)\times U(A|S_2)
+$$
+
+Plugging in the numbers from the table above for the hand cream option, we would get  this:
+$$
+  \begin{aligned}
+  EU(\text{Use Cream}) &= (0.85\times -\$20) + (0.15\times -\$120)\\
+      &= -\$35
+  \end{aligned}
+$$
+
+Similarly, the expected utility for not using the hand cream would be:
+$$
+  \begin{aligned}
+  EU(\text{Do Nothing}) &= 0.5\times -\$0 + 0.5\times -\$100 \\
+  &= -\$50
+  \end{aligned}
+$$
+
+
+As illustrated in the above example, once we have calculated the expected utility for each option (i.e. each row in our tables), then we pick the maximum of all the utilities. Note that this strategy works whether there are just two options, or if there are three, four, etc. The first step is a calculation of the expected utility for each option, which is done independently for each row. So the addition of another row doesn't make a difference to how the other options were calculated (well almost - we'll see later that we're making an important assumption here!). It's only in the second step that might be affected, but here we need to have calculated the expected utility for each option before we can go about selecting the maximum one. 
+
+`r newthought("Note that we have a difference in recommendations")` from some other rules. Dominance reasoning would tell us not to use the hand cream. But dominance reasoning ignores some important information about the chances of the different outcomes happening. One way to incorporate that information, in fact the most common way to do so, is to weight the utility of the outcome with the probability of that outcome.^[The idea of "weighting" is what the operation of multiplication is doing here.] When we do that for each outcome for a given option and then add them up, we get the expected utility for that option. If we then compare the expected utilities of each option, at least for the example we've considered above, we get a different recommendation: don't use the hand cream.
+
+The *maximize expected utility* rule is the predominant strategy in the field of decision theory.^[That's not to suggest it's always as simple as we've been illustrating, but it is at the heart of many decision analyses.] It is a very rich strategy. For example, we can actually recover the recommendation that dominance reasoning gave us. In order to do that, we ignore the information that using hand cream improves the chances of the rash getting better. We can represent this ignorance by giving each outcome for a given option the same probability. That is, we use the following table of probabilities:
+
+                             Rash gets better               Rash continues
+-------------------------   -------------------------   -------------------------
+  Use Cream                   0.5                              0.5
+  Do Nothing                    0.5                           0.5
+
+
+
+Notice that the probability in a given row add up to 1. That's because the states are *exhaustive* in each given option. That is, if I use the hand cream, my rash will either get better or it won't - there are no additional things that can happen. The same is true if I don't use it: either the rash goes away or it doesn't. 
+
+Now if we plug these numbers into our expected utilities, we get
+$$
+  \begin{aligned}
+  EU(\text{use cream}) &= 0.5\times -\$20 + 0.5\times -\$120\\
+  &= -\$70
+  \end{aligned}
+$$
+
+and 
+
+$$
+  \begin{aligned}
+EU(\text{don't use cream}) &= 0.5\times -\$0 + 0.5\times -\$100 \\ 
+  &= -\$50
+  \end{aligned}
+$$
+
+Notice that when we take the maximum of these^[Remember again these are representing *costs*.] then the *maximize expected utility* rule says not to use the hand cream. That's precisely the recommendation that dominance reasoning originally gave us!
+
+The main takeaway is this. When we are in the context of making a decision under ignorance where we don't know what the probabilities of outcomes are, the dominance principle is usually the "go to" rule that is first tried (and sometimes it doesn't give us a recommendation). In the context of making a decision under known risk, we have information about the probabilities of outcomes and we use that information to calculate expected utilities, which in turn are maximized. Interestingly, we can use the decision rule of maximize expected utility to also represent the dominance strategy. We do this by "ignoring'' the probabilities of outcomes by making them all equally likely. In a rough way, then, maximize expected utility (MEU) is a generalization of the dominance principle, at least in terms of the recommendations MEU makes.
+
+We say "in a rough way" because the recommendations that the dominance strategy and MEU make can come apart. In fact we have already seen this in the introduction. Recall *Newcomb's Problem* where you can either pick the contents of just box A or the contents of both box A and box B. The utility table looked like this: 
+
+                             AI predicts two box         AI predicts one box
+-------------------------   -------------------------   -------------------------
+  **One box (just A)**           \$0                        \$1,000,000
+  **Two box (A and B)**         \$1,000                     \$1,001,000
+
+Dominance reasoning makes the recommendation to select the Two Box option, because whatever the AI predicted, you get an extra \$1,000. But dominance reasoning ignores the probabilities of each of the outcomes. In the description of the setup we said that there is a very strong correlation between what options people pick and what the AI predicts. So if you pick the One Box option, then the probability that the AI predicted that you would pick that option should be high, very high. It might not be perfect, but we can suppose that the AI is right 99\% of the time. So, the probability table might look like this:
+
+
+                             AI predicts two box         AI predicts one box
+-------------------------   -------------------------   -------------------------
+  **One box (just A)**           0.01                        0.99
+  **Two box (A and B)**          0.99                        0.01
+
+Following the steps we outlined above for the MEU stragey, we get the following expected utilities for each option:
+
+$$
+\begin{aligned}
+EU(\text{OneBox}) &=(0.01\times \$0) + (0.99\times \$1,000,000)\\
+&= \$990,000
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+EU(\text{TwoBox}) &=(0.99\times \$1,000) + (0.01\times \$1,001,000)\\
+&= \$990 + \$10,010 \\
+&= \$11,000  
+\end{aligned}
+$$
+
+
+
+Let's add these to our utility table.
+
+                             AI predicts two box      AI predicts one box          EU
+-------------------------   ----------------------   ---------------------- ---------
+  **One box (just A)**           \$0                   \$1,000,000           **\$990,000!**
+  **Two box (A and B)**         \$1,000                 \$1,001,000           **\$11,000**
+
+
+
+Clearly the One Box option has a much higher expected utility than the Two Box option! So, in contrast to the dominance strategy recommendation, the MEU strategy recommends that you should select just box A.
+
+We have in a sense made interesting progress, and in another sense we have not. We have made progress in the sense that we can be more precise in how we describe the two different ways of reasoning about what do to in the Newcomb Problem. We have not yet made progress in providing an argument for whether we should use dominance reasoning or MEU. But the fact that we can be more precise about the two reasoning processes means we have a better understanding of what background assumptions each one is making. In turn, by analyzing those assumptions we can consider arguments for and against each of the two strategies. Much of the progress that has been made in decision theory has come from these kinds of analyses, which we'll cover in due time.
+
+Next, we're going to look at an application of MEU that builds from a previous example.
+
+## Application: Combining MEU and the Multi-Attribute Approach
+
+
+In the multi-attribute approach we covered, we showed how utilities might come from multiple scales. We used an example of a politician combining three scales (money, lives, and votes) to make a decision about a search and rescue mission for some teenagers lost at sea. The politician is considering three options: end search, extend search one week, extend search indefinitely, and we supposed that there were two possible states: Teens Alive and Teens Not Alive. 
+
+It was crucial in that example that we were focusing on just the state Teens Alive. As a reminder, the final utility table for the Teens Alive state was this: 
+
+                               Money (1/7)                   Lives (2/7)                  Votes (4/7)             Aggregate
+-------------------------   -----------------------   ---  --------------          ---  ---------------           -----------
+  **End Search**             $3\times \frac{1}{7}$     +     1$\times \frac{2}{7}$  +      1$\times \frac{4}{7}$    =1.286
+ **Extend One Week**         $2\times \frac{1}{7}$     +     3$\times \frac{2}{7}$  +      2$\times \frac{4}{7}$    =2.286
+ **Extend Indefinitely**     $1\times \frac{1}{7}$     +     2$\times \frac{2}{7}$  +      3$\times \frac{4}{7}$    =2.429  
+
+What the aggregate utility in the very right column represents is the "fusion" of all the different scales (money, lives, votes) into a single utility value. To do that we weighted the utility of an outcome by how important the relevant scale (the column) was to the politician. Notice that the weights assigned to the columns here are *not* the same as the probabilities that we use to weight utilities when calculating expected utilities of outcomes. To see this, notice that the decision problem for the politician needs to include both the Teens Alive state as well as the Teens Not Alive state. In other words, the full decision problem is given by the table below, which is only partially filled in using the aggregate values from the table above.
+
+
+                               Teens Alive        Teens Not Alive         EU
+-------------------------   ------------------   -----------------      --------------
+  **End Search**                  1.286                  ?                 ?
+ **Extend One Week**              2.286                 ?                  ?
+ **Extend Indefinitely**          2.429                  ?                 ?
+
+
+In order to fill in the missing utilities under the Teens Not Alive column, we have to first use the multi-attribute approach to find the aggregate utility for each outcome under that state, using the same weighting as we did before. Recall that we supposed the politician thought lives are weighted twice as much as money, and that votes are weighted twice as much as lives. So we know what the weights are. What we need to do is figure out what the utilities are for the three options now that we're considering the state Teens Not Alive. This can be and probably would be different than the utility table we had from before. If the teens are not alive, then it seems that ending the search sooner would be better than later for all three scales: doing a search and rescue costs money, puts additional lives at risk, and voters aren't typically fond of wasting money. With that reasoning, the politician might use the following multi-attribute table for the Teens Not Alive state.  
+
+
+                               Money                  Lives         Votes
+-------------------------   ------------------   -------------   --------------
+  **End Search**                  3                  3               3
+ **Extend One Week**              2                  2               2
+ **Extend Indefinitely**          1                   1               1
+
+
+As before, the politician would then weight these to calculate an aggregate:
+
+                               Money (1/7)                 Lives (2/7)                   Votes (4/7)             Aggregate
+-------------------------   -----------------------  ---  --------------           ---  ---------------          -----------
+  **End Search**             $3\times \frac{1}{7}$    +     3$\times \frac{2}{7}$   +    3$\times \frac{4}{7}$    =3.000
+ **Extend One Week**         $2\times \frac{1}{7}$    +     2$\times \frac{2}{7}$   +    2$\times \frac{4}{7}$    =2.000
+ **Extend Indefinitely**     $1\times \frac{1}{7}$    +     1$\times \frac{2}{7}$   +    1$\times \frac{4}{7}$    =1.000  
+
+
+Now we can use those aggregate utility numbers to fill in the utilities under the Teens Not Alive state in our decision matrix: 
+
+
+                               Teens Alive            Teens Not Alive         EU
+-------------------------   ------------------     -----------------     --------------
+  **End Search**                  1.286                  3                  ?
+ **Extend One Week**              2.286                2                   ?
+ **Extend Indefinitely**          2.429                1                   ?
+
+
+The maximize expected utility rule will now weight these utilities with the *probabilities* of the states. Here is the place where the politician will need to collect some information about the world. They might consider success rates of past rescue efforts that are similar to this situation. They might consult some survival experts, locals who travel on the water in that area, weather reports, etc. Suppose at the end of all these considerations, the politician's assessment is that Teens Alive is three times more likely than Teens Not Alive, i.e. that the Teens Alive state has a 75\% chance while Teens Not Alive has a 25\% chance. Now the politician can calculate the expected utilities for each option (rounding to four decimal places):
+
+
+                               Teens Alive              Teens Not Alive         EU
+-------------------------   -------------------  ---   -----------------      --------------
+  **End Search**                  1.286 x 0.75    +     3 x 0.25                 =1.7145
+ **Extend One Week**              2.286 x 0.75    +     2 x 0.25                 =2.2145
+ **Extend Indefinitely**          2.429 x 0.75    +     1 x 0.25                 =2.0718
+
+The maximize EU rule then recommends that the politician extend the search for one week.
+
+This example illustrates the richness of the maximize expected utility rule. It helps us organize a variety of considerations about a decision and tells us how to combine these into a recommendation. We first need to determine the utilities of each outcome, which we did using the multi-attribute approach. We then need to assess the probabilities of the states, which we gestured at here and we will return to in more detail shortly. MEU then tells us to weight the utilities by the probabilities of the states to arrive at a final expected utility for each option. There are many ways that real decisions introduce further complications, particularly in how to estimate the probabilities of states. But such complications don't change the underlying principle of MEU. It is no wonder that MEU is one of the most common ways of representing decision problems to make recommendations.
+
+That said, we do have to take some care in the kinds of inputs we give to MEU. In the next section we'll illustrate this using a historical example.
+
+
+## Pascal's Wager
+
+Let's see what happens if we assume that states can have probabilities of one or zero, or what happens if utilities can be infinite. We're going to use Pascal's Wager as an illustration of some concepts, not as an analysis of Pascal's actual argument, which is concerned about the relationship between faith and reason.^[The Stanford Encyclopedia of Philosophy has a great entry on [Pascal's Wager.](https://plato.stanford.edu/entries/pascal-wager/)] 
+
+In this wager, the states are either that God exists or God does not exist. The options are that we believe in God or we disbelieve. Let's set up the framework for our decision table:
+
+
+                               God exists (G)        God does not exist ($\neg$G)
+-------------------------     -------------------   -------------------------------
+  **Believe (B)**                                       
+ **Don't Believe ($\neg$B)**                                 
+
+So far we haven't said anything about the probabilities of the outcomes nor the utilities. Let's think first about the utilities. Again, we're going to oversimplify for illustrative purposes. If God exists and I am a believer, then I go to heaven and have eternal life. Presumably heaven is a pretty good place where the ``party'' literally never ends - it goes on for eternity. So that means that the amount of utility I would get is infinite. Even if there are some bad days in heaven (but that's probably not true) the number of good days will be larger, and so the net amount is an infinite number of positive utilities, i.e.,  +$\infty$. If, on the other hand, I don't believe in God and God does exist, then I will experience eternal hell, i.e., -$\infty$.
+
+
+What about the outcomes under the state where God does not exist? In that case my life is finite and the cumulative number of utilities I will experience, positive or negative, will also be finite. Now let's assume that being a believer comes with some costs: a believer volunteers their time when they'd rather be watching sports, or they give away a larger amount of their income to charity than a disbeliever, or they choose not to imbibe when they really would prefer to drink, etc. Let's say for a believer there is a finite net cost (-c) and for the disbeliever there is a finite net gain (+c). 
+
+From these assumptions, we have the following utility table:
+
+                               God exists (G)        God does not exist ($\neg$G)
+-------------------------     -------------------   -------------------------------
+  **Believe (B)**                 +$\infty$             -c          
+ **Don't Believe ($\neg$B)**      -$\infty$             +c            
+
+Before we try to add any information about the probabilities of outcomes, notice that the dominance principle does not make a unique recommendation. If God exists, it is better to believe than not to, and if God does not exist it is better not to believe than to believe.
+
+In order to see what maximize expected utility (MEU) recommends, we have to include probabilities for the outcomes so that we calculate expected utilities. As a first approach, let's use the idea above to make each state equally probable. In that case we would have the following probability table.
+
+
+                               God exists (G)        God does not exist ($\neg$G)
+-------------------------     -------------------   -------------------------------
+  **Believe (B)**                 0.5                   0.5          
+ **Don't Believe ($\neg$B)**      0.5                  0.5            
+
+If we plug these numbers in to weight the utilities in our preference table, we get the following expected utilities. For Believe the expected utility is
+$$
+\begin{aligned}
+EU(B)&=P(B|G)\times U(B|G) + P(B|\neg G) \times U(B|\neg G) \\
+&= 0.5 \times (+\infty) + 0.5 \times -c
+\end{aligned}
+$$
+
+
+and for Disbelieve it is 
+
+$$
+\begin{aligned}
+EU(\neg B)&=P(\neg B |G)\times U(\neg B|G) + P(\neg B | \neg G) \times U(\neg B|\neg G) \\
+&= 0.5 \times (-\infty) + 0.5 \times +c
+\end{aligned}
+$$
+
+
+
+We needn't get into too many details about mathematics involving infinity. It's enough to recognize that we can replace the symbol '$\infty$' with an arbitrarily large number. For our purposes, let's say this number is larger than c, even just by one. So let's replace '$\infty$' by 'c+1'. For Believe it would look like this:
+$$
+\begin{aligned}
+EU(B)&= 0.5 \times (+\infty) + 0.5 \times -c \\
+&= 0.5 \times (c+1) + 0.5 \times -c \\
+&= 0.5c + 0.5 - 0.5c \\
+&= 0.5
+\end{aligned}
+$$
+
+And for Disbelieve it would look like this: 
+$$
+\begin{split}
+EU(\neg B)&= 0.5 \times (-\infty) + 0.5 \times +c \\
+&= 0.5 \times -(c+1) + 0.5 \times +c \\
+&= -0.5c - 0.5 + 0.5c \\
+&= -0.5
+\end{split}
+$$
+
+
+It may seem that the expected utility for Believe is just a little bit larger than the expected utility for Disbelieve, but remember that we picked a number to replace the '$\infty$' symbol that was only a little bit larger than c. There is no limit to how large this number could be, so in effect the expected utility of Believe is infinitely larger than the expected utility of Disbelieve!
+
+Put differently, the multiplication by some infinite utility completely washes out whatever the finite negative cost is of believing, and similarly the multiplication of some negative infinite utility will completely wash out the finite positive gain of disbelieving. Hence, by this setup, MEU says we should believe. 
+
+Let's consider for a moment an extreme setup where we assign the state that God exists as having a probability of zero. In that case, the left terms for both expected utility calculations are undefined and we are left with a comparison between the finite losses and gains of believing and disbelieving respectively. If we assign the claim of God existing as having a probability of zero, then MEU would recommend not to believe. (Assuming that we can ignore the undefined terms.)
+
+But not so fast. Assigning a probability of zero to a proposition means that we are 100\% certain that it is false and we are 100\% certain that its negation is true (in this case that God does not exist). While we colloquially say things like "I'm 100\% sure that I parked my car in the Scratchy parking lot'' we can't take that as literally true. Strictly speaking, the only propositions we should be 100\% sure of are logical tautologies and perhaps simple mathematical claims, i.e., claims that are necessarily true. But the claim that God exists (or not) is not necessary - it is a contingent claim. That is, at least from our eyes, it's *at least possible that* God exists (or does not). And hence, while we might give one or the other a very high (or low) probability, it should never be actually 1 or 0. In short, even the greatest skeptic ought to be giving at least some non-zero value to both states.
+
+With that in mind then, any non-zero probability is going to be still washed out by some infinite utility, and so we are back to the recommendation that we should believe.^[Again, to be clear, it was not Blaise Pascal's intention to establish that it is necessary that we believe. Some scholars argue that his intention was to show that rationality can neither support faith or a lack thereof.] 
+
+There is, admittedly, something awkward or tricky going on here. It seems that the presumption of an infinite utility is doing all the work. None of the other numbers make a difference. As long as we assign $\infty$ (infinite gain) to the outcome where we believe and God exists, it doesn't matter what else we assign to the other outcomes (with the exception that it's not another positive $\infty$ of utility). A critic might say that setting $U(B|G)= \infty$ stacks the deck, so to speak. It seems quite possible that heaven, however great, may have a very large positive payoff, but it is not appropriate to say that it is infinite. We may generally insist that whatever utilities we pick, no matter how large, they must always be finite.
+
+If we insist on such a constraint, so that our utilities always have to be some finite number, and in addition insist that our states have to be some non-zero probability, then it is possible that MEU recommends Disbelieve. Here is an example of how that might work. 
+
+Suppose that Judy acknowledges that the utility of heaven is quite high. She acknowledges that it could be several orders of magnitude higher than the value of the cost of believing, but it is not infinite. For the sake of argument, let's say it's 1 million times higher, that is, $U(B|G)=1M\times c$. And let's say, again for the sake of argument, that the negative utility of hell is the inverse of this, i.e., $U(\neg B|G)= - 1M\times c$. Judy's preference table would then look like this:
+
+                               God exists (G)        God does not exist ($\neg$G)
+-------------------------     -------------------   -------------------------------
+  **Believe (B)**                 $1M\times c$                   -c          
+ **Don't Believe ($\neg$B)**      -$1M\times c$                  +c            
+
+
+If Judy thinks that it's equally likely that God exists as not, then we get the following two expected utilities.
+For Believe it would look like this:
+$$
+\begin{split}
+Exp(B)&= 0.5 \times 1,000,000c + 0.5 \times -c \\
+&= 500,000c - 0.5c \\
+&= 499,999.5c
+\end{split}
+$$
+
+And for Disbelieve it would look like this: 
+$$
+\begin{split}
+Exp(\neg B)&= 0.5 \times -1,000,000c + 0.5 \times +c \\
+&= -500,000c + 0.5c \\
+&= -499,999.5c
+\end{split}
+$$
+
+So again, MEU recommends that Judy believe. 
+
+But not all things are equal according to Judy. If we ask Judy what she thinks the probability of God existing is, she may tell us that she doesn't think it is equally likely. Let's suppose she thinks that the probability that God exists is low, very low. She tells us that she thinks there's a 1 in 10 million chance. That is, she thinks $P(G)=0.0000001$. While this is very small, it is a non-zero probability. Conversely, this means that she thinks there is a very high probability that God does not exist. In fact it would be a 99.99999\% chance, or a probability of 0.9999999. Her probability table would then look more like this:
+
+
+                               God exists (G)        God does not exist ($\neg$G)
+-------------------------     -------------------   -------------------------------
+  **Believe (B)**                 0.0000001               0.9999999          
+ **Don't Believe ($\neg$B)**      0.0000001                0.9999999           
+
+
+Now let's look at what the expected utilities would be. For Believe it is 
+$$
+\begin{split}
+EU(B)&= 0.0000001 \times 1,000,000c + 0.9999999 \times -c \\
+&= 0.1c - 0.9999999c \\
+&= -0.8999999c
+\end{split}
+$$
+
+And for Disbelieve it would look like this: 
+$$
+\begin{split}
+EU(\neg B)&= 0.0000001 \times -1,000,000c + 0.9999999 \times +c \\
+&= -0.1c + 0.9999999c \\
+&= +0.8999999c
+\end{split}
+$$
+
+In this case MEU now recommends Disbelieve for Judy. How did this happen given that Judy acknowledges that the positive utility of heaven is super high and the negative utility of hell is drastically low? The answer is part of the key insight of the maximize expected utility rule: utilities are to be weighted by probabilities.
+
+What should we say about all this? Does MEU recommend we believe in God or not? Hopefully our walk through this example illustrates that there is no definite answer. It depends. It depends on what we think the utilities are and also what the probabilities are. The maximize expected utility rule requires that we consider both. 
+
+Moreover, suppose in Judy's estimation the MEU recommendation is to believe in God, but she just can't seem to get herself to form that belief. For her, the idea that there is some supernatural being might just be too implausible. But maybe, Judy thinks, she can start doing things that might cultivate certain beliefs, like regularly going to sermons and doing daily Bible readings. This possibility highlights a different kind of assumption that we have been making about the timing of making choices and to what extent we are able to voluntarily make them.^[It also highlights complications about whether beliefs, desires, preferences, and so on, are the sorts of things we can reliable infer from what people claim them to be (their self-reports), or whether we have to look towards their actual behavior (which *always* requires us to make interpretations of them, which themselves can be scrutinized).] 
+
+For example, we might decide that we want to become a more patient person. That decision, however, is not a one-time event, nor is it the sort of thing that many people can simply choose, like turning on a light switch. Becoming a more patient person may require the development of particular mental habits and learning how to cultivate certain kinds of behaviors. Such decisions are extended over longer periods of time and it is not obvious how MEU (nor dominance for that matter) makes recommendations for such choices.
+
+## Key Take Aways
+
+Recall that the rules we looked at like dominance reasoning did not pay attention to the probabilities of outcomes. It is a central feature of maximize expected utility that we pay attention to both probabilities and utilities. Doing so means that we have to be particularly mindful. High utilities can be substantially down weighted by low probabilities. And likewise, high probabilities can be down weighted by low utilities. According to MEU it is the *expectation* that should drive the decision making, and the expectation is the sum of utilities *that are weighted by probabilities*. This is the key insight that moves us from the more simplistic rules to MEU. 
+
+That said, while the math and concept underlying MEU is relatively simple, the devil lies in the details of how we estimate the probabilities of outcomes. We have been more or less assuming that we are given the utilities and probabilities and the strategies we've looked at tells us what to do when we have them. But that itself is actually assuming quite a lot. In the coming chapters we will have much to say about the nature of probabilities and how we arrive at them.^[Admittedly we won't spend much more time talking about utilities and desires - in part because there isn't the same kind of agreed upon theory of them like there is for probabilities and beliefs.]
+
+Moreover, there are lots of decisions that are more temporally-extended than the sort where MEU is easily applicable. For example, the MEU strategy seems like a useful way of deciding whether to buy a raffle or lottery ticket: we usually know the cost of the ticket, the gain of the prize if we win, and with some effort we can estimate the probability of winning (if we can find out how many tickets there are, for example). But the outcomes of decisions don't always have such clear-cut boundaries, and similarly the places where we "intervene" with our choice isn't a clear localized time point like the purchasing of a ticket. It seems quite natural to ask ourselves questions like, "what kind of person to you want to be or become?" and that choice is a complex sequence of decision making. This can be illustrated starkly in Newcomb's problem. The two-boxer might justify their choice by the fact that the one-boxer is leaving \$1,000 on the table. The one-boxer might respond by appealing to a more general character: the type of person that tends to get \$1,000,000 is the type of person that picks just the one box, even though that choice in the moment doesn't cause that money to be there.  
+
+So there is much conceptual work left for us to do. We'll think about probabilities, assess the range of decision making problems where MEU is applicable, and identify ways in which it might be supplemented. But first, let's examine some arguments for and against MEU more generally.
+
+
+## Exercises {-}
+
+1. Suppose a slot machine pays off $\$25$ a fiftieth of the time and costs a $\$1$ to play, and a video poker machine pays off $\$10$ a twentieth of the time and costs $\$2$ to play. Which machine is the better bet in terms of expected utility (assume here that money and utilities are directly related)?^[This question is adopted from Weisberg's *Odds and Ends*, Chapter 11, Exercise 3.]
+
+1. You're considering downloading a new game for your phone. The game costs $\$0.99$. But as a promotion, the first $50,000$ downloaders are being entered in a fair lottery with a $\$10,000$ cash prize. 
+    
+    ```{marginfigure}
+    This exercise is from Weisberg's  *Odds and Ends*, Chapter 11, which gave credit to Exercise 2 from p. 95 of Ian Hacking's *An Introduction to Probability & Inductive Logic*.
+    ```
+    
+    If you know you'll be one of the first $50,000$ downloaders, what is the expected monetary value of downloading the game?^[For this question and those below, let's assume that utilities and money are the same, hence the expected monetary value is just the expected utility.]
+    
+1. Suppose the government is deciding whether to enact a new tax. If the tax is enacted, it will bring in $\$700$ million in revenue.
+
+    ```{marginfigure}
+    This problem is based on an exercise from Weisberg's *Odds and Ends*, Chapter 11.
+    ```
+    
+    But it could also hurt the economy. The chance of harm to the economy is small, just $1/5$. But it would cost the country $\$1,200$ million in lost earnings. (The $\$700$ million in revenue would still be gained, partially offsetting this loss.)
+
+    Treat gains as positive and losses as negative.
+
+    a.  What is the expected monetary value of enacting the new tax?
+
+    The government also has the option of conducting a study before deciding whether to enact the new tax. If the study's findings are bad news, that means the chance of harm to the economy is actually double what they thought. If its findings are good news, then the chance of harm to the economy is actually half of what they thought.
+
+    b.  Suppose the government conducts the study and its findings are good news. What will the expected monetary value of enacting the tax be then?
+    c.  Suppose the government conducts the study and its findings are bad news. What will the expected monetary value of enacting the tax be then?
+    d.  Suppose conducting the study would cost $\$5,000$. Will the government conduct the study? Explain your answer. (Assume they make decisions by maximizing expected monetary value.)
+
+
+1. Casey has a phone that's worth $\$300$. The probability that she'll damage it and need to replace it is $1/5$. Casey is offered an insurance policy that costs $\$60$ to replace her phone.
+
+    a. What is the expected monetary value of buying the insurance?
+    b. What is the epxected monetary value of declining the insurance?
+    
+1. Zack has a laptop worth $\$1,000$. Given his past, there's a $1/5$ chance he's going to spill coffee on it and will need to replace it. At what cost for an insurance policy would Zack be indifferent between buying and declining the insurance?
+
+1. In the example with the politician you may have wondered whether MEU would give a different recommendation if the politician had come to a different estimate for the probabilities of the states, even if the utilities stayed the same. 
+  
+    - Are there any probabilities of the states where MEU would make the recommendation to End Search? If not, why not? If so, what are they? (Remember, the probabilites of the two states have to sum to 1.)
+    - Are there any probabilities of the states where MEU would recommend to Extend Indefinitely? If not, why not? If so, what are they? (Remember, the probabilites of the two states have to sum to 1.)
+
+1. Feeling free to build on your own example from a previous exercise, walk through an example where you use the multi-attribute approach to generate utilities for a decision matrix. Then make an assessment of the probabilities of the states, much like we did in the politician example. Finally, apply MEU to determine what it recommends. Your example should follow much like the politician one from this chapter. You should have at least three tables, two of which are part of the multi-attribute approach, and then a final table where you do the expected utility calculations. Make sure to explain your reasoning for how you constructed the tables. Remember that the states should be exhaustive and exclusive of the way the world could be (the things outside of your control), and the options should also be exhaustive and exclusive (the things in your control that you want to choose between).
+
+
+
+

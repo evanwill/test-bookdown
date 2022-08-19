@@ -1,0 +1,104 @@
+--- 
+title: 'Decision Theory'
+subtitle: 'A Conceptual Introduction' 
+author: "Bert Baumgaertner"
+date: "`r Sys.Date()`"
+#output:
+#  tufte::tufte_html: default
+  # word_document: default
+  # pdf_document: default
+  # tufte::tufte_handout:
+  #   citation_package: natbib
+  #   latex_engine: xelatex
+  # tufte::tufte_book:
+  #   citation_package: natbib
+  #   latex_engine: xelatex
+  # html_document: default
+header-includes: 
+  - \usepackage{tikz}
+  - \usepackage{pgfplots}
+site: bookdown::bookdown_site
+documentclass: book
+# bibliography:
+# - book.bib
+# - packages.bib
+# biblio-style: apalike
+# link-citations: yes
+github-repo: bertybaums/decisiontheory
+description: "This is a draft of a decision theory book written in BookDown"
+---
+
+```{r setup, echo=FALSE, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  cache = TRUE,
+  dev.args = list(bg = "transparent")
+)
+if (knitr:::is_latex_output()) {
+  options(knitr.table.format = 'pandoc')
+  knitr::opts_chunk$set(dpi = 300)
+}
+if (knitr:::is_html_output()) {
+}
+
+library(tufte)
+library(ggplot2)
+```
+
+<!-- TODO: -->
+<!-- BOLD DEFINITIONS -->
+<!-- CAPITALIZE ANNOYING GUY -->
+<!-- MAKE DECISION RULES MORE EXPLICIT - LINE BREAKS? -->
+
+
+
+# Preface and Prerequisites {-}
+
+Many of us are familiar with the idea of making a list of "pros" and "cons" to help us make a choice, particularly important and complex ones. Presumably, this kind of strategy reflects our desire to make the "right" choice. Or maybe there isn't a single correct choice to make, but at least we want to examine our options so that we can provide a kind of justification for what we end up deciding to do. In other words, one purpose of a pros-and-cons list is that we can provide *reasons* for our choices. Decision theory is the field that examines a whole array of decision making strategies that explain and justify choices, even if the consequences don't work out as expected. 
+
+
+## What is a conceptual introduction?
+
+This book is a conceptual introduction to decision theory. As such, there are several features that differentiate it from other introductions. First, while it draws heavily on philosophical approaches, many of the concepts are also informed by other disciplines. So when it will benefit our understanding of a concept, we will not hesitate to venture into areas such as psychology and economics. 
+
+Second, the concepts we cover will be used to build models of decision-making. In this sense the "theory" that we aspire to is not so much a thesis about what rational decision making is. Rather, our "theory" is more akin to a collection of tools that can be used for doing analysis. That is not to say, however, that we will eshew normative claims. We will find ourselves in plenty of places where we'll use claims about rationality and irrationality, and in turn the concepts we have will help us better understand those notions.
+
+Third, there is a great deal of conceptual overlap between fields such as game theory, social choice theory, behavioral economics, and traditional decision theory (or decision theory "proper"). The differences between them is largely about the domains of decision making: game theory focuses on strategic decisions between multiple agents; social choice theory is about how to aggregate preferences of individuals to the level of the collective; behavioral economics emphasizes empirical studies to develop a non-ideal decision theory; and decision theory "proper" is typically the idealized study of rationality and its normative consequences. But there are many concepts that appear across several of these domains. Rather than take a domain as a starting point and cover the concepts needed to understand the theories in those domains, we will start with concepts and then illustrate how they are used in some of these domains. That said, we will not aim to be exhaustive of where the concepts are used. The goal is for the reader to appreciate the utility of the concept and get a feel for its connections to domains outside traditional decision theory.
+
+Fourth, to the end that we focus on concepts, we will start with bare bones. The concepts will be initially crude. At first we will use them to get some basic models of decision-making, many of which will resemble overly simplified ("toy model") decisions rather than real-life decisions. Then we will advance in one of two ways. Sometimes we will advance by adding one or more new concepts and then explore how that helps us develop more sophisticated models. Other times we will refine one or more of our existing concepts and see how that changes our models and interpretations of them. 
+
+Fifth, and finally, the goal of a conceptual introduction is to maximize accessibility. That said, it will become necessary at some point that to clarify a concept we will have to use some tools of rigor. Most readers will be already familiar with most of these: how to read a table or matrix, executing basic algebraic operations like addition and multiplication, how to read a graph that plots a function, etc. Other tools, notably some basic probability theory, readers are not expected to know. We will prefer, whenever possible, to make a concept clear without the use of formal tools. Where this is not possible, the relevant representations will be introduced as if the reader is seeing them for the first time. 
+
+The most rudimentary tools we start using early on include tables and orders of operation of addition and multiplication. Readers well-versed in these may skip to the first chapter.
+
+
+## How to read a table or matrix
+
+This books make very few assumptions about the reader's background knowledge. This book makes frequent use of tables, or sometimes called matrices ("matrix" for a single one). So it's worth getting clear on the parts that make up a table. The basic setup is a grid, with horizontal lines (left-right) and vertical lines (up-down). Sometimes the lines aren't shown because it looks clearer. In that case we make sure to organize text in a way that lines up as a grid. 
+
+The horizontal regions are called rows and the vertical regions are columns. A cell is where a row and a column intersect. The cells in the very first row usually contains information about the names of the columns (this first row is often called a *header*). The cells in the very first column typically have the names for the rows. Because the first row and first column are being used to label or name the rest of the row or column, they aren't included when we count the number of rows (or columns) of a table. Below is an example. Notice that the whole grid is made up of three rows and three columns, but because the first ones just have names, the counting starts at the second row and column of the grid.  
+
+                        Column 1      Column 2
+--------------------   ------------- ---------------
+ **Row 1**               Cell(1,1)      Cell(1,2)
+**Row 2**                Cell(2,1)      Cell(2,2)
+
+Table: Example of a two-by-two table with names for rows and columns. The name "Row 1" refers to the horizontal region to its right and consists of Cell(1,1) and Cell(1,2). The name "Column 1" refers to the vertical region below it and consists of Cell(1,1) and Cell(2,1).
+
+
+
+## The Very Basic Math
+
+The math that we will use is itself not advanced. It basically amounts to the operations of addition, subtraction, and multiplication (and in a few exceptions division). But what can become a bit tricky is the "book-keeping" of it all. This book will generally show all the work so that you can follow the order of operations.^[If you need a refresher, do some [practice problems](https://g.co/kgs/mhz72v).]
+
+
+## Inspiration and Acknowledgments
+
+
+This text is inspired by two freely available sources.^[Students, you can skip the rest of this and move to the first chapter.] One is the open access book *Odds & Ends: Introducing Probability & Decision with a Visual Emphasis* by Johathan Weisberg \url{https://jonathanweisberg.org/vip/}. The second is Brian Weatherson's Decision Theory Book \url{http://brian.weatherson.org/424/DTBook.pdf}. There is a great deal that I like about both of these, but they did not quite fit the needs I had when teaching an introductory course on decision theory. While both are relatively approachable, I wanted to emphasize some of the concepts that I thought students are most likely to remember. Most of my students shy away from technical material. My goal was to assume as little as possible and very gradually introduce them to the formal methods needed, and only when needed.^[I am happy to receive feedback on places where this can be improved: bbaum@uidaho.edu] I also wanted to emphasize related topics, such as a broader conversation about the nature of utility and the perspectives of behavioral economics, both of which are understandably not given much attention in more standard philosophy texts.
+
+On the technical side of things, this book was made using the bookdown package created by Yihui Xie [@xie2015] and inspired by the formatting aesthetics of Tufte.
+
+Thanks to an *Think Open Fellow Award* funded by the University of Idaho Library. I had important help in creating this from Marco Seiferle-Valencia and Evan Williamson. 
+
+Substantial comments and feedback were provided by students in Decision Theory 2020, including in particular Trevor Woodward, Jackson Ogden, Amanda McClurkin, and Lauren Moon. I also received helpful feedback from the University of Idaho CLASS book club.
+

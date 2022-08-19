@@ -1,0 +1,214 @@
+# Ranking
+
+This chapter will be on decision making that relies primarily on ranking outcomes. So far we have been using numbers to represent how much we like an outcome, where higher numbers represent outcomes we prefer more than outcomes with lower numbers.  More specifically, we have been using what are called *ordinal utilities*^[**Ordinal utilities** make qualitative comparisons (x is better/same than y) but not quantitative comparisons.] where all we care about is whether one outcome is better, the same, or worse than another outcome. That is, we aren't paying attention to how much more we prefer one outcome to another. We'll get to that later. For now, if there are four outcomes and we give the one we prefer the most a utility of 4, we could have also given it a utility of 400. All that matters for ordinal utilities is that they rank outcomes from best to worse (with possible ties).
+
+To get a feel for what decision making rules look like, we'll start with some simple ones. Because of their simplicity, they may not seem like very plausible rules and so we won't ultimately suggest that these should be followed. But understanding what the simpler rules get wrong is informative and will help us get a better idea for who to develop more sophisticated decision making rules.
+
+## Maximin and Maximax
+
+Suppose you're a student that wants to have it all: you like going to parties, but you also take your studies seriously. Tomorrow there will be an exam, but you don't know if the professor has designed a difficult exam or an easy one. If you knew that tomorrow's exam were going to be an easy one, you'd prefer to go party, but if you knew that the exam were going to be a difficult one, you'd prefer to study and be prepared for it. And "all things being equal" between partying and studying, you have a preference to study because you can't stand the thought of getting a C grade - which is a possibility if the exam is a difficult one and you didn't study. Your preference assignment (pun intended) might look like this:
+
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                  1                               3
+  **Study!**                    4                           2
+
+What should you do?
+
+Here's one decision rule you might use: Maximax. Maximax is a rule that says you should **max**imize the **max**imum outcome. The maximum utility in the above table is 4 and is assigned to the outcome in which you study and the exams turns out to be difficult. Of course, you can't control whether the exam will be a difficult one or an easy one (that's up to the professor), but Maximax doesn't really care. It just says you should pick the action that has the outcome with the highest utility. 
+
+Maximax isn't a very plausible rule if you care at all about risk. It has you choose outcomes with the highest payoffs, but with complete disregard for any possible outcomes with lower utilities. At a horse race Maximax says to bet on the drunk horse that's missing a leg because the payoff would be so much bigger than any of the other horses that clearly will leave the drunk one in the dust. Yes, it's possible that all the other horses suddenly have heart attacks at the start, but that possibility is so remote that you would be right to ignore it. At the very least, we should be incorporating information about the chances that the drunken horse will win, which are very, very low. Maximax doesn't do that. All that matters to Maximax is the size of the payoff. Nothing else.
+
+Maximin is a much better rule. Maximin says to choose the least bad worst case scenario, i.e., **max**imize the **min**imum outcome. What you do is find the worst case scenario for each option, and then select the option with the least worst case. In the table above, the worst case scenario for the Party! option is 1 and for Study it is 2. Since 2 is greater than 1, Maximin says to study.
+
+So far Maximax and Maximin agree, but they won't always. For example, suppose that your preference assignment is captured by the following table:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                  1                               4
+  **Study!**                    3                           2
+
+Now Maximax and Maximin disagree. Maximax says to party, since it has the outcome with the highest utility (4). Maximin, on the other hand, says to study. Why? The worst outcome if you choose to party is 1, while the worst outcome if you choose to study is 2. Between those two, 2 is better than 1, and that can only happen in the choice to study.
+
+Maximin is a pretty good rule if you are risk averse, that is, if you are predominantly worried about decreasing negative consequences.^[The study of risk aversion is very rich and we'll return to this topic numerous times.] Not everyone may be as concerned about risk aversion as others. There are at least two ways of thinking about this. One is to understand differences between people's decision making as differences in the rules or strategies they use to make a choice. Another way to understand differences between people is to recognize differences in people's preferences. For example, if you're of the mindset that "C's get degrees" and you really love to party, then you might set up your preferences like this:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                   3                              4
+  **Study!**                    1                           2
+
+For someone with this preference assignment, both Maximax and Maximin recommend that they should party. So the difference between why someone studies and why someone else parties might be a difference in preferences, or it might be a difference in the decision rules they're using. We'll turn to this point more shortly.
+
+Maximin isn't without its own limitations. It can't, for example, help us decide what to do in certain situations where there are ties between outcomes across different options. Suppose someone is indifferent between all outcomes except the one where they studied and the exam was difficult. They might have the following preference assignment:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                      1                           1
+  **Study!**                      2                           1
+
+Maximin doesn't make a recommendation about what to do because there is a tie between the worst outcomes of the two options: the worst in each case is 1. And yet, you might have the intuition that someone with this preference assignment should choose to study. But the reason, you might think, is not because they should use the Maximin rule. Rather, it's something about the relative comparison between partying and studying across the different possible world states. If you have this intuition, you'll already have a feel for the next decision making rule we'll explore: *dominance reasoning*.
+
+
+## The Dominance Principle
+
+The dominance principle does a more sophisticated comparison between options. There are two versions, a *weak* version and a *strong* version.
+
+Suppose there are two options, A and B. We say that option A *weakly dominates* option B if, for every world state, A is at least as good in its outcome as B. In other words, what we do is this. We check every column to make sure that A is at least as good as B. If so, then A weakly dominates B. If not, then A does not weakly dominate B. Let's look at same table again:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                      1                           1
+  **Study!**                      2                           1
+
+Under "Difficult Exam" the option to study is at least as good as partying (2 is better than 1) and under "Easy Exam" the option to study is also at least as good as partying (1 is the same as 1). So, by the definition of weak dominance we just gave, the choice of studying weakly dominates the choice to party. Notice that we are *not* doing a comparison between options across two different states (e.g. bottom left and top right), our comparisons are between options in the same column.
+
+The Weak Dominance Principle says to *never pick weakly dominated options*. In the above table, studying weakly dominates partying, or in other words, partying is weakly dominated by studying. So the Weak Dominance Principle recommends that you do *not* party. Since there are only two choices in our example, by the process of elimination the only option you are left with is to study.
+
+We say that option A *strongly dominates* option B if in every state option A is *strictly better* in its outcome than B. Notice that in the above table, while it is true that under Difficult Exam studying is strictly better than partying (2 is higher than 1), the same is not true under Easy Exam - here both options are equal. That means that studying does not strongly dominate partying. So, it is possible that an option can weakly dominate another, but not strongly dominate it.
+
+But let's suppose that the preference assignment was just a little bit different for the outcomes under Easy Exam:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                      1                           3
+  **Study!**                      2                           4
+
+Here the option to study both weakly dominates the option to party, and it strongly dominates it. In fact, whenever an option is strongly dominated by another option, it is also weakly dominated by it.
+
+The Strong Dominance Principle says to *never pick strongly dominated options*. In the table just above partying is strongly dominated by studying (which means partying is also weakly dominated by it), so the Strong Dominance Principle says to not pick the option to party. Here both the strong and weak versions of the Dominance Principle agree.
+
+Notice again that it doesn't matter that the best outcome for partying (3) is better than the worst outcome for studying (2). The two options are being compared column by column (i.e. state by state). Notice also that the Dominance Principle, or "dominance reasoning", agrees with the recommendations of Maximin and even Maximax. 
+
+
+## More than two options and two states
+
+The decision making rules we've explored so far can be generalized to situations where there are more than two options. It can be helpful here to think a bit more abstractly. Let's say there are three options, A, B, and C. And suppose there are two world states, 1 and 2. Then we need a table with three rows and two columns. Finally, let's fill in the outcomes with the following utilities:
+
+
+                             World State 1               World State 2
+-------------------------   -------------------------   -------------------------
+  **Option A**                    2                           4 
+  **Option B**                    1                           3
+  **Option C**                    5                           6
+
+Here it becomes apparent why we stated the Dominance Principle the way we did. We said to *never pick dominated options*.  Notice we didn't say "pick an option that dominates another option". This is because it is possible for an option to dominate another, but be itself dominated by some third option. By saying "never pick dominated options" we ensure that the option is not bested by some other one. So while in the example above it's true that A dominates B, it is also true that A is dominated by C (i.e., C dominates A). Option C, however, is not dominated by any other option. In fact, it's the only option that isn't dominated by another, and hence that is what dominance reasoning recommends.^[You should make sure you can do this reasoning on your own. It's helpful to focus on just two options at a time, and then striking one out if it is dominated.] 
+
+Notice that in this example all of our decision rules so far agree: they all recommend Option C. But the *reason* for their recommendations are all different. For Maximax it is because C has the outcome with the highest utility of 6. For Maximin it is because C has the least worst outcome with a utility of 5. And for Dominance Reasoning it is because it is the only option that is not dominated by any other. We will leave it as an exercise to ponder whether these reasons can ever make different recommendations.
+
+You may also notice that none of the rules we've used are limited to decisions that have only two world states. This is most obvious in the case for Maximax: just look for the outcome with highest utility, follow that row to the left, and then pick the option that corresponds to that row. For Maximin you look for the lowest utility in each row, and then pick the option that has the highest one of these. Dominance reasoning is a bit more complicated, but not by much. When there are two columns, you are comparing two options to see if one is dominated by another, and you do this by checking the first column and then the second. In a decision matrix that has three columns you do the same thing, but you have to compare the two options in the additional third column. In other words, each additional world state means that you have to check an additional column when you're asking whether one option dominates another.
+
+
+## Non-Unique Recommendations
+
+We mentioned earlier that there are at least two different explanations for why two different people might make different decisions, even if they have the same options and the same world states in their decision tables. One explanation is that they could be using different decision rules: maybe one person is using Maximax while another is using the Dominance Principle. We know that these rules can make different recommendations, so perhaps that explains the difference in two people's choices. (Question for reflection: can someone using the Dominance Principle come to a different recommendation than Maximin?)
+
+Another possible explanation for differences in decisions is a deference in preferences. We've seen this already as we considered different preference assignments. For example, one student might have the mindset that "C's get degrees" and very much enjoy a good party. So they might have their preferences like this:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                      3                           4
+  **Study!**                      1                           2
+
+A student with this above preference assignment will come to the conclusion that they should party, regardless whether they follow Maximax, Maximin, or the Dominance Principle.
+
+Another student might have post-graduation ambitions that require higher grades than C. Moreover, they might not be fond of parties much anyway. So they might have a preference assignment like this:
+
+                             Difficult Exam               Easy Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                      1                           2
+  **Study!**                      3                           4
+
+The student with this above preference assignment will come to the conclusion that they should study, regardless of whether they follow Maximax, Maximin, or the Dominance Principle.
+
+In other words, the answer of what to do is not unique, even if two people agree on a decision rule. Different people could have different preferences, which can lead to different recommendations. So rationality, in so far as we have been considering dominance reasoning, does not demand that we all make the same choice. But be careful, that does not mean that we can choose anything we like without being irrational - we have to be mindful of what our aims or goals are. For example, while it may be rational for the first student to go party (after all, that's what dominance reasoning tells them to do), it would not be rational for the second student to go party. Our intuitive judgment suggests this is because going to the party is at odds with the goals of the more ambitious student. The dominance reasoning strategy gives us the same result given that the preference assignment in the second decision matrix reflects the aims of that student.^[This is what we had in mind by *instrumental* rationality.] 
+
+Notice that dominance reasoning proceeds by comparing options. We will see with other rules that there are alternative ways of making comparisons. But at the heart of most rules is the idea that options are assessed by how they are expected to perform relative to each other. We will see scenarios where this feature of decision making can get us into trouble and will try to find fixes for that.
+
+It's important that you don't confuse the comparative nature of decision making with relativism. Relativism is a position about the nature of truth, particularly truths regarding ethical claims. While there are some connections between the normative aspects of decision theory and the study of morality, decision theory makes no commitments about the nature of truth. Well, almost none. We'll get to that later when we consider the nature of probability. But for now, make sure that you recognize that while we are working with the understanding of rationality in the instrumental sense (what should you do *given* some goals or preferences) that is not the same as relativism.^[Another helpful way of thinking about the difference is that instrumental rationality still makes room for critiquing decisions, while standard accounts of relativism rebuff judgment.]
+
+
+## Independence of Options and States
+
+When we have been organizing our tables, we have been more or less assuming that the world states are "out of our control" while the options are the things that we can control by making a choice. That is, we have been assuming that options and world states are somehow independent of one another.^[These notions of control and independence are central and we'll return to them again later.] This is a common assumption that is made in decision theory. An outcome (a cell in the table) is a combination of an action (a row) and something the world does (a column). When we insist that states and options are independent, then dominance reasoning seems pretty straight forward. 
+
+What if we weren't so strict about such independence? What if we don't "factorize" the outcomes into the two separate components of states and options? If we don't, then we may find that dominance reasoning isn't as straightfoward as we might think. Here is an example from Jim Joyce.^[*The Foundations of Causal Decision Theory*, pp115-6.] Imagine you park your car in a sketchy neighbourhood and someone promises to "protect" your windshield from harm. They offer their services for a mere \$10. You know that those who refuse this offer tend to find their windshield smashed, while those who take it don't. You also know it costs about \$400 to replace your windshield. We can represent this example of extortion with the following decision matrix, where we've put the utility number in front and the monetary cost in parentheses.
+
+                             Broken Windshield               Unbroken Windshield
+-------------------------   -------------------------   --------------------------
+  **Pay Extortion**                   1 (-\$410)                   3 (-\$10)
+  **Don't Pay**                      2 (-\$400)                    4 ($0)
+
+Let's use dominance reasoning. This means that to decide what to do, we check whether there is a unique option that is not dominated. When we look at the state of Broken Windshield, the Don't Pay option is better than Pay Extortion. When we look at the Unbroken Windshield state, we again see that Don't Pay is better than Pay Extortion. Because in each state Don't Pay is better than Pay Extortion, the Pay Extortion option is strongly dominated by Don't Pay. There are no other options and Don't Pay is not dominated by any other option. So according to dominance reasoning, you should not pay the extortion.
+
+But wait. You know very well that if you don't pay the extortion then the most likely outcome is that you'll find yourself with a broken windshield. You're not really saving yourself \$10 at all, you're effectively guaranteeing that you'll have to pay \$400. Between the outcome of losing \$400 and paying \$10, you'd rather pay the extortion. And so, you reason, you should pay the extortion.
+
+What's gone wrong? Dominance reasoning says you shouldn't pay the extortion money, but your own line of reasoning says you should. Is the dominance principle a bad rule after all?
+
+Part of what's going on is how we've set up the decision matrix. While the matrix sets up an outcome for not paying and having an unbroken windshield, it's less clear that this outcome is the result of two independent components. In fact, there seems to be a causal relationship between the options and the states. The state of an unbroken windshield will depend in part on whether you choose to pay the extortion or not. What we want when we set up a decision matrix is the following: outcomes should depend on the combination of a state and a choice, but states and choices should not depend on each other. 
+
+Later we will see different ways of thinking about what it means for states and choices to be independent, and some of them will lead to different recommendations. For the time being, we will stick to clearer cases where states are independent of options. In these cases, dominance reasoning seems to align with our intuitive judgments of what to do. 
+
+Here's an example where worlds states are independent of options. Suppose your friends are trying to convince you to go camping this weekend. You're indifferent - you like staying home as much as you like being with your friends when camping. Except when it rains. You really hate camping in the rain and you'd much prefer to stay home. Here's a decision matrix set up for us.
+
+                             Rain                          No rain
+-------------------------   -------------------------   --------------------------
+  **Go camping**                   1                       3
+  **Stay home**                      2                     3
+
+Following dominance reasoning, you should stay home because that option weakly dominates the option to go camping. This setup follows the above guideline that states should be independent of your choice: whether you go camping or stay at home will not impact the weather.
+
+Here's an example of how things can go wrong in our modeling of a decision if we don't pay attention to the guideline of keeping options and states independent. Suppose, as we have in many of our examples, that you've got an exam tomorrow and suppose you're deciding whether to go to a party (and thereby not study properly) or to study (and thereby not party properly). It may be tempting to set up the states into Pass Exam or Not Pass Exam:
+
+
+                             Pass Exam                      Don't Pass Exam
+-------------------------   -------------------------   -------------------------
+  **Party!**                   4 (pass and party!)         2 (fail and party!)
+  **Study!**                  3  (pass but no fun)         1 (fail and no fun)
+
+Under this poorly created setup, you might reason that you should go party, since for each state the option to party is better than to study and therefore strongly dominates the option to study. This setup, however, is poorly designed. There is a causal relationship between studying and passing the exam, which means the options and states are not independent in the above decision matrix. Again, when we set up what the states are, we should think of them as those things that are outside of our control, while the options are the things that we do control. Passing an exam is something that you have at least *some* control over, so it cannot be a candidate as a state in a decision matrix. 
+
+We can rework the example like the way we started this chapter, by understanding that the level of difficulty of the exam is up to the professor, it is not in your control. Moreover, we supposed that you're uncertain about whether your professor will create a difficult exam or not. Your choice to study or not will have an impact on the outcomes in terms of the grade you can expect to receive, but your choices are independent of the states (what questions your professor chooses). By taking this kind of care in our setup, we then have the kind of table that we started out with and that we can apply our decision rules to. The only thing that's left missing in this table is the preference assignment, i.e. the ordinal utility that you would give to each outcome to rank them from best to worst:
+
+                             Difficult Exam               Easy Exam
+-------------------------   --------------------------   -----------------------------
+  **Party!**                    (C grade and party!)          (B grade and party!)
+  **Study!**                    (B grade and no fun)          (A grade and no fun)
+
+
+
+
+## Exercises {-}
+
+1. Peter is considering two different lotteries. Lottery 1 costs \$20 to play and there's a one in a billion chance that he could win the \$1M prize. Lottery 2 costs \$10 to play and there's a one in hundred chance that he could win the $10k prize. Suppose Peter chooses to play Lottery 1. Which of the following decision rules is Peter most likely using?
+
+     a. Maximax
+     b. Maximin
+     c. Dominance (weak)
+     d. Dominance (strong)
+     
+1. Consider the following table where the world states (columns) are the levels of difficulty of an upcoming exam and the rows are the options you are considering on Thursday evening:
+
+
+        /                      Very Hard             Somewhat Hard           Easy Exam
+-------------------------   -------------------   ---------------------   ---------------
+  **Party!**                         1                6                       12
+  **Study!**                        10                5                        6
+  **Call Family**                    3                    4                    5   
+
+    - What does the weak version of dominance recommend?
+    - What does the strong version of dominance recommend?
+    - What does maximax recommend?
+    - What does maximin recommend?
+
+1. Using tables like the ones in this chapter as a starting point, but changing around numbers, see if you can think of examples of the following: 
+
+    - Is there an example of a preference assignment where Maximin and Dominance Reasoning make different recommendations? Why or why not?
+    - Is there an example of a preference assignment where Maximax and Dominance Reasoning make different recommendations? Why or why not?
+
+1. Think of a decision you've made in the past, say like whether to go to university or not. Make a table to represent such a decision, providing what you took to be the options and states. Then plug in numbers to rank the outcomes. Then apply the decision making strategies from this chapter. What recommendations do they make? Do they align with what you decided to do?
+
+1. What kind of decision making strategy do you tend to use? Compare and contrast your strategy with the ones we've covered in this chapter.
+
+1. One benefit of differentiating between different kinds of decision making strategies is that it can help us better understand other people's choices. Given the same decision matrix, two people could come to different conclusions of what do simply because of differences in their decision strategies. Think of an example of how the strategies in this chapter could lead two people to come to opposite recommendations, *even if they agree on the same table*. Do some of these strategies have associations with psychological dispositions, like people you consider to be more introverted vs more extroverted? 
+

@@ -1,0 +1,397 @@
+
+# Probabilities
+
+We have come to the point where it will no longer be enough to work with our intuitive notion of probability. If we want to go beyond toy decision problems, like the one's we've been covered, and model decisions that are more like the ones we more frequently face, we'll need to have a sufficiently robust understanding of probability. For example, one of the main things we'll want to be able to do is update our beliefs given new information, which effectively amounts to knowing how to update probabilities.
+
+In this chapter we're going to learn what it means when we say that a probability function is a *normalized measure over a possibility space*. There are three parts here: i) what is it for a function to be a measure, ii) what is a normalized measure, and iii) what is a possibility space. 
+
+## Measures
+
+A function is a mapping from an input to an output. There can be many inputs that are mapped to one output, but to be a function the mapping cannot assign more than one output to an input. We typically think of functions as having numbers as inputs and outputs, but that doesn't have to be the case. In fact, as we'll see, probability functions will have a number as an output, but have non-numbers as inputs.
+
+Consider Scotland. Scotland is known for its whisky. There are six regions (depending on who you ask) where whisky is distilled. 
+
+We can represent functions with tables. Let's suppose we have a function that takes distilling regions of Scotland as input and the number of distilleries as output. 
+
+
+   Input           Output
+----------        ---------
+ Highlands            27
+ Speyside           62
+ Lowlands           3
+ Campbeltown        3
+ Islay                8
+ Islands             7
+
+
+Notice that there are two inputs that get mapped onto the same output (Lowlands and Campbeltown), but no input has any more or less than one output (e.g., it's not the case that Islay has both 8 and 7 distilleries).
+
+
+What we want to know next is what it means for a function to be a measure. First, the function has to have non-negative numbers as output. Our example meets this condition. Second, the input is some space that can have 'regions' or subsets. For example, we can organize our distilling regions into those that are on the mainland (the first four in our table) and those not on the mainland (i.e., Islay and Islands). Alternatively, we could group the list into those whose name starts with one of the first ten letters of the alphabet, those that start with `S', and then the rest. The specifics here don't matter, just that different subsets are possible. 
+
+
+Third, and this important property is called *additivity*, is that the measure of a subset is the sum of the measures of the members that make up the subset. For example, suppose we're considering the mainland distillery regions (the first four on our list). Then the number of distilleries on the mainland is just the sum of the distilleries in the regions of Highlands, Speyside, Lowlands, and Campbeltown (95). 
+
+
+It doesn't really matter how we decide to group things. We could decide that the 'groups' are just the members themselves. In that case, there is just one number to consider. Or we could consider the entire input as the subset (here 'subset' doesn't indicate a strictly smaller set - in set theoretic speak, we say that a set is a subset of itself). For example, the number of distilleries in Scotland is, according to our table, 110 (i.e., the sum of each region).   
+
+Not all functions are measures. That is, some functions fail to be additive. For example, let's suppose we have a function from distilling regions to the proportion of distilleries owned by multinational companies (these numbers are not necessarily accurate). 
+
+
+   Input           Output (proportion of owned by corps.)
+----------        ---------
+ Highlands            0.6
+ Speyside           0.4
+ Lowlands           0.3
+ Campbeltown        0
+ Islay                0.25
+ Islands             0.4
+
+
+Now let's say we want to ask what proportion of the mainland distilleries are owned by multinational companies. We can't do this just by looking at the table above. Adding up proportions won't work: it would lead to the absurd result that the proportion of mainland distilleries owned by international companies is 1.3, that is, 130\%. But it's impossible to own more than 100\% of the mainland distilleries, not to mention own more than 100\% of anything! In general, proportions do not meet the Additivity property and thus cannot serve as the basis for measures. Typical examples of measures include length, area, and volume.
+
+
+## Normalized Measures
+
+The 'universe' of a function is the entire collection of inputs. In our whisky example above, the universe of our function is the set of distillery regions in Scotland. We could have defined the universe of our function differently. For example, we might have a different function whose universe is the set of countries that have distilleries, including Scotland, Ireland, the United States, Canada, Japan, etc. Also, the universe of a function doesn't have to correspond to physical space. We could have a function with a universe of taste characteristics, like sweet, smoky, earthy, rich, peppery, floral, etc. These are not located in space like distilleries, but are rather properties of how a whisky is perceived by taste.
+
+
+A *normalized* measure function is a measure function that gives a value of 1 to its universe. By doing so, the measure of every subset can be understood as a proportion of the universe of the function. Any measure can be `normalized' by dividing the value of each output by the value of the whole universe. For example, we can normalize the function represented in the table below by dividing each output number by the sum of all outputs (110). That would give us the normalized values in the following table (rounded to four decimal places). 
+
+
+   Input           Output       Normalized
+----------        ---------  ---------------
+ Highlands            27        0.2455
+ Speyside           62            0.5636
+ Lowlands           3            0.0273
+ Campbeltown        3             0.0273  
+ Islay                8          0.0727
+ Islands             7            0.0636
+
+
+
+Notice that this normalized function satisfies the property of being additive. We can use the table to answer the question of what proportion of all distilleries in Scotland are on the mainland by adding up the normalized values (keeping in mind that we will need to correct for errors from having rounded the values). This works because the sum of all the normalized values add up to 1. This is unlike the function represented in the previous table where the proportions do not sum to 1.
+
+Normalizing is an important step in taking data from the world and turning it into probability functions. Sometimes the universe of a function is not very well defined. In that case, it will not be possible to normalize. So one important lesson for interpreting results of some data is to understand what the relevant universe is supposed to be.
+
+
+## Possibilities and Truth Tables
+
+Let's look at how to build a probability function. We'll start with a really simple example. Suppose we have a fair coin and you're going to flip it twice. In the first flip there are two possible outcomes: heads (H) or tails (T). In the second flip there are again two possible outcomes: H or T. For two flips of the coin then, there are a total of four possible outcomes: HH, TH, HT, TT. We can keep track of these in a table.
+
+            Flip 1    Flip 2
+------     --------- --------
+Outcome 1   H           H
+Outcome 2   T           H
+Outcome 3   H           T
+Outcome 4   T           T
+
+If we were to flip the coin a third time, we would have 8 possible outcomes, which we can also collect in a table
+
+            Flip 1    Flip 2   Flip 3
+------     --------- -------- --------
+Outcome 1   H           H       H
+Outcome 2   T           H       H 
+Outcome 3   H           T       H
+Outcome 4   T           T       H
+Outcome 5   H           H       T
+Outcome 6   T           H       T 
+Outcome 7   H           T       T
+Outcome 8   T           T       T
+
+
+If we were to flip the coin four times, there would 16 possibilities. Each time we add an additional flip, the number of possibilities doubles in total. That is, where $n$ is the number of coin flips, the total number of possible outcomes is $2^n$.
+
+Although this example is simple, it turns out to be a really fruitful way of modeling lots of other examples that have the same structure. For example, philosophers love logic and thinking about the world in terms of statements or propositions that are either true or false. Suppose we have three different propositions: P, Q, and R. 
+
+- P - "Bert drinks beer on Fridays.''
+- Q - "Bert drinks wine on Fridays.''
+- R - "Bert drinks Scotch whisky on Fridays.''
+
+
+For simplicity, let's assume that P is true if on the majority of Fridays I have a beer, and is false otherwise. Similarly for Q and R. In the real world each of these propositions has a unique truth value. Our interest here, however, is not just what is true, but the space of possibilities. In this case, each proposition has the possibility of being true (T) or false (F). Following the coin flip example, there are in total eight possibilities. We can organize the possibilities in what logicians call a truth table. 
+
+
+            P         Q         R
+------     --------- -------- --------
+             F           F       F
+             T            F       F
+             F            T       F
+             T            T       F
+             F            F       T
+             T            F       T
+             F            T       T
+             T            T       T
+
+
+These eight possibilities provide the foundation for creating a probability function. What we first need to do is make sure that we have a measure. Let's say we give the following numbers to each row in the truth table. Where the numbers come from is not important to illustrate the point. But we can imagine, at least roughly speaking, that the universe of the function is all Fridays, and the outputs represent the fraction of times I reported what I had to drink. Notice that if we sum up the output values, we get 1. So, we have a measure, and it's a normalized measure.
+
+ Probability    P         Q         R
+-------------  --------- ---------  --------
+ 0.0002            F           F       F
+ 0.001            T            F       F
+ 0.0008           F            T       F
+ 0.008            T            T       F
+ 0.08             F            F       T
+ 0.1             T            F       T
+ 0.01            F            T       T
+ 0.8             T            T       T
+
+We can now use this table to ask questions about the probability that a proposition is true. To do that, we look at all the rows where the proposition in question is true, and then add up the output values. For example, suppose we are interested in the probability that P is true (i.e., the probability that Bert drinks beer on a Friday). Notice that P is true in rows 2, 4, 6, and 8. So we would compute $0.001+0.008+0.1+0.8$ which is 0.909. That is, there is a 90.9\% that Bert drinks beer on a Friday. 
+
+
+We aren't limited to asking the probabilities that a single proposition is true. Sometimes we'll want to ask what the probability is that both P and R is true, or that either P or R is true, or that P is false. These are all examples of more complex sentences. Logicians have a way of expressing these types of complex sentences. They call them conjunctions, disjunctions, and negations, respectively. There are some handy symbols used too:
+
+'P$\wedge$Q' means 'P and Q' (also called conjunction)
+'P$\vee$Q' means 'P or Q' (also called disjunction)
+'$\neg$P' means 'not P' (also called negation)
+
+What's really handy about these formulations is that the truth values of the complex sentences can be fixed by the truth values of the components. For example, the rule for conjunction is
+
+
+  P   Q    P$\wedge$Q
+ --  ---  ------------
+  T   T      T
+  T   F       F
+  F   T       F
+  F   F       F
+
+
+As you may guess, the truth table for negation is pretty simple. The truth value is simply reversed. 
+
+  P   $\neg$P   
+ --   ---------
+  T   F      
+  F   T       
+
+For disjunction the truth value of the whole sentence is given by the following table.
+
+  P   Q   P$\vee$Q
+ --- --- ------------
+  T   T      T
+  T   F       T
+  F   T       T
+  F   F       F
+
+Notice that this is an inclusive interpretation of 'or' which means that disjunction assumes by default that when both component sentences are true then the whole sentence is true. For example, if you are asked, "Do you want ketchup or mustard on your burger" there's nothing contradictory about saying that you want both. It's easy enough to express the exclusive version 'or' by say something like 'P or Q, and not both'. Formally we would write '(P$\vee$Q) $\wedge$ $\neg$(P$\wedge$Q)'.
+
+
+We can use the truth table definitions of conjunction, disjunction, and negation to determine the possible truth values of a complex sentence. Consider for example the sentence '(P$\vee$R) $\wedge$ $\neg$Q' which can be interpreted as "On Fridays Bert drinks beer or he drinks Scotch whisky, but he doesn't drink wine.'' (Note that "but'' expresses "and'' with the addition of some flare to highlight a contrast.) Using the rules for $\wedge$, $\vee$, and $\neg$ we get the table below. Notice that the whole complex sentence is a conjunction, where the left conjunct is made out of a disjunction (P$\vee$R), and the right conjunct is made out of a negation ($\neg$Q). So we have to work from the smallest parts up to the larger parts, which means that we first evaluate '(P$\vee$R)', then we evaluate '$\neg$Q', and then we can do the column of truth values under '$\wedge$' (which have been boldfaced to indicate these truth values are under the main connective). 
+
+
+ Probability    P         Q          R          (P$\vee$R) $\wedge$ $\neg$Q
+-------------  --------- ---------  --------  -----------------------------------
+ 0.0002            F           F       F        F   $~~$ **F**  T
+ 0.001            T            F       F        T   $~~$ **T**  T
+ 0.0008           F            T       F        F   $~~$ **F**  F 
+ 0.008            T            T       F        T   $~~$ **F**  F   
+ 0.08             F            F       T        T   $~~$ **T**  T
+ 0.1             T            F       T         T   $~~$ **T**  T
+ 0.01            F            T       T         T   $~~$ **F**  F
+ 0.8             T            T       T         T   $~~$ **F**  F
+
+Notice that the complex sentence is true on rows 2, 5, and 6. So as an example, if P is true but Q and R are false, then P$\vee$R) $\wedge$ $\neg$Q is true (this is row two). 
+
+If we want to calculate what the probability is that '(P$\vee$R) $\wedge$ $\neg$Q' is true, all we need to do is add up the probabilities that correspond to each row. This would be $0.001+0.08+0.1 = 0.181$. That is, there is an 18.1\% chance that on Fridays Bert drinks beer or Scotch whisky, but doesn't drink wine. 
+
+
+It is worth pointing out several features about probabilities that correspond to some important logical concepts: tautologies, equivalence, entailment, and inconsistency. In fact, these will be directly connected to the axioms that are typically used to define probabilities. So it's worth paying special attention here, as we'll use these results frequently going forward.
+
+
+### Tautologies
+
+
+A tautology is a sentence that is true across every possibility. The simplest example of this is a sentence 'P$\vee$ $\neg$P' which says 'Either Bert drinks beers on Fridays or he doesn't'. Yes, there are complications regarding what it means to satisfy the property 'drinks beer on Fridays' - does it have to be at least more than half of all Fridays? Note that whatever line or standard you pick, that will be the same one for the negation of the sentence. So if the standard is that `Bert drinks beers on Fridays' is true just as long as he does on 75\% of all Fridays, then that sentence is false if he drinks them only on every other Friday (i.e. 50\% of them).
+
+
+Notice that when we take the disjunction of a sentence and the negation of that sentence, the column under the main connective (the disjunction) will be true on every row. Let's look at the truth table for 'P$\vee$ $\neg$P' (notice we evaluate '$\neg$P' first, then the disjunction):
+
+  P   P $\vee$ $\neg$P
+---- ------------------
+  T       **T$~$** F
+  F       **T$~$** T
+  
+  
+  Recall that we determined the probability that 'P' is true by adding up all the probabilities in the rows were 'P' is true. If we use the same table to determine the probability that 'P' is false (i.e., we add up all the numbers in the rows where `P' is false) then we get the following probabilities:
+  
+ Probabilities     P   P $\vee$ $\neg$P
+---------------- ---- ------------------
+  0.909           T       **T$~$** F
+  0.091           F       **T$~$** T  
+  
+  
+  Now if we add up all the rows where 'P$\vee$ $\neg$P' is true, which are 1 and 2 (and there are no other rows) we get a total of 1. This makes sense upon some reflection. A tautology is always true, i.e., it is true in every possibility. We also said that a probability is a normalized measure, where the universe of the function added to 1. Since a tautology has us adding up the probabilities across all the rows, it's not surprising that they sum to 1. In brief, the probability that a tautology is true is 1.
+  
+  
+### Equivalence
+  
+  Some statements are equivalent. What we mean by that is that they say the same thing, even if they differ in how they say it. For example, the sentence 'Schnee ist weiss' expresses the same proposition that is said in 'snow is white'. 
+  
+  In symbolic logic we can use truth tables to check whether two sentences are equivalent. Consider the sentences '$\neg$(P $\wedge$ Q)' and '$\neg$P $\vee$ $\neg$ Q'. The first one reads as 'It's not the case that both Bert drinks beer on Fridays and drinks wine'. Notice that the negation is being applied to the conjunction. The second sentence reads `Either it's not the case that Bert drinks beer on Fridays or it's not the case that Bert drinks wine on Fridays'. Notice that this second sentence is a disjunction that has two negations as component sentences.
+
+In order to test whether two sentences are equivalent, we build a truth table and evaluate each sentence. Then we check to see whether the columns under the main connective of the sentences are identical. If they are, that means that in every possibility their truth values match, i.e., they are equivalent. When one sentence is true, so is the other, and when one is false, so is the other. When we look at the truth tables for  '$\neg$(P $\wedge$ Q)' and '$\neg$P $\vee$ $\neg$ Q' we see that they are indeed equivalent:
+
+    P       Q       $\neg$(P $\wedge$ Q)      $\neg$P $\vee$ $\neg$ Q
+  -----   -----   ------------------------   --------------------------
+    T       T               F$~~~~~~~~~~$                           F
+    T       F               T$~~~~~~~~~~$                           T
+    F       T               T$~~~~~~~~~~$                           T
+    F       F               T$~~~~~~~~~~$                           T
+
+
+One of the most important concepts in logic is that of **validity**. Validity is a property of arguments. An argument is a series of statements, where one is designated the conclusion and the other statements the premises (these are intended to support the conclusion). An argument is valid when *if* the premises are true, then the conclusion *has* to be true. Put differently: an argument is valid when there is no possible way of making the conclusion false and the premises true. One more way of putting it: there is no counterexample that makes the premises true but the conclusion false. 
+
+Typically arguments have two or more premises. Modus Ponens, for example, is a style of argument that has a conditional as one statement and a second statement that affirms the antecedent of the conditional. For example: If John lives in Idaho, then he lives in the US. John does indeed live in Idaho. Therefore, John lives in the US.
+
+Not all arguments have to have two or more premises, however. Some arguments can have no premises at all! Tautologies are examples where if you make them the conclusion of an argument with no premises, the argument is still, strictly speaking, valid. (You can't make the conclusion false! So there's no counterexample.)
+
+When an argument is valid, we say that the premises *entail* the conclusion. In many cases we'll look at arguments with just one premise and one conclusion. So if A is the premise, B the conclusion, and we have a valid argument, then we say that A entails B.
+
+Truth tables can be used to check for entailment. What we do is make sure there is no counterexample. Put differently, we make sure that in every row where the premises are true, the conclusion is also true. 
+
+Entailment is an important concept to logicians because it preserves truth. That is, if the premises of an argument are true and you proceed through a sequence of inferences, where each inferential step is a valid one, that there is never a loss of truth. You'll never go from true premises to a false conclusion in a valid argument.
+
+Something similar is the case if we think of probabilities instead of truth. If A entails B, then the probability of B is at least as high as the probability of A. We have this feature because when A entails B, that means that B has to be true in all the possibilities where A is (if that weren't the case, we'd have a counterexample). So if B is true in at least all the same places where A is, then the probability of B has to be at least as great as A.
+
+
+### Inconsistency
+
+A standard light switch is either on or off -- it's not both on and off at the same time. Now imagine that you have two light switches arranged so that when one is on it automatically turns the other one off (and vice versa). In this arrangment, the light switches are never both on at the same time, nor both off at the same time.
+
+Similarily, when we say that two propositions are inconsistent, we mean that whenever one is true the other is false, and when one is false the other is true. Consider '$\neg$(P $\wedge$ Q)' and 'P $\wedge$ Q'. When we complete the truth tables for these, we see that they have opposite truth values on each row.
+
+    P       Q       $\neg$(P $\wedge$ Q)      P $\wedge$  Q
+  -----   -----   ------------------------   --------------------------
+    T       T               F$~~~~~~~~~~$                           T
+    T       F               T$~~~~~~~~~~$                           F
+    F       T               T$~~~~~~~~~~$                           F
+    F       F               T$~~~~~~~~~~$                           F
+
+Whenever two propositions are inconsistent, then the probability of the disjunction of those two propositions is the sum of each of them. For example, suppose that A and B are inconsistent. Then $Pr$(A$\vee$B) = $Pr$(A) + $Pr$(B). 
+
+
+### Logic Probabilities
+
+
+So let's think again about why the probability of a tautology is 1. This is actually because of two features. First, A and $\neg$A are inconsistent, so the probability of their disjunction (i.e. $Pr$(A$\vee$ $\neg$A) ) is going to be the sum of the probabilty of A and the probablity of $\neg$A. Second, whatever the probability of A is, the probability of '$\neg$A' is going to be $1-Pr$(A). This is because inconsistent propositions cannot have probabilities that vary independently. If the probability of A is fixed, this automatically fixes the probability of '$\neg$A' (and vice versa). And since '$\neg$A' will cover all the remaining possibilities that 'A' did not cover and the probability of the universe (i.e., all possibilities) is 1, the probability of '$\neg$A' is $1-Pr$(A).
+
+What about the case where A and B are not inconsistent? Is the sum of their probabilities somehow connected to the features we have been considering so far? Yes. 
+
+Let's look at the following truth table. Notice that A and B are not inconsistent, since there are rows where their truth values match. In the left most column we have variables representing the probability of each row. If A and B meant 'lands heads' and 'lands tails' respectively, this exercise would be much easier (since each row has a probability of 0.25). But we're asking about whether there's some general pattern that we can express even if we don't know the probabilities of any row.
+
+
+  Probability       A     B    A$\wedge$B      A$\vee$B
+---------------   ----  ----- -------------   -----------
+  $x_1$             T     T       T               T
+  $x_2$             T     F       F               T
+  $x_3$             F     T       F               T
+  $x_4$             F     F       F               F
+  
+  
+We already know how to calculate the following probabilities:
+
+1. $Pr$(A) = $x_1 + x_2$ since these are the rows where A is true.
+2. $Pr$(B) = $x_1 + x_3$ since these are the rows where B is true.
+3. $Pr$(A$\wedge$B) = $x_1$ since A$\wedge$B is true on just the first line
+4. $Pr$(A$\vee$B) = $x_1 + x_2 + x_3$ since A$\vee$B is true on lines 1-3.
+
+
+The sum of the probabilities of A and B is then
+\[
+Pr(\text{A}) + Pr(\text{B}) = x_1 + x_2 + x_1 + x_3
+\]
+
+If we add lines 3 and 4, we get
+\[
+Pr(\text{A}\wedge\text{B}) + Pr(\text{A}\vee\text{B}) = x_1 + x_1 + x_2 + x_3
+\]
+
+Notice that the sum of the probabilities is actually the same (after rearranging the order): $x_1 + x_1 + x_2 + x_3$. And so we have the result that
+\[
+Pr(\text{A}) + Pr(\text{B}) = Pr(\text{A}\wedge\text{B}) + Pr(\text{A}\vee\text{B})
+\]
+
+This is an important result, one that we will use often. Here's a different way of thinking about it, using an illustration. Let's ask how to calculate $Pr$(A$\vee$B). As a first step, we would just add the probabilities of A and B together, i.e., $Pr$(A) + $Pr$(B). However, we don't know that A and B are inconsistent, so it's possible that A and B could be true at the same time. So we need to make sure not to double count the intersection. That is, the probability that both A and B are true is already accounted for in $Pr$(A$\vee$B), so when we add the probabilities of A and B together, we need to subtract out the probability that both are true at the same time. That what's going on when we rearrange the result we obtained above to get the following.
+\[
+ Pr(\text{A}\vee\text{B}) = Pr(\text{A}) + Pr(\text{B}) - Pr(\text{A}\wedge\text{B}) 
+\]
+
+
+
+
+
+
+## Exercises
+
+### Proporitions to Probabilities
+
+Consider again our table about the proportion of distilleries that are ownen by multinational companies (these are the first four rows):
+
+   Input             Output (proportion owned by corps.)
+-------------     --------------------------------------
+ Highlands            0.6
+ Speyside            0.4
+ Lowlands            0.3
+ Campbeltown         0
+ Islay                0.25
+ Islands             0.4
+
+We said that we can't determine what proportion of mainland distilleries are owned by multinational companies just by looking at the proportions for each region. Explain what information you would need and how you would go about figuring this out.
+
+### The Conjunction Fallacy
+
+Suppose 'A' means 'Linda is a feminist' and 'B' means `Linda is a bank teller'. Consider the truth table for A and B, with corresponding probabilities (Pr) for each assignment of truth values:
+
+ Pr       A       B
+------  -----    ----- 
+ 0.5     T        T
+ 0.2     F        T
+ 0.25    T        F
+ 0.05    F        F
+
+1. Are A and B inconsistent? Why or why not?
+
+2.  Are A and B equivalent? Why or why not?
+
+3. What is $p(A)$?
+
+4.  What is $p(B)$?
+
+5.  What is $p(A\wedge B)$?
+
+### Atomic vs Conjunctions
+
+Which of the following is true regarding the general relationship between the probability of a single proposition $X$ and the probability of a conjunction that has $X$ as a component?
+
+| a) $p(X)\geq p(X\wedge Y)$
+| b) $p(X)\leq p(X\wedge Y)$
+|	 c) $p(X) = p(X\wedge Y)$
+|	 d) None of the above. It depends on the probabilities given to $X$ and $Y$.
+
+### Disjunction
+
+Consider the case of disjunction now. Which of the following is true regarding the general relationship between the probability of a single proposition $X$ and the probability of a disjunction that has $X$ as a component?
+
+| a) $p(X)\geq p(X\vee Y)$ 
+|	b) $p(X)\leq p(X\vee Y)$
+|	c) $p(X) = p(X\vee Y)$ 
+|	d) None of the above. It depends on the probabilities given to $X$ and $Y$.
+
+### Conjunctions and Disjunctions
+
+ Let's compare conjunctions and disjunctions. Which of the following is true regarding the general relationship between the probability of a conjunction and the probability of a disjunction?
+
+| a) $p(X\wedge Y)\geq p(X\vee Y)$
+| b) $p(X\wedge Y)\leq p(X\vee Y)$
+| c) $p(X\wedge Y) = p(X\vee Y)$
+| d)  None of the above. It depends on the probabilities given to $X$ and $Y$.
+
+
+### Linda (again)
+
+
+ Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations. Which of the following is most probable?
+ 
+ 1. Linda is a bank teller
+ 2. Linda is a bank teller and not a feminist
+ 3. Linda is a bank teller and a feminist
