@@ -5,12 +5,12 @@ bookdown::tufte_html_book:
     #- custom.css 
   split_by: chapter
 
-bookdown::pdf_book:
-  base_format: tufte::tufte_book
-  toc_depth: 1
-  fig_width: 7
-  fig_height: 5
-  number_sections: yes
-  keep_tex: yes
-  includes:
-    in_header: preamble.tex
+#bookdown::pdf_book:
+#  base_format: tufte::tufte_book
+#  toc_depth: 1
+#  fig_width: 7
+#  fig_height: 5
+#  number_sections: yes
+#  keep_tex: yes
+#  includes:
+#    in_header: preamble.tex
