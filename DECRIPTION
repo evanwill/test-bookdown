@@ -1,0 +1,6 @@
+Type: project
+Description: test bookdown build.
+Depends:
+    bookdown,
+    magick,
+    pdftools
