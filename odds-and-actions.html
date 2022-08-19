@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 9 Odds and Actions | Decision Theory" />
+<meta property="og:type" content="book" />
+
+<meta property="og:description" content="This is a draft of a decision theory book written in BookDown" />
+<meta name="github-repo" content="bertybaums/decisiontheory" />
+
+<meta name="author" content="Bert Baumgaertner" />
+
+<meta name="date" content="2022-08-19" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="This is a draft of a decision theory book written in BookDown">
+
+<title>Chapter 9 Odds and Actions | Decision Theory</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#preface-and-prerequisites">Preface and Prerequisites</a><ul>
+<li><a href="index.html#what-is-a-conceptual-introduction"><span class="toc-section-number">0.1</span> What is a conceptual introduction?</a></li>
+<li><a href="index.html#how-to-read-a-table-or-matrix"><span class="toc-section-number">0.2</span> How to read a table or matrix</a></li>
+<li><a href="index.html#the-very-basic-math"><span class="toc-section-number">0.3</span> The Very Basic Math</a></li>
+<li><a href="index.html#inspiration-and-acknowledgments"><span class="toc-section-number">0.4</span> Inspiration and Acknowledgments</a></li>
+</ul></li>
+<li class="has-sub"><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="intro.html#some-basic-conceptual-ingredients"><span class="toc-section-number">1.1</span> Some Basic Conceptual Ingredients</a></li>
+<li><a href="intro.html#rationality---the-descriptive-and-normative"><span class="toc-section-number">1.2</span> Rationality - the Descriptive and Normative</a></li>
+<li><a href="intro.html#uncertainty"><span class="toc-section-number">1.3</span> Uncertainty</a></li>
+<li><a href="intro.html#practical-and-theoretical-problems"><span class="toc-section-number">1.4</span> Practical and Theoretical Problems</a></li>
+<li><a href="intro.html#summary"><span class="toc-section-number">1.5</span> Summary</a></li>
+<li><a href="intro.html#exercises">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="ranking.html#ranking"><span class="toc-section-number">2</span> Ranking</a><ul>
+<li><a href="ranking.html#maximin-and-maximax"><span class="toc-section-number">2.1</span> Maximin and Maximax</a></li>
+<li><a href="ranking.html#the-dominance-principle"><span class="toc-section-number">2.2</span> The Dominance Principle</a></li>
+<li><a href="ranking.html#more-than-two-options-and-two-states"><span class="toc-section-number">2.3</span> More than two options and two states</a></li>
+<li><a href="ranking.html#non-unique-recommendations"><span class="toc-section-number">2.4</span> Non-Unique Recommendations</a></li>
+<li><a href="ranking.html#independence-of-options-and-states"><span class="toc-section-number">2.5</span> Independence of Options and States</a></li>
+<li><a href="ranking.html#exercises-1">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#transitivity-and-completeness"><span class="toc-section-number">3</span> Transitivity and Completeness</a><ul>
+<li><a href="transitivity-and-completeness.html#notation"><span class="toc-section-number">3.1</span> Notation</a></li>
+<li><a href="transitivity-and-completeness.html#money-pump-arguments-for-axioms"><span class="toc-section-number">3.2</span> Money Pump Arguments for Axioms</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-transitivity"><span class="toc-section-number">3.3</span> Arguments for Transitivity</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-completeness"><span class="toc-section-number">3.4</span> Arguments for Completeness</a></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#social-choice"><span class="toc-section-number">3.5</span> Social Choice</a><ul>
+<li><a href="transitivity-and-completeness.html#group-decisions-are-not-mere-sets-of-individual-decisions"><span class="toc-section-number">3.5.1</span> Group decisions are not mere sets of individual decisions</a></li>
+<li><a href="transitivity-and-completeness.html#plurality-and-runoffs"><span class="toc-section-number">3.5.2</span> Plurality and Runoffs</a></li>
+<li><a href="transitivity-and-completeness.html#the-borda-count-and-an-impossible-task"><span class="toc-section-number">3.5.3</span> The Borda Count and an Impossible Task</a></li>
+</ul></li>
+<li><a href="transitivity-and-completeness.html#limitations-and-key-take-aways"><span class="toc-section-number">3.6</span> Limitations and Key Take Aways</a></li>
+<li><a href="transitivity-and-completeness.html#exercises-2">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#utilities"><span class="toc-section-number">4</span> Utilities</a><ul>
+<li><a href="utilities.html#creating-an-interval-scale"><span class="toc-section-number">4.1</span> Creating an Interval Scale</a></li>
+<li class="has-sub"><a href="utilities.html#what-do-the-numbers-mean"><span class="toc-section-number">4.2</span> What do the numbers mean?</a><ul>
+<li><a href="utilities.html#material-and-money"><span class="toc-section-number">4.2.1</span> Material and money</a></li>
+<li><a href="utilities.html#hedonism-and-experience-based-theories"><span class="toc-section-number">4.2.2</span> Hedonism and Experience-based Theories</a></li>
+<li><a href="utilities.html#objective-list-theories"><span class="toc-section-number">4.2.3</span> Objective List Theories</a></li>
+<li><a href="utilities.html#preference-based-theories"><span class="toc-section-number">4.2.4</span> Preference-based Theories</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#applications-and-challenges"><span class="toc-section-number">4.3</span> Applications and Challenges</a><ul>
+<li><a href="utilities.html#minimize-regret"><span class="toc-section-number">4.3.1</span> Minimize Regret</a></li>
+<li><a href="utilities.html#multiattribute-approach"><span class="toc-section-number">4.3.2</span> Multiattribute Approach</a></li>
+</ul></li>
+<li><a href="utilities.html#more-challenges-and-final-remarks"><span class="toc-section-number">4.4</span> More Challenges and Final Remarks</a></li>
+<li><a href="utilities.html#exercises-3">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="expected-utilities.html#expected-utilities"><span class="toc-section-number">5</span> Expected Utilities</a><ul>
+<li class="has-sub"><a href="expected-utilities.html#expected-utility-by-example"><span class="toc-section-number">5.1</span> Expected Utility by Example</a><ul>
+<li><a href="expected-utilities.html#step-one-compute-eu-of-each-option"><span class="toc-section-number">5.1.1</span> Step One: Compute EU of each option</a></li>
+<li><a href="expected-utilities.html#step-two-find-maximum-eu"><span class="toc-section-number">5.1.2</span> Step Two: Find maximum EU</a></li>
+</ul></li>
+<li><a href="expected-utilities.html#meu-maximize-expected-utility-strategy"><span class="toc-section-number">5.2</span> (MEU) Maximize Expected Utility Strategy</a></li>
+<li><a href="expected-utilities.html#application-combining-meu-and-the-multi-attribute-approach"><span class="toc-section-number">5.3</span> Application: Combining MEU and the Multi-Attribute Approach</a></li>
+<li><a href="expected-utilities.html#pascals-wager"><span class="toc-section-number">5.4</span> Pascal’s Wager</a></li>
+<li><a href="expected-utilities.html#key-take-aways"><span class="toc-section-number">5.5</span> Key Take Aways</a></li>
+<li><a href="expected-utilities.html#exercises-4">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-about-meu"><span class="toc-section-number">6</span> Arguments about MEU</a><ul>
+<li><a href="arguments-about-meu.html#the-domain-of-meu"><span class="toc-section-number">6.1</span> The Domain of MEU</a></li>
+<li><a href="arguments-about-meu.html#long-run-arguments-for-meu"><span class="toc-section-number">6.2</span> Long Run Arguments for MEU</a></li>
+<li><a href="arguments-about-meu.html#two-kinds-of-arguments-against-meu"><span class="toc-section-number">6.3</span> Two Kinds of Arguments Against MEU</a></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-normative-meu"><span class="toc-section-number">6.4</span> Arguments Against Normative MEU</a><ul>
+<li><a href="arguments-about-meu.html#allais-paradox"><span class="toc-section-number">6.4.1</span> Allais Paradox</a></li>
+<li><a href="arguments-about-meu.html#ellsbergs-paradox"><span class="toc-section-number">6.4.2</span> Ellsberg’s Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-sure-thing-principle"><span class="toc-section-number">6.4.3</span> The Sure Thing Principle</a></li>
+<li><a href="arguments-about-meu.html#st-petersburg-paradox"><span class="toc-section-number">6.4.4</span> St Petersburg Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-two-envelope-paradox"><span class="toc-section-number">6.4.5</span> The Two Envelope Paradox</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-descriptive-meu"><span class="toc-section-number">6.5</span> Arguments Against Descriptive MEU</a><ul>
+<li><a href="arguments-about-meu.html#risk-aversion"><span class="toc-section-number">6.5.1</span> Risk Aversion</a></li>
+<li><a href="arguments-about-meu.html#loss-aversion"><span class="toc-section-number">6.5.2</span> Loss Aversion</a></li>
+<li><a href="arguments-about-meu.html#endowment-effect"><span class="toc-section-number">6.5.3</span> Endowment Effect</a></li>
+<li><a href="arguments-about-meu.html#prospect-theory"><span class="toc-section-number">6.5.4</span> Prospect Theory</a></li>
+<li><a href="arguments-about-meu.html#weighting-effects-and-why-they-matter"><span class="toc-section-number">6.5.5</span> Weighting Effects and Why They Matter</a></li>
+</ul></li>
+<li><a href="arguments-about-meu.html#summary-1"><span class="toc-section-number">6.6</span> Summary</a></li>
+<li><a href="arguments-about-meu.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="intervention.html#intervention"><span class="toc-section-number">7</span> Intervention</a><ul>
+<li><a href="intervention.html#causal-models"><span class="toc-section-number">7.1</span> Causal Models</a></li>
+<li><a href="intervention.html#common-causes"><span class="toc-section-number">7.2</span> Common Causes</a></li>
+<li><a href="intervention.html#application-to-newcomb-like-problems"><span class="toc-section-number">7.3</span> Application to Newcomb-like Problems</a></li>
+<li><a href="intervention.html#the-locus-of-choice-and-types-of-decision-theories"><span class="toc-section-number">7.4</span> The Locus of Choice and Types of Decision Theories</a></li>
+<li><a href="intervention.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#probabilities"><span class="toc-section-number">8</span> Probabilities</a><ul>
+<li><a href="probabilities.html#measures"><span class="toc-section-number">8.1</span> Measures</a></li>
+<li><a href="probabilities.html#normalized-measures"><span class="toc-section-number">8.2</span> Normalized Measures</a></li>
+<li class="has-sub"><a href="probabilities.html#possibilities-and-truth-tables"><span class="toc-section-number">8.3</span> Possibilities and Truth Tables</a><ul>
+<li><a href="probabilities.html#tautologies"><span class="toc-section-number">8.3.1</span> Tautologies</a></li>
+<li><a href="probabilities.html#equivalence"><span class="toc-section-number">8.3.2</span> Equivalence</a></li>
+<li><a href="probabilities.html#inconsistency"><span class="toc-section-number">8.3.3</span> Inconsistency</a></li>
+<li><a href="probabilities.html#logic-probabilities"><span class="toc-section-number">8.3.4</span> Logic Probabilities</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#exercises-7"><span class="toc-section-number">8.4</span> Exercises</a><ul>
+<li><a href="probabilities.html#proporitions-to-probabilities"><span class="toc-section-number">8.4.1</span> Proporitions to Probabilities</a></li>
+<li><a href="probabilities.html#the-conjunction-fallacy"><span class="toc-section-number">8.4.2</span> The Conjunction Fallacy</a></li>
+<li><a href="probabilities.html#atomic-vs-conjunctions"><span class="toc-section-number">8.4.3</span> Atomic vs Conjunctions</a></li>
+<li><a href="probabilities.html#disjunction"><span class="toc-section-number">8.4.4</span> Disjunction</a></li>
+<li><a href="probabilities.html#conjunctions-and-disjunctions"><span class="toc-section-number">8.4.5</span> Conjunctions and Disjunctions</a></li>
+<li><a href="probabilities.html#linda-again"><span class="toc-section-number">8.4.6</span> Linda (again)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="odds-and-actions.html#odds-and-actions"><span class="toc-section-number">9</span> Odds and Actions</a></li>
+<li><a href="conditional-probabilities-and-likelihoods.html#conditional-probabilities-and-likelihoods"><span class="toc-section-number">10</span> Conditional Probabilities and Likelihoods</a></li>
+<li><a href="base-rates-priors-and-bayes-rule.html#base-rates-priors-and-bayes-rule"><span class="toc-section-number">11</span> Base Rates, Priors, and Bayes Rule</a></li>
+<li><a href="learning-and-motivated-reasoning.html#learning-and-motivated-reasoning"><span class="toc-section-number">12</span> Learning and Motivated Reasoning</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="odds-and-actions" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Odds and Actions</h1>
+
+</div>
+<p style="text-align: center;">
+<a href="probabilities.html"><button class="btn btn-default">Previous</button></a>
+<a href="conditional-probabilities-and-likelihoods.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
