@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Decision Theory" />
+<meta property="og:type" content="book" />
+
+<meta property="og:description" content="This is a draft of a decision theory book written in BookDown" />
+<meta name="github-repo" content="bertybaums/decisiontheory" />
+
+<meta name="author" content="Bert Baumgaertner" />
+
+<meta name="date" content="2022-08-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="This is a draft of a decision theory book written in BookDown">
+
+<title>Decision Theory</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#preface-and-prerequisites">Preface and Prerequisites</a><ul>
+<li><a href="index.html#what-is-a-conceptual-introduction"><span class="toc-section-number">0.1</span> What is a conceptual introduction?</a></li>
+<li><a href="index.html#how-to-read-a-table-or-matrix"><span class="toc-section-number">0.2</span> How to read a table or matrix</a></li>
+<li><a href="index.html#the-very-basic-math"><span class="toc-section-number">0.3</span> The Very Basic Math</a></li>
+<li><a href="index.html#inspiration-and-acknowledgments"><span class="toc-section-number">0.4</span> Inspiration and Acknowledgments</a></li>
+</ul></li>
+<li class="has-sub"><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="intro.html#some-basic-conceptual-ingredients"><span class="toc-section-number">1.1</span> Some Basic Conceptual Ingredients</a></li>
+<li><a href="intro.html#rationality---the-descriptive-and-normative"><span class="toc-section-number">1.2</span> Rationality - the Descriptive and Normative</a></li>
+<li><a href="intro.html#uncertainty"><span class="toc-section-number">1.3</span> Uncertainty</a></li>
+<li><a href="intro.html#practical-and-theoretical-problems"><span class="toc-section-number">1.4</span> Practical and Theoretical Problems</a></li>
+<li><a href="intro.html#summary"><span class="toc-section-number">1.5</span> Summary</a></li>
+<li><a href="intro.html#exercises">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="ranking.html#ranking"><span class="toc-section-number">2</span> Ranking</a><ul>
+<li><a href="ranking.html#maximin-and-maximax"><span class="toc-section-number">2.1</span> Maximin and Maximax</a></li>
+<li><a href="ranking.html#the-dominance-principle"><span class="toc-section-number">2.2</span> The Dominance Principle</a></li>
+<li><a href="ranking.html#more-than-two-options-and-two-states"><span class="toc-section-number">2.3</span> More than two options and two states</a></li>
+<li><a href="ranking.html#non-unique-recommendations"><span class="toc-section-number">2.4</span> Non-Unique Recommendations</a></li>
+<li><a href="ranking.html#independence-of-options-and-states"><span class="toc-section-number">2.5</span> Independence of Options and States</a></li>
+<li><a href="ranking.html#exercises-1">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#transitivity-and-completeness"><span class="toc-section-number">3</span> Transitivity and Completeness</a><ul>
+<li><a href="transitivity-and-completeness.html#notation"><span class="toc-section-number">3.1</span> Notation</a></li>
+<li><a href="transitivity-and-completeness.html#money-pump-arguments-for-axioms"><span class="toc-section-number">3.2</span> Money Pump Arguments for Axioms</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-transitivity"><span class="toc-section-number">3.3</span> Arguments for Transitivity</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-completeness"><span class="toc-section-number">3.4</span> Arguments for Completeness</a></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#social-choice"><span class="toc-section-number">3.5</span> Social Choice</a><ul>
+<li><a href="transitivity-and-completeness.html#group-decisions-are-not-mere-sets-of-individual-decisions"><span class="toc-section-number">3.5.1</span> Group decisions are not mere sets of individual decisions</a></li>
+<li><a href="transitivity-and-completeness.html#plurality-and-runoffs"><span class="toc-section-number">3.5.2</span> Plurality and Runoffs</a></li>
+<li><a href="transitivity-and-completeness.html#the-borda-count-and-an-impossible-task"><span class="toc-section-number">3.5.3</span> The Borda Count and an Impossible Task</a></li>
+</ul></li>
+<li><a href="transitivity-and-completeness.html#limitations-and-key-take-aways"><span class="toc-section-number">3.6</span> Limitations and Key Take Aways</a></li>
+<li><a href="transitivity-and-completeness.html#exercises-2">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#utilities"><span class="toc-section-number">4</span> Utilities</a><ul>
+<li><a href="utilities.html#creating-an-interval-scale"><span class="toc-section-number">4.1</span> Creating an Interval Scale</a></li>
+<li class="has-sub"><a href="utilities.html#what-do-the-numbers-mean"><span class="toc-section-number">4.2</span> What do the numbers mean?</a><ul>
+<li><a href="utilities.html#material-and-money"><span class="toc-section-number">4.2.1</span> Material and money</a></li>
+<li><a href="utilities.html#hedonism-and-experience-based-theories"><span class="toc-section-number">4.2.2</span> Hedonism and Experience-based Theories</a></li>
+<li><a href="utilities.html#objective-list-theories"><span class="toc-section-number">4.2.3</span> Objective List Theories</a></li>
+<li><a href="utilities.html#preference-based-theories"><span class="toc-section-number">4.2.4</span> Preference-based Theories</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#applications-and-challenges"><span class="toc-section-number">4.3</span> Applications and Challenges</a><ul>
+<li><a href="utilities.html#minimize-regret"><span class="toc-section-number">4.3.1</span> Minimize Regret</a></li>
+<li><a href="utilities.html#multiattribute-approach"><span class="toc-section-number">4.3.2</span> Multiattribute Approach</a></li>
+</ul></li>
+<li><a href="utilities.html#more-challenges-and-final-remarks"><span class="toc-section-number">4.4</span> More Challenges and Final Remarks</a></li>
+<li><a href="utilities.html#exercises-3">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="expected-utilities.html#expected-utilities"><span class="toc-section-number">5</span> Expected Utilities</a><ul>
+<li class="has-sub"><a href="expected-utilities.html#expected-utility-by-example"><span class="toc-section-number">5.1</span> Expected Utility by Example</a><ul>
+<li><a href="expected-utilities.html#step-one-compute-eu-of-each-option"><span class="toc-section-number">5.1.1</span> Step One: Compute EU of each option</a></li>
+<li><a href="expected-utilities.html#step-two-find-maximum-eu"><span class="toc-section-number">5.1.2</span> Step Two: Find maximum EU</a></li>
+</ul></li>
+<li><a href="expected-utilities.html#meu-maximize-expected-utility-strategy"><span class="toc-section-number">5.2</span> (MEU) Maximize Expected Utility Strategy</a></li>
+<li><a href="expected-utilities.html#application-combining-meu-and-the-multi-attribute-approach"><span class="toc-section-number">5.3</span> Application: Combining MEU and the Multi-Attribute Approach</a></li>
+<li><a href="expected-utilities.html#pascals-wager"><span class="toc-section-number">5.4</span> Pascal’s Wager</a></li>
+<li><a href="expected-utilities.html#key-take-aways"><span class="toc-section-number">5.5</span> Key Take Aways</a></li>
+<li><a href="expected-utilities.html#exercises-4">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-about-meu"><span class="toc-section-number">6</span> Arguments about MEU</a><ul>
+<li><a href="arguments-about-meu.html#the-domain-of-meu"><span class="toc-section-number">6.1</span> The Domain of MEU</a></li>
+<li><a href="arguments-about-meu.html#long-run-arguments-for-meu"><span class="toc-section-number">6.2</span> Long Run Arguments for MEU</a></li>
+<li><a href="arguments-about-meu.html#two-kinds-of-arguments-against-meu"><span class="toc-section-number">6.3</span> Two Kinds of Arguments Against MEU</a></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-normative-meu"><span class="toc-section-number">6.4</span> Arguments Against Normative MEU</a><ul>
+<li><a href="arguments-about-meu.html#allais-paradox"><span class="toc-section-number">6.4.1</span> Allais Paradox</a></li>
+<li><a href="arguments-about-meu.html#ellsbergs-paradox"><span class="toc-section-number">6.4.2</span> Ellsberg’s Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-sure-thing-principle"><span class="toc-section-number">6.4.3</span> The Sure Thing Principle</a></li>
+<li><a href="arguments-about-meu.html#st-petersburg-paradox"><span class="toc-section-number">6.4.4</span> St Petersburg Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-two-envelope-paradox"><span class="toc-section-number">6.4.5</span> The Two Envelope Paradox</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-descriptive-meu"><span class="toc-section-number">6.5</span> Arguments Against Descriptive MEU</a><ul>
+<li><a href="arguments-about-meu.html#risk-aversion"><span class="toc-section-number">6.5.1</span> Risk Aversion</a></li>
+<li><a href="arguments-about-meu.html#loss-aversion"><span class="toc-section-number">6.5.2</span> Loss Aversion</a></li>
+<li><a href="arguments-about-meu.html#endowment-effect"><span class="toc-section-number">6.5.3</span> Endowment Effect</a></li>
+<li><a href="arguments-about-meu.html#prospect-theory"><span class="toc-section-number">6.5.4</span> Prospect Theory</a></li>
+<li><a href="arguments-about-meu.html#weighting-effects-and-why-they-matter"><span class="toc-section-number">6.5.5</span> Weighting Effects and Why They Matter</a></li>
+</ul></li>
+<li><a href="arguments-about-meu.html#summary-1"><span class="toc-section-number">6.6</span> Summary</a></li>
+<li><a href="arguments-about-meu.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="intervention.html#intervention"><span class="toc-section-number">7</span> Intervention</a><ul>
+<li><a href="intervention.html#causal-models"><span class="toc-section-number">7.1</span> Causal Models</a></li>
+<li><a href="intervention.html#common-causes"><span class="toc-section-number">7.2</span> Common Causes</a></li>
+<li><a href="intervention.html#application-to-newcomb-like-problems"><span class="toc-section-number">7.3</span> Application to Newcomb-like Problems</a></li>
+<li><a href="intervention.html#the-locus-of-choice-and-types-of-decision-theories"><span class="toc-section-number">7.4</span> The Locus of Choice and Types of Decision Theories</a></li>
+<li><a href="intervention.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#probabilities"><span class="toc-section-number">8</span> Probabilities</a><ul>
+<li><a href="probabilities.html#measures"><span class="toc-section-number">8.1</span> Measures</a></li>
+<li><a href="probabilities.html#normalized-measures"><span class="toc-section-number">8.2</span> Normalized Measures</a></li>
+<li class="has-sub"><a href="probabilities.html#possibilities-and-truth-tables"><span class="toc-section-number">8.3</span> Possibilities and Truth Tables</a><ul>
+<li><a href="probabilities.html#tautologies"><span class="toc-section-number">8.3.1</span> Tautologies</a></li>
+<li><a href="probabilities.html#equivalence"><span class="toc-section-number">8.3.2</span> Equivalence</a></li>
+<li><a href="probabilities.html#inconsistency"><span class="toc-section-number">8.3.3</span> Inconsistency</a></li>
+<li><a href="probabilities.html#logic-probabilities"><span class="toc-section-number">8.3.4</span> Logic Probabilities</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#exercises-7"><span class="toc-section-number">8.4</span> Exercises</a><ul>
+<li><a href="probabilities.html#proporitions-to-probabilities"><span class="toc-section-number">8.4.1</span> Proporitions to Probabilities</a></li>
+<li><a href="probabilities.html#the-conjunction-fallacy"><span class="toc-section-number">8.4.2</span> The Conjunction Fallacy</a></li>
+<li><a href="probabilities.html#atomic-vs-conjunctions"><span class="toc-section-number">8.4.3</span> Atomic vs Conjunctions</a></li>
+<li><a href="probabilities.html#disjunction"><span class="toc-section-number">8.4.4</span> Disjunction</a></li>
+<li><a href="probabilities.html#conjunctions-and-disjunctions"><span class="toc-section-number">8.4.5</span> Conjunctions and Disjunctions</a></li>
+<li><a href="probabilities.html#linda-again"><span class="toc-section-number">8.4.6</span> Linda (again)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="odds-and-actions.html#odds-and-actions"><span class="toc-section-number">9</span> Odds and Actions</a></li>
+<li><a href="conditional-probabilities-and-likelihoods.html#conditional-probabilities-and-likelihoods"><span class="toc-section-number">10</span> Conditional Probabilities and Likelihoods</a></li>
+<li><a href="base-rates-priors-and-bayes-rule.html#base-rates-priors-and-bayes-rule"><span class="toc-section-number">11</span> Base Rates, Priors, and Bayes Rule</a></li>
+<li><a href="learning-and-motivated-reasoning.html#learning-and-motivated-reasoning"><span class="toc-section-number">12</span> Learning and Motivated Reasoning</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="header">
+<h1 class="title">Decision Theory</h1>
+<h3 class="subtitle"><em>A Conceptual Introduction</em></h3>
+<h4 class="author"><em>Bert Baumgaertner</em></h4>
+<h4 class="date"><em>2022-08-20</em></h4>
+</div>
+<div id="preface-and-prerequisites" class="section level1 unnumbered">
+<h1>Preface and Prerequisites</h1>
+<p>Many of us are familiar with the idea of making a list of “pros” and “cons” to help us make a choice, particularly important and complex ones. Presumably, this kind of strategy reflects our desire to make the “right” choice. Or maybe there isn’t a single correct choice to make, but at least we want to examine our options so that we can provide a kind of justification for what we end up deciding to do. In other words, one purpose of a pros-and-cons list is that we can provide <em>reasons</em> for our choices. Decision theory is the field that examines a whole array of decision making strategies that explain and justify choices, even if the consequences don’t work out as expected.</p>
+<div id="what-is-a-conceptual-introduction" class="section level2">
+<h2><span class="header-section-number">0.1</span> What is a conceptual introduction?</h2>
+<p>This book is a conceptual introduction to decision theory. As such, there are several features that differentiate it from other introductions. First, while it draws heavily on philosophical approaches, many of the concepts are also informed by other disciplines. So when it will benefit our understanding of a concept, we will not hesitate to venture into areas such as psychology and economics.</p>
+<p>Second, the concepts we cover will be used to build models of decision-making. In this sense the “theory” that we aspire to is not so much a thesis about what rational decision making is. Rather, our “theory” is more akin to a collection of tools that can be used for doing analysis. That is not to say, however, that we will eshew normative claims. We will find ourselves in plenty of places where we’ll use claims about rationality and irrationality, and in turn the concepts we have will help us better understand those notions.</p>
+<p>Third, there is a great deal of conceptual overlap between fields such as game theory, social choice theory, behavioral economics, and traditional decision theory (or decision theory “proper”). The differences between them is largely about the domains of decision making: game theory focuses on strategic decisions between multiple agents; social choice theory is about how to aggregate preferences of individuals to the level of the collective; behavioral economics emphasizes empirical studies to develop a non-ideal decision theory; and decision theory “proper” is typically the idealized study of rationality and its normative consequences. But there are many concepts that appear across several of these domains. Rather than take a domain as a starting point and cover the concepts needed to understand the theories in those domains, we will start with concepts and then illustrate how they are used in some of these domains. That said, we will not aim to be exhaustive of where the concepts are used. The goal is for the reader to appreciate the utility of the concept and get a feel for its connections to domains outside traditional decision theory.</p>
+<p>Fourth, to the end that we focus on concepts, we will start with bare bones. The concepts will be initially crude. At first we will use them to get some basic models of decision-making, many of which will resemble overly simplified (“toy model”) decisions rather than real-life decisions. Then we will advance in one of two ways. Sometimes we will advance by adding one or more new concepts and then explore how that helps us develop more sophisticated models. Other times we will refine one or more of our existing concepts and see how that changes our models and interpretations of them.</p>
+<p>Fifth, and finally, the goal of a conceptual introduction is to maximize accessibility. That said, it will become necessary at some point that to clarify a concept we will have to use some tools of rigor. Most readers will be already familiar with most of these: how to read a table or matrix, executing basic algebraic operations like addition and multiplication, how to read a graph that plots a function, etc. Other tools, notably some basic probability theory, readers are not expected to know. We will prefer, whenever possible, to make a concept clear without the use of formal tools. Where this is not possible, the relevant representations will be introduced as if the reader is seeing them for the first time.</p>
+<p>The most rudimentary tools we start using early on include tables and orders of operation of addition and multiplication. Readers well-versed in these may skip to the first chapter.</p>
+</div>
+<div id="how-to-read-a-table-or-matrix" class="section level2">
+<h2><span class="header-section-number">0.2</span> How to read a table or matrix</h2>
+<p>This books make very few assumptions about the reader’s background knowledge. This book makes frequent use of tables, or sometimes called matrices (“matrix” for a single one). So it’s worth getting clear on the parts that make up a table. The basic setup is a grid, with horizontal lines (left-right) and vertical lines (up-down). Sometimes the lines aren’t shown because it looks clearer. In that case we make sure to organize text in a way that lines up as a grid.</p>
+<p>The horizontal regions are called rows and the vertical regions are columns. A cell is where a row and a column intersect. The cells in the very first row usually contains information about the names of the columns (this first row is often called a <em>header</em>). The cells in the very first column typically have the names for the rows. Because the first row and first column are being used to label or name the rest of the row or column, they aren’t included when we count the number of rows (or columns) of a table. Below is an example. Notice that the whole grid is made up of three rows and three columns, but because the first ones just have names, the counting starts at the second row and column of the grid.</p>
+<p><!--
+<caption>--><span class="marginnote shownote">Example of a two-by-two table with names for rows and columns. The name “Row 1” refers to the horizontal region to its right and consists of Cell(1,1) and Cell(1,2). The name “Column 1” refers to the vertical region below it and consists of Cell(1,1) and Cell(2,1).</span><!--</caption>--></p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Column 1</th>
+<th align="center">Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Row 1</strong></td>
+<td align="center">Cell(1,1)</td>
+<td align="center">Cell(1,2)</td>
+</tr>
+<tr class="even">
+<td><strong>Row 2</strong></td>
+<td align="center">Cell(2,1)</td>
+<td align="center">Cell(2,2)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="the-very-basic-math" class="section level2">
+<h2><span class="header-section-number">0.3</span> The Very Basic Math</h2>
+<p>The math that we will use is itself not advanced. It basically amounts to the operations of addition, subtraction, and multiplication (and in a few exceptions division). But what can become a bit tricky is the “book-keeping” of it all. This book will generally show all the work so that you can follow the order of operations.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> If you need a refresher, do some <a href="https://g.co/kgs/mhz72v">practice problems</a>.</span></p>
+</div>
+<div id="inspiration-and-acknowledgments" class="section level2">
+<h2><span class="header-section-number">0.4</span> Inspiration and Acknowledgments</h2>
+<p>This text is inspired by two freely available sources.<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Students, you can skip the rest of this and move to the first chapter.</span> One is the open access book <em>Odds &amp; Ends: Introducing Probability &amp; Decision with a Visual Emphasis</em> by Johathan Weisberg . The second is Brian Weatherson’s Decision Theory Book . There is a great deal that I like about both of these, but they did not quite fit the needs I had when teaching an introductory course on decision theory. While both are relatively approachable, I wanted to emphasize some of the concepts that I thought students are most likely to remember. Most of my students shy away from technical material. My goal was to assume as little as possible and very gradually introduce them to the formal methods needed, and only when needed.<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> I am happy to receive feedback on places where this can be improved: <a href="mailto:bbaum@uidaho.edu" class="email">bbaum@uidaho.edu</a></span> I also wanted to emphasize related topics, such as a broader conversation about the nature of utility and the perspectives of behavioral economics, both of which are understandably not given much attention in more standard philosophy texts.</p>
+<p>On the technical side of things, this book was made using the bookdown package created by Yihui Xie <span class="citation">[@xie2015]</span> and inspired by the formatting aesthetics of Tufte.</p>
+<p>Thanks to an <em>Think Open Fellow Award</em> funded by the University of Idaho Library. I had important help in creating this from Marco Seiferle-Valencia and Evan Williamson.</p>
+<p>Substantial comments and feedback were provided by students in Decision Theory 2020, including in particular Trevor Woodward, Jackson Ogden, Amanda McClurkin, and Lauren Moon. I also received helpful feedback from the University of Idaho CLASS book club.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="intro.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 7 Intervention | Decision Theory" />
+<meta property="og:type" content="book" />
+
+<meta property="og:description" content="This is a draft of a decision theory book written in BookDown" />
+<meta name="github-repo" content="bertybaums/decisiontheory" />
+
+<meta name="author" content="Bert Baumgaertner" />
+
+<meta name="date" content="2022-08-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="This is a draft of a decision theory book written in BookDown">
+
+<title>Chapter 7 Intervention | Decision Theory</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#preface-and-prerequisites">Preface and Prerequisites</a><ul>
+<li><a href="index.html#what-is-a-conceptual-introduction"><span class="toc-section-number">0.1</span> What is a conceptual introduction?</a></li>
+<li><a href="index.html#how-to-read-a-table-or-matrix"><span class="toc-section-number">0.2</span> How to read a table or matrix</a></li>
+<li><a href="index.html#the-very-basic-math"><span class="toc-section-number">0.3</span> The Very Basic Math</a></li>
+<li><a href="index.html#inspiration-and-acknowledgments"><span class="toc-section-number">0.4</span> Inspiration and Acknowledgments</a></li>
+</ul></li>
+<li class="has-sub"><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="intro.html#some-basic-conceptual-ingredients"><span class="toc-section-number">1.1</span> Some Basic Conceptual Ingredients</a></li>
+<li><a href="intro.html#rationality---the-descriptive-and-normative"><span class="toc-section-number">1.2</span> Rationality - the Descriptive and Normative</a></li>
+<li><a href="intro.html#uncertainty"><span class="toc-section-number">1.3</span> Uncertainty</a></li>
+<li><a href="intro.html#practical-and-theoretical-problems"><span class="toc-section-number">1.4</span> Practical and Theoretical Problems</a></li>
+<li><a href="intro.html#summary"><span class="toc-section-number">1.5</span> Summary</a></li>
+<li><a href="intro.html#exercises">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="ranking.html#ranking"><span class="toc-section-number">2</span> Ranking</a><ul>
+<li><a href="ranking.html#maximin-and-maximax"><span class="toc-section-number">2.1</span> Maximin and Maximax</a></li>
+<li><a href="ranking.html#the-dominance-principle"><span class="toc-section-number">2.2</span> The Dominance Principle</a></li>
+<li><a href="ranking.html#more-than-two-options-and-two-states"><span class="toc-section-number">2.3</span> More than two options and two states</a></li>
+<li><a href="ranking.html#non-unique-recommendations"><span class="toc-section-number">2.4</span> Non-Unique Recommendations</a></li>
+<li><a href="ranking.html#independence-of-options-and-states"><span class="toc-section-number">2.5</span> Independence of Options and States</a></li>
+<li><a href="ranking.html#exercises-1">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#transitivity-and-completeness"><span class="toc-section-number">3</span> Transitivity and Completeness</a><ul>
+<li><a href="transitivity-and-completeness.html#notation"><span class="toc-section-number">3.1</span> Notation</a></li>
+<li><a href="transitivity-and-completeness.html#money-pump-arguments-for-axioms"><span class="toc-section-number">3.2</span> Money Pump Arguments for Axioms</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-transitivity"><span class="toc-section-number">3.3</span> Arguments for Transitivity</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-completeness"><span class="toc-section-number">3.4</span> Arguments for Completeness</a></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#social-choice"><span class="toc-section-number">3.5</span> Social Choice</a><ul>
+<li><a href="transitivity-and-completeness.html#group-decisions-are-not-mere-sets-of-individual-decisions"><span class="toc-section-number">3.5.1</span> Group decisions are not mere sets of individual decisions</a></li>
+<li><a href="transitivity-and-completeness.html#plurality-and-runoffs"><span class="toc-section-number">3.5.2</span> Plurality and Runoffs</a></li>
+<li><a href="transitivity-and-completeness.html#the-borda-count-and-an-impossible-task"><span class="toc-section-number">3.5.3</span> The Borda Count and an Impossible Task</a></li>
+</ul></li>
+<li><a href="transitivity-and-completeness.html#limitations-and-key-take-aways"><span class="toc-section-number">3.6</span> Limitations and Key Take Aways</a></li>
+<li><a href="transitivity-and-completeness.html#exercises-2">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#utilities"><span class="toc-section-number">4</span> Utilities</a><ul>
+<li><a href="utilities.html#creating-an-interval-scale"><span class="toc-section-number">4.1</span> Creating an Interval Scale</a></li>
+<li class="has-sub"><a href="utilities.html#what-do-the-numbers-mean"><span class="toc-section-number">4.2</span> What do the numbers mean?</a><ul>
+<li><a href="utilities.html#material-and-money"><span class="toc-section-number">4.2.1</span> Material and money</a></li>
+<li><a href="utilities.html#hedonism-and-experience-based-theories"><span class="toc-section-number">4.2.2</span> Hedonism and Experience-based Theories</a></li>
+<li><a href="utilities.html#objective-list-theories"><span class="toc-section-number">4.2.3</span> Objective List Theories</a></li>
+<li><a href="utilities.html#preference-based-theories"><span class="toc-section-number">4.2.4</span> Preference-based Theories</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#applications-and-challenges"><span class="toc-section-number">4.3</span> Applications and Challenges</a><ul>
+<li><a href="utilities.html#minimize-regret"><span class="toc-section-number">4.3.1</span> Minimize Regret</a></li>
+<li><a href="utilities.html#multiattribute-approach"><span class="toc-section-number">4.3.2</span> Multiattribute Approach</a></li>
+</ul></li>
+<li><a href="utilities.html#more-challenges-and-final-remarks"><span class="toc-section-number">4.4</span> More Challenges and Final Remarks</a></li>
+<li><a href="utilities.html#exercises-3">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="expected-utilities.html#expected-utilities"><span class="toc-section-number">5</span> Expected Utilities</a><ul>
+<li class="has-sub"><a href="expected-utilities.html#expected-utility-by-example"><span class="toc-section-number">5.1</span> Expected Utility by Example</a><ul>
+<li><a href="expected-utilities.html#step-one-compute-eu-of-each-option"><span class="toc-section-number">5.1.1</span> Step One: Compute EU of each option</a></li>
+<li><a href="expected-utilities.html#step-two-find-maximum-eu"><span class="toc-section-number">5.1.2</span> Step Two: Find maximum EU</a></li>
+</ul></li>
+<li><a href="expected-utilities.html#meu-maximize-expected-utility-strategy"><span class="toc-section-number">5.2</span> (MEU) Maximize Expected Utility Strategy</a></li>
+<li><a href="expected-utilities.html#application-combining-meu-and-the-multi-attribute-approach"><span class="toc-section-number">5.3</span> Application: Combining MEU and the Multi-Attribute Approach</a></li>
+<li><a href="expected-utilities.html#pascals-wager"><span class="toc-section-number">5.4</span> Pascal’s Wager</a></li>
+<li><a href="expected-utilities.html#key-take-aways"><span class="toc-section-number">5.5</span> Key Take Aways</a></li>
+<li><a href="expected-utilities.html#exercises-4">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-about-meu"><span class="toc-section-number">6</span> Arguments about MEU</a><ul>
+<li><a href="arguments-about-meu.html#the-domain-of-meu"><span class="toc-section-number">6.1</span> The Domain of MEU</a></li>
+<li><a href="arguments-about-meu.html#long-run-arguments-for-meu"><span class="toc-section-number">6.2</span> Long Run Arguments for MEU</a></li>
+<li><a href="arguments-about-meu.html#two-kinds-of-arguments-against-meu"><span class="toc-section-number">6.3</span> Two Kinds of Arguments Against MEU</a></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-normative-meu"><span class="toc-section-number">6.4</span> Arguments Against Normative MEU</a><ul>
+<li><a href="arguments-about-meu.html#allais-paradox"><span class="toc-section-number">6.4.1</span> Allais Paradox</a></li>
+<li><a href="arguments-about-meu.html#ellsbergs-paradox"><span class="toc-section-number">6.4.2</span> Ellsberg’s Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-sure-thing-principle"><span class="toc-section-number">6.4.3</span> The Sure Thing Principle</a></li>
+<li><a href="arguments-about-meu.html#st-petersburg-paradox"><span class="toc-section-number">6.4.4</span> St Petersburg Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-two-envelope-paradox"><span class="toc-section-number">6.4.5</span> The Two Envelope Paradox</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-descriptive-meu"><span class="toc-section-number">6.5</span> Arguments Against Descriptive MEU</a><ul>
+<li><a href="arguments-about-meu.html#risk-aversion"><span class="toc-section-number">6.5.1</span> Risk Aversion</a></li>
+<li><a href="arguments-about-meu.html#loss-aversion"><span class="toc-section-number">6.5.2</span> Loss Aversion</a></li>
+<li><a href="arguments-about-meu.html#endowment-effect"><span class="toc-section-number">6.5.3</span> Endowment Effect</a></li>
+<li><a href="arguments-about-meu.html#prospect-theory"><span class="toc-section-number">6.5.4</span> Prospect Theory</a></li>
+<li><a href="arguments-about-meu.html#weighting-effects-and-why-they-matter"><span class="toc-section-number">6.5.5</span> Weighting Effects and Why They Matter</a></li>
+</ul></li>
+<li><a href="arguments-about-meu.html#summary-1"><span class="toc-section-number">6.6</span> Summary</a></li>
+<li><a href="arguments-about-meu.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="intervention.html#intervention"><span class="toc-section-number">7</span> Intervention</a><ul>
+<li><a href="intervention.html#causal-models"><span class="toc-section-number">7.1</span> Causal Models</a></li>
+<li><a href="intervention.html#common-causes"><span class="toc-section-number">7.2</span> Common Causes</a></li>
+<li><a href="intervention.html#application-to-newcomb-like-problems"><span class="toc-section-number">7.3</span> Application to Newcomb-like Problems</a></li>
+<li><a href="intervention.html#the-locus-of-choice-and-types-of-decision-theories"><span class="toc-section-number">7.4</span> The Locus of Choice and Types of Decision Theories</a></li>
+<li><a href="intervention.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#probabilities"><span class="toc-section-number">8</span> Probabilities</a><ul>
+<li><a href="probabilities.html#measures"><span class="toc-section-number">8.1</span> Measures</a></li>
+<li><a href="probabilities.html#normalized-measures"><span class="toc-section-number">8.2</span> Normalized Measures</a></li>
+<li class="has-sub"><a href="probabilities.html#possibilities-and-truth-tables"><span class="toc-section-number">8.3</span> Possibilities and Truth Tables</a><ul>
+<li><a href="probabilities.html#tautologies"><span class="toc-section-number">8.3.1</span> Tautologies</a></li>
+<li><a href="probabilities.html#equivalence"><span class="toc-section-number">8.3.2</span> Equivalence</a></li>
+<li><a href="probabilities.html#inconsistency"><span class="toc-section-number">8.3.3</span> Inconsistency</a></li>
+<li><a href="probabilities.html#logic-probabilities"><span class="toc-section-number">8.3.4</span> Logic Probabilities</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#exercises-7"><span class="toc-section-number">8.4</span> Exercises</a><ul>
+<li><a href="probabilities.html#proporitions-to-probabilities"><span class="toc-section-number">8.4.1</span> Proporitions to Probabilities</a></li>
+<li><a href="probabilities.html#the-conjunction-fallacy"><span class="toc-section-number">8.4.2</span> The Conjunction Fallacy</a></li>
+<li><a href="probabilities.html#atomic-vs-conjunctions"><span class="toc-section-number">8.4.3</span> Atomic vs Conjunctions</a></li>
+<li><a href="probabilities.html#disjunction"><span class="toc-section-number">8.4.4</span> Disjunction</a></li>
+<li><a href="probabilities.html#conjunctions-and-disjunctions"><span class="toc-section-number">8.4.5</span> Conjunctions and Disjunctions</a></li>
+<li><a href="probabilities.html#linda-again"><span class="toc-section-number">8.4.6</span> Linda (again)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="odds-and-actions.html#odds-and-actions"><span class="toc-section-number">9</span> Odds and Actions</a></li>
+<li><a href="conditional-probabilities-and-likelihoods.html#conditional-probabilities-and-likelihoods"><span class="toc-section-number">10</span> Conditional Probabilities and Likelihoods</a></li>
+<li><a href="base-rates-priors-and-bayes-rule.html#base-rates-priors-and-bayes-rule"><span class="toc-section-number">11</span> Base Rates, Priors, and Bayes Rule</a></li>
+<li><a href="learning-and-motivated-reasoning.html#learning-and-motivated-reasoning"><span class="toc-section-number">12</span> Learning and Motivated Reasoning</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="intervention" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Intervention</h1>
+<p>We have emphasized the importance of distinguishing between that which is in our control and that which is not. After all, it seems to be a constitutive feature of making a decision among a number of choices. If we can’t control something, it hardly seems correct to think that we have a choice in the matter.</p>
+<p>Another way of thinking about what is and isn’t in our control is in terms of <strong>intervening</strong> on the world. That is, when we make a decision by selecting an action, we are intervening on the world by having a causal effect on it. When I choose to study, a different set of worldly facts come about than if I choose to party: if I study, my brain will have some information accessible to it that it would not have if I had partied (not to mention the lack of consequences from partying). If I go to the park to play frisbe with my friends, a different set of events will unfold than if I had chosen to stay home to work on a project. If I pick the one box in the Newcomb problem that will bring about a different result than if I had picked the two box option.</p>
+<p>We have to be careful about how we think about intervention in our decision tables. It can be tempting to think that by intervening we are shaping the world to our will, but that’s not quite right, or at least not that simple. A better way is to imagine that the world is like an agent that has already selected which column in a table is true, but we are uncertain about what the world has selected. The action that we then select intervenes by narrowing down the set of possible outcomes by selecting a particular row. The world then “reveals” what it had already selected just before we made our choice, and the outcome then becomes known to us.</p>
+<p>There have been some recent developments in modeling the idea of interventions. These include the idea of a causal model.<label for="tufte-sn-65" class="margin-toggle sidenote-number">65</label><input type="checkbox" id="tufte-sn-65" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">65</span> Judea Pearl’s book <em>Causality</em> had a big impact on thinking about causal models. Another more recent book of his is <em>The Book of Why</em>.</span> This chapter will introduce the idea of causal models and their respresentations as causal graphs (or networks). After introducing the basic ideas behind causal models, we’ll use them to illustrate that there are different kinds of decisions theories. All of these make use of expected utility, but they differ in their interpretations of how choices intervene.</p>
+<div id="causal-models" class="section level2">
+<h2><span class="header-section-number">7.1</span> Causal Models</h2>
+<p>To start, let’s temporarily assume that the world is perfectly deterministic and that every single cause has a single effect, and every single effect has a single cause. For example, suppose we have the very simple example that you studying for a test guarantees that you pass it, and that passing the test will cause you to win a prize. Here we are implicitly suggesting that if you don’t study then you won’t pass, and that if you don’t pass you won’t get a prize. The way we represent this example is by having a <em>variable</em> for each cause or effect, and each variable can have a set of values. For example, our first variable would be BEHAVIOR and it has two possible values, study or party. Our second variable would be TEST and have values of pass or fail. Our third would be PRIZE with values yes or no. We can then use arrows between these variables to represent their causal connection:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<p class="caption marginnote shownote">
+Figure 7.1: Simple causal pathway
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-7-1.png" alt="Simple causal pathway" width="672"  />
+</div>
+<p>Given our assumptions, there is just one way for you to get the prize. You getting the prize depends on you passing the test, and you passing the test depends on you studying. We can express these dependencies using some very simple equations. Let’s use ‘1’ to represent cases of studying, passing, and winning the prize, and we’ll use ‘0’ to represent partying, failing, and not getting a prize. In addition, we’ll read ‘X:=Y’ as ‘the value of X depends on the value of Y’ (note the direction of dependency, which only goes the one way). The following single equation then represents that the PRIZE variable depends on the TEST variable:
+<span class="math display">\[
+PRIZE := TEST
+\]</span>
+and similarily the TEST variable depends on the BEHAVIOR variable:
+<span class="math display">\[
+TEST := BEHAVIOR
+\]</span>
+Given these equations, we can imagine there are three ways to ensure that PRIZE = 1.<label for="tufte-sn-66" class="margin-toggle sidenote-number">66</label><input type="checkbox" id="tufte-sn-66" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">66</span> Heads up: the first two are weirder than the third.</span> The first, as if by the power of God, is to simply just make PRIZE = 1. This is a bit awkward, for effectively we are ‘’screening off’’ all the upstream causes in the graph as if they didn’t really matter after all. The second, which is less arbitrary (given our other assumptions), is to make TEST = 1. By the equation <span class="math inline">\(PRIZE := TEST\)</span> this makes PRIZE = 1. But this is still not the way that we’re thinking about our example, particularly give the way we have drawn our simple graph. The only way to make PRIZE = 1 given what is in our control is to set BEHAVIOR to be 1. This in turn makes TEST = 1 given that <span class="math inline">\(TEST:= BEHAVIOR\)</span> and then PRIZE = 1 given that <span class="math inline">\(PRIZE:=TEST\)</span>. In the causal modeling literature, all three of these possibilities we’ve covered would count as a kind of “intervention”, but what they have in mind is an intervention on the model. What we mean here by ‘intervention’ is being in control of a variable by being able to set its value.</p>
+<p>There is, nevertheless, a sense in which getting the prize is in your control, even if you can’t directly intervene on that variable. When we set <span class="math inline">\(BEHAVIOR\)</span> to 1, that fact, combined with the causal graph, will have guaranteed downstream consequences that ultimately make <span class="math inline">\(PRIZE\)</span> equal to 1.</p>
+<p>The simple scenario we have been working with might remind you of decisions made under certainty. Our primary interest, however, has been dealing with decisions where there is some amount of uncertainty, i.e. where there are some things that are outside of our control that combine with our decision to generate an outcome. For example, suppose you are playing a game where your friend is going to flip a fair coin and you can choose to either bet or not bet while it is in the air. If you bet and the coin lands heads, you win a dollar. If you bet and the coin lands tails, you lose a dollar. And if you choose not to bet at all then you don’t win or lose anything. In our standard matrix representation, this scenario looks like this.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Heads</th>
+<th align="center">Tails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bet Heads</td>
+<td align="center">$1</td>
+<td align="center">-$1</td>
+</tr>
+<tr class="even">
+<td>Don’t Bet</td>
+<td align="center">$0</td>
+<td align="center">$0</td>
+</tr>
+</tbody>
+</table>
+<p>We can use our graphs to also represent this situation. We’ll have three nodes, one for the possible actions (bet / don’t bet), one for the possible world states (heads / tails), and one for the possible outcomes (the four cells in our table).</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<p class="caption marginnote shownote">
+Figure 7.2: Causal Pathway for Decisions
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-8-1.png" alt="Causal Pathway for Decisions" width="672"  />
+</div>
+<p>In addition to this graph, we can write down the equation that will determine how much money you would receive as the outcome. As the graph suggests, this depends on both your action and the world, though you only have control over the former. We’ll use ‘1’ to represent that you bet and ‘0’ that you don’t, and ‘1’ to represent that the coin turned up heads and ‘-1’ that it did not. The equation is:
+<span class="math display">\[
+OUTCOME := ACTION \times WORLD
+\]</span>
+Inserting the relevant combinations of values for the actions and world states will output the corresponding values in the outcomes.<label for="tufte-sn-67" class="margin-toggle sidenote-number">67</label><input type="checkbox" id="tufte-sn-67" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">67</span> Exercise: What do those values need to be?</span></p>
+<p>We now have three kinds of representations we can make use of.<label for="tufte-sn-68" class="margin-toggle sidenote-number">68</label><input type="checkbox" id="tufte-sn-68" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">68</span> That is, tables, graphs, and some equations.</span> The graph representation will be particularly helpful for illustrating some important points.<label for="tufte-sn-69" class="margin-toggle sidenote-number">69</label><input type="checkbox" id="tufte-sn-69" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">69</span> Don’t be fooled by the simplicity of the diagrams. They represent a lot of information.</span> In general, a causal graph is a collection of nodes with arrows between them. An arrow represents that a node (a variable) has a direct influence on another node (the one that the arrow is pointing to). The node where the arrow starts is called the parent node, and the arrow where the arrow points is the child node. When there is a chain of arrows, a node can have ‘upstream’ ancestors (parents, parents of parents, parents of parents of parents, etc.), as well as ‘downstream’ descendants. Since the arrows are representing causation, and causation only flows in one direction, the collection of arrows cannot have cycles, i.e. it is never the case that a node can be connected back to itself by following a chain of upstream arrows (nor similarly downstream ones).</p>
+</div>
+<div id="common-causes" class="section level2">
+<h2><span class="header-section-number">7.2</span> Common Causes</h2>
+<p>An important concept that causal graphs help us illustrate is the idea of a common cause. Let’s suppose that you occassionally suffer from severe headaches. A pretty good indicator of whether you will get one later in the day is if you have “spots” in your vision in the morning. You also notice that on days when you eat a banana in the morning you tend not to get a headache later in the day. Let’s use <span class="math inline">\(H=1\)</span> to represent that you get a headache, <span class="math inline">\(H=0\)</span> that you don’t, <span class="math inline">\(V=1\)</span> that you have spots in your vision, <span class="math inline">\(V=0\)</span> that you don’t, and <span class="math inline">\(A=1\)</span> that you ate a banana in the morning and <span class="math inline">\(A=0\)</span> that you didn’t. The causal graph would look like this.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<p class="caption marginnote shownote">
+Figure 7.3: Simple causal pathway
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-9-1.png" alt="Simple causal pathway" width="672"  />
+</div>
+<p>The equation for the value of the headache variable would be:
+<span class="math display">\[
+H:= V\times (1 - A)
+\]</span>
+It is helpful to see the four relevant possibilities in the form of a table.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(V\)</span></th>
+<th align="center"><span class="math inline">\(A\)</span></th>
+<th align="center"><span class="math inline">\(H:= V\times (1 - A)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<p>When we do some reasoning with these representations, we’ll notice that the only time you get a headache is when you have spotty vision but choose not to eat a banana.</p>
+<p>Now lets add in an additional consideration. Suppose that you go to the doctor and they note that you are prone to a potassium deficiency. A potassium deficiency, they tell you, can often lead to spots in vision, as well as cravings for bananas (because they are high in potassium!). Suddenly you realize that the days that you had headaches were days when you had both spotty vision in the morning and also had cravings for a banana - but for one reason or another you decided not to eat one. Equipped with this new knowledge, you now make sure you always have bananas on hand so that you can choose to eat one when you have a craving.</p>
+<p>Let’s update our causal graph. You’ll notice that a potassium deficiency has two effects, one on spotty vision and one on your choice to eat a banana. Let’s say <span class="math inline">\(D=1\)</span> means you have a potassium deficiency and <span class="math inline">\(D=0\)</span> means you don’t.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<p class="caption marginnote shownote">
+Figure 7.4: Common cause pathway
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-10-1.png" alt="Common cause pathway" width="672"  />
+</div>
+<p>TODO: SHOW THE SYSTEM OF STRUCTURAL EQUATIONS (and recall the distinction between a structural equation and a system of them)</p>
+<p>If we now consider the possibilities, we’ll notice that you never get a headache. This is because on the days that you would get a headache from spotty vision are days when you have a potassium deficiency, but a potassium deficiency also means that you will eat a banana, and thereby counteract the headache. In our example, spotty vision and eating bananas have a <strong>common cause</strong>, namely a potassium deficiency.</p>
+<p>Causal graphs make it really easy to spot when two or more variables have a common cause. We simply take those nodes and trace the upstream arrows: if the variables all have a common ancestor, then they have a common cause (the variable that is the common ancestor).</p>
+<p>When two or more variables have a common cause, those variables will be highly correlated with each other, even though they are not causes of one another. For example, an increase in ice cream sales can be correlated with an increase in pool drownings. We should not think, however, that ice cream sales cause pool drownings (nor for that matter, that pool drownings cause more ice cream sales!). Rather, an increase in ice cream sales and pool drownings have a common cause: an increase in temperature, which tends to cause people to both buy more ice cream and to go swimming (which in some cases unfortunately leads to some people drowning).</p>
+<p>Similarly in our case: your spotty vision does not cause you to choose to eat bananas, nor does eating bananas cause your spotty vision. Rather, it is a potassium deficiency that causes both.</p>
+</div>
+<div id="application-to-newcomb-like-problems" class="section level2">
+<h2><span class="header-section-number">7.3</span> Application to Newcomb-like Problems</h2>
+<p>Causal models help us gain insight into some of the decision problems we’ve seen. Recall Newcomb’s problem, where a game show host consulted an AI that has profiled you to determine whether to put a million dollars into a second box or not. The payoff table looked like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">AI predicts two box</th>
+<th align="center">AI predicts one box</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>One box (just A)</strong></td>
+<td align="center">$0</td>
+<td align="center">$1,000,000</td>
+</tr>
+<tr class="even">
+<td><strong>Two box (A and B)</strong></td>
+<td align="center">$1,000</td>
+<td align="center">$1,001,000</td>
+</tr>
+</tbody>
+</table>
+<p>What this table hides are causal assumptions about the outcomes. We have been insisting that when we set up decision matrices that the rows are the choices or actions available to us that are in our control, and the columns are the world states - the things that we are uncertain about and are out of our control. Using our simple causal pathway diagram to illustrate this, we might think that the following represents the above table:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<p class="caption marginnote shownote">
+Figure 7.5: Misleading representation of Newcomb problem
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-11-1.png" alt="Misleading representation of Newcomb problem" width="672"  />
+</div>
+<p>But given the narrative of the scenario, there is a correlation between what the AI predicts and what people choose to do. The reason for this correlation is not an accident - after all it is stipulated that the predictions of the AI are highly reliable (even if it’s not perfect). When the AI makes a prediction on what someone will choose, it is consulting some body of information that we reasonably could put under the umbrella of a person’s <em>character</em>. That is, a person’s character is a guide to what action they are likely to select (their box pick: one or two) as well as what the AI will predict (which leads to world state: $1M in box A or not). So a better respresenation of this situation would be the following causal graph:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<p class="caption marginnote shownote">
+Figure 7.6: Newcomb pathway
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-12-1.png" alt="Newcomb pathway" width="672"  />
+</div>
+<p>This representation makes it clear that there is a common cause to the AI’s prediction and your action. If that’s right, then the setup is actually not a legitimate kind of decision making problem, since we are not maintaining that the world states and actions be independent of one another. It is not obvious, however, how we might go about fixing this and numerous proposals exist, some of which we’ll cover in due course.</p>
+<p>First, let’s see how some other examples we’ve discussed are like the Newcomb problem. Consider again the situation where you are deciding wether to stay at home to work on a project or to show up to the park to play a game of frisbee with your friends. In that decision problem, the uncertainty involved whether “Annoying Guy” would also show up. Here was the utility table we had.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Annoying guy stays home</th>
+<th align="center">Annoying guy shows up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>You stay home</strong></td>
+<td align="center">2</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td><strong>You show up</strong></td>
+<td align="center">3</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>We additionally suggested that, while you might not like it, you and Annoying Guy are very much alike. In fact, let’s just suppose that you and Annoying Guy are identical twins. What this means for this example is that what you choose to do is correlated with what Annoying Guy does. We can again use a causal graph to model this situation. When we do, we need to decide whether the correlation between your choice and Annoying Guy’s is completely accidental, or whether there is a reason for that correlation. We have suggested that it’s the latter. If we unpack this, it would be again reasonable to think that the correlation reflects a common cause between the two of you: you have similar characters.(And given that we said you are identical twins, the common character could be the effect of having a common physiology, but we leave that out for now). So we might have this kind of causal graph:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13"></span>
+<p class="caption marginnote shownote">
+Figure 7.7: The Twin Example
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-13-1.png" alt="The Twin Example" width="672"  />
+</div>
+<p>We can imagine similar graphs to represent the incorrect way of modeling our test example. When we set it up, we insisted that we had to be careful to understand that what it means for a test to be difficult is independent of the action to study - “difficult” had to be some kind of measure by which an instructor uses to design questions. This is because your studying for the test can affect the <em>perceived difficulty</em> of it, and that would violate our requirement that the world states be independent of the actions. A causal graph makes it clear why we have to be careful: if we’re not, then your choice (study or party) would be the common cause of the outcome! That is, if we’re not careful we would have this:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<p class="caption marginnote shownote">
+Figure 7.8: Test Example - Incorrect decision model setup if we insist that world states and acts are supposed to be independent.
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-14-1.png" alt="Test Example - Incorrect decision model setup if we insist that world states and acts are supposed to be independent." width="672"  />
+</div>
+<p>But if world states and our choices are independent prior to the outcome, then we should have this:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<p class="caption marginnote shownote">
+Figure 7.9: Test Example - Correct decision model setup if we insist that world states and acts are supposed to be independent.
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-15-1.png" alt="Test Example - Correct decision model setup if we insist that world states and acts are supposed to be independent." width="672"  />
+</div>
+<p>What we might notice is that the Newcomb problem is more like the incorrect test example if we take into account something like a person’s character. Newcomb-like problems all seem to have a kind of causal structure where, if we go back far enough, there are common causes that influence both the world state and our action. That is, if we were to map out causal graphs in more detail, they are likely to end up looking something like this.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<p class="caption marginnote shownote">
+Figure 7.10: More realistic causal graphs of decisions
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-16-1.png" alt="More realistic causal graphs of decisions" width="672"  />
+</div>
+<p>What are we to make of these kinds of situations? Isn’t it true that our choices can impact several different variables in this chain? Regularly choosing to exercise can impact our physiology - that’s the whole point behind training! And in the banana example it can ensure that we don’t get a potassium deficiency, and if we do we still can prevent our headaches. And isn’t it the case that the way we develop our character is by regularly making the kind of choices that correspond to the kind of person we want to be? In the Newcomb problem, we want to be the kind of person that picks the one box, since that’s the kind of information the AI would use to make its prediction, which in turn makes it highly likely that there will be a $1M in the box! Do these kinds of considerations mean the world state is in a person’s control after all?</p>
+<p>We have been using the idea of control in a binary (on/off) kind of way, but as the causal graph above suggests, what is and isn’t in our control might not be such a clear thing. Perhaps a better way to think of control is that it comes in degrees. Towards the left side of the causal graph are things we have less control over, like our physiology, and towards the right are things that we have more control over, like our behavior in a particular moment.</p>
+<p>Whether control is binary or comes in degrees, what we are drawing attention to is a question about where the locus of a choice is. We will see shortly that how one answers this question will largely determine the type of decision theory one ends up endorsing.</p>
+</div>
+<div id="the-locus-of-choice-and-types-of-decision-theories" class="section level2">
+<h2><span class="header-section-number">7.4</span> The Locus of Choice and Types of Decision Theories</h2>
+<p>It is reasonable to suggest that rationality has a kind of unity. We started our analysis of decision making by defining instrumental rationality - an action is more or less rational depending on how well it helps achieve some goal or aim. Similarly, there is a principle that connects what is possible for us to do and what we ought to do: if something is not in our control to do, then it’s false to say that we have an obligation to do it. One way to wrap up some of these considerations is with a kind of “enkrasia” principle along the following lines:</p>
+<p><strong>(Unity of Rationality)</strong> It is rational to do X if and only if: i) it is rational to <em>plan</em> to do X, and ii) it is rational to have character traits that lead to planning to do X, and iii) it is rational to have the kind of physiology that allows for the development of such character traits, and so on.</p>
+<p>If the unity of rationality is true and we are trying to maximize expected utility, then for Newcomb-like problems we should be selecting the analogs of the one-box option. For if we did not, then selecting the two-box option in the moment is a reflection of our broader character, which means the AI would have made that prediction, and so we would be missing out on $1M (and consistently so if we went on the game show multiple times).</p>
+<p>The dominance argument suggests, however, that the rational thing to do is to pick the two-box option. How can this be rational if that effectively guarantees that one will be consistently missing out on $1M? There are at least two things to say here. First, one might suggest that the world is imperfect and sometimes it rewards what is irrational. Just because the world rewards the irrational does not detract from the rationality of the choice. (David Lewis has made this sort of response in 1981.)</p>
+<p>The second thing one could say is that rationality might not have the sort of unity that is suggested above. That is, perhaps in some situations it is possible that the rationality of doing X is at odds with the rationality of planning to do X, or is at odds with the rationality of having the relevant character traits. That is, if we deny the unity of rationality, one might say that it is perfectly consistent to develop a character that corresponds to being a one-box kind of person, but then in the moment on the game show where one makes the choice, one chooses to two-box at the very last minute. The dominance argument seems to be suggesting something along these lines if the outcome of winning $1M + $1,000 is a live possibility at all.</p>
+<p>A related difficulty concerns about our <em>knowledge</em> of what is and is not in our control, as well as our <em>knowledge</em> about the kind of character or physiology we have. In fact, it’s not unreasonable to think in some cases our brains are planning to do something what we aren’t consciously aware of (yet), and so in a sense we might not have knowledge of our own plans. How might that affect our considerations about the unity of rationality? Let’s illustrate with an example.</p>
+<p>There is a parasite called <em>toxoplasma gondii</em> that is primarily hosted by cats but affects mammals in general. Infected individuals tend not to show symptoms, but there do exist a wide range of negative effects. Interestingly, infected rats will tend to be less afraid of cats and even be attracted to cat urine, which from the parasite’s perspective is advantageous because that’s how it perpetuates its life-cycle (the larvae develop in rats and then mature in cats, laying more eggs in the excrement of cats which are then picked up by rats).</p>
+<p>Consider then a decision agent that knows it’s possible they have toxoplasmosis. Given this possibility, they know that there is some chance that they will experience negative effects from it, but they also know that they are more inclined to adore cats by, e.g., speaking to them, collecting pictures of them, and potentially even petting them. That is, they consider the following causal graph.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<p class="caption marginnote shownote">
+Figure 7.11: Toxoplasmosis problem
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-17-1.png" alt="Toxoplasmosis problem" width="672"  />
+</div>
+<p>Let’s assume that while the chances of negative side effects are small, the negative utilities of those side effects are very large, whereas the utilities that come with adoring cats is relatively small in comparison. Should the agent decide to adore cats or not?</p>
+<p>If the agent uses the causal graph as is, they might reason that choosing to adore cats is itself evidence of having toxoplasmosis, which in turn makes it more likely that they will have negative effects. Note that their choice <em>does not cause</em> the negative effects. Rather, when they consider the action of adoring cats, they in turn use that as new information about themselves! And that in turn might influence what they end up deciding to do. We don’t yet have the machinery from probability theory to make this more precise, but know that so long as the negative utilities are sufficiently larger than the positive utilities, and the probabilities for negative effects aren’t too small, the agent will choose not to adore cats.</p>
+<p>Alternatively, the agent might follow our insistence that there be no common causes between the world states and our relevant choices. So to the extent that they have a choice in adoring cats or not, this will be independent of the already settled fact of whether they have toxoplasmosis or not. To represent this, they modify the causal graph so that they severe the dependence arrow from toxoplasmosis to adoring cats:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<p class="caption marginnote shownote">
+Figure 7.12: Toxoplasmosis problem - intervened.
+</p>
+<img src="decisiontheory_files/figure-html/unnamed-chunk-18-1.png" alt="Toxoplasmosis problem - intervened." width="672"  />
+</div>
+<p>In this way of reasoning, the agent recognizes that adoring cats is evidence that they have toxoplasmosis, but this is already accounted for in the other two nodes and the connection between them. In this reasoning, toxoplosmosis does not cause the <em>choice</em> of adoring cats. So now when they reason about what to do, they recognize that adoring cats always adds some small extra utility (say 1), regardless of whether the world state is that they have toxoplasmosis or not (where toxoplasmosis has a negative utility of 1000, say).</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Has toxoplasmosis</th>
+<th align="center">Does not</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ignore cats</strong></td>
+<td align="center">-1000</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td><strong>Adore cats </strong></td>
+<td align="center">-1000 + 1</td>
+<td align="center">0 + 1</td>
+</tr>
+</tbody>
+</table>
+<p>From this perspective, the agent reasons that they should adore cats, since that’s the dominant option.</p>
+<p>What we are illustrating with this last example is a question about whether choices, wherever they are located in the causal graphs, can be informative about the very causal graphs we are using to guide our choices.</p>
+<p>So we have two kinds of questions, one about where the locus of choice is, and one about whether interventions related to choices are further evidence to be used in our reasoning. It turns out that how we answer these questions will characterize different kinds of decision theories.</p>
+<p>The most common decision theory, called <strong>causal decision theory</strong> (CDT), puts the locus of choice furthest to the right of the causal graph we had above, i.e., a choice for the purpose of standard decision making is what decides the behavior. Variables that are upstream, such as character and physiology, are not part of what is being analyzed, at least not for the purpose of understanding rationality in terms of comparison of options.</p>
+<p>On the other extreme of the causal graph, and a more recent addition to the literature, is <strong>functional decision theory</strong> (earlier known as <strong>timeless decision theory</strong>). On this decision theory options are compared by considering the furthest upstream points of evaluation. So if that happens to be character, for example, then options are compared by imagining the impacts of interventions (the removal of causal arrows) at those points. In some presentations of FDT, we imagine that we are choosing what kind of robot or set of functions we do best in a decision problem.</p>
+<p>A third kind is <strong>evidential decision theory</strong> (EDT). The idea behind EDT is that we don’t intervene on a causal graph at all when we analyze what to do. Rather, just like in the toxoplasmosis example, we simply conditionalize on the evidence that is captured on the graph. This notion of conditionalization has a technical meaning that is addressed in probability theory. So it is finally time for us to get clear on what we mean when we talk about probabilities.</p>
+</div>
+<div id="exercises-6" class="section level2">
+<h2><span class="header-section-number">7.5</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Here is an example from Derek Parfit (1984): “Suppose that I am driving at midnight through some desert. My car breaks down. You are a stranger and the only other driver near. I manage to stop you, and Ioffer you a great reward if you rescue me. I cannot reward you now, but I promise to do so when we reach my home. Suppose next that I am transparent, unable to deceive others. I cannot lie convincingly. Either a blush, or my tone of voice, always gives me away.” I want to get the major benefit of a ride out of the desert, but actually giving you the reward is a cost to me. So ideally, I would like to be able to formulate a sincere plan to give you the reward, a plan that is sufficiently sincere that you come to believe me and give me a ride out of the desert, but after having gotten the ride I’d rather not follow through on this plan. Using the causal graph model representation, analyze this decision (note that planning happens somewhere between CHARACTER and BEHAVIOR). You may find it helpful to also include the decision table like we have been doing.</p></li>
+<li><p>Here is an example from Egan (2007): “Paul is debating whether to press the”kill all psychopaths" button. It would, he thinks, be much better to line in a world with no psychopaths. Unfortunately, Paul is quite confident that only a psychopath would press such a button. Paul very strongly prefers living in a world <em>with</em> psychopaths to dying." Represent Paul’s decision problem in a standard decision matrix. Then draw a causal graph diagram for it. Is there a common cause here? This is sometimes presented as a problem for causal decision theory. Explain how that could be.</p></li>
+</ol>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="arguments-about-meu.html"><button class="btn btn-default">Previous</button></a>
+<a href="probabilities.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

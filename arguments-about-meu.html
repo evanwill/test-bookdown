@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 6 Arguments about MEU | Decision Theory" />
+<meta property="og:type" content="book" />
+
+<meta property="og:description" content="This is a draft of a decision theory book written in BookDown" />
+<meta name="github-repo" content="bertybaums/decisiontheory" />
+
+<meta name="author" content="Bert Baumgaertner" />
+
+<meta name="date" content="2022-08-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="This is a draft of a decision theory book written in BookDown">
+
+<title>Chapter 6 Arguments about MEU | Decision Theory</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#preface-and-prerequisites">Preface and Prerequisites</a><ul>
+<li><a href="index.html#what-is-a-conceptual-introduction"><span class="toc-section-number">0.1</span> What is a conceptual introduction?</a></li>
+<li><a href="index.html#how-to-read-a-table-or-matrix"><span class="toc-section-number">0.2</span> How to read a table or matrix</a></li>
+<li><a href="index.html#the-very-basic-math"><span class="toc-section-number">0.3</span> The Very Basic Math</a></li>
+<li><a href="index.html#inspiration-and-acknowledgments"><span class="toc-section-number">0.4</span> Inspiration and Acknowledgments</a></li>
+</ul></li>
+<li class="has-sub"><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="intro.html#some-basic-conceptual-ingredients"><span class="toc-section-number">1.1</span> Some Basic Conceptual Ingredients</a></li>
+<li><a href="intro.html#rationality---the-descriptive-and-normative"><span class="toc-section-number">1.2</span> Rationality - the Descriptive and Normative</a></li>
+<li><a href="intro.html#uncertainty"><span class="toc-section-number">1.3</span> Uncertainty</a></li>
+<li><a href="intro.html#practical-and-theoretical-problems"><span class="toc-section-number">1.4</span> Practical and Theoretical Problems</a></li>
+<li><a href="intro.html#summary"><span class="toc-section-number">1.5</span> Summary</a></li>
+<li><a href="intro.html#exercises">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="ranking.html#ranking"><span class="toc-section-number">2</span> Ranking</a><ul>
+<li><a href="ranking.html#maximin-and-maximax"><span class="toc-section-number">2.1</span> Maximin and Maximax</a></li>
+<li><a href="ranking.html#the-dominance-principle"><span class="toc-section-number">2.2</span> The Dominance Principle</a></li>
+<li><a href="ranking.html#more-than-two-options-and-two-states"><span class="toc-section-number">2.3</span> More than two options and two states</a></li>
+<li><a href="ranking.html#non-unique-recommendations"><span class="toc-section-number">2.4</span> Non-Unique Recommendations</a></li>
+<li><a href="ranking.html#independence-of-options-and-states"><span class="toc-section-number">2.5</span> Independence of Options and States</a></li>
+<li><a href="ranking.html#exercises-1">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#transitivity-and-completeness"><span class="toc-section-number">3</span> Transitivity and Completeness</a><ul>
+<li><a href="transitivity-and-completeness.html#notation"><span class="toc-section-number">3.1</span> Notation</a></li>
+<li><a href="transitivity-and-completeness.html#money-pump-arguments-for-axioms"><span class="toc-section-number">3.2</span> Money Pump Arguments for Axioms</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-transitivity"><span class="toc-section-number">3.3</span> Arguments for Transitivity</a></li>
+<li><a href="transitivity-and-completeness.html#arguments-for-completeness"><span class="toc-section-number">3.4</span> Arguments for Completeness</a></li>
+<li class="has-sub"><a href="transitivity-and-completeness.html#social-choice"><span class="toc-section-number">3.5</span> Social Choice</a><ul>
+<li><a href="transitivity-and-completeness.html#group-decisions-are-not-mere-sets-of-individual-decisions"><span class="toc-section-number">3.5.1</span> Group decisions are not mere sets of individual decisions</a></li>
+<li><a href="transitivity-and-completeness.html#plurality-and-runoffs"><span class="toc-section-number">3.5.2</span> Plurality and Runoffs</a></li>
+<li><a href="transitivity-and-completeness.html#the-borda-count-and-an-impossible-task"><span class="toc-section-number">3.5.3</span> The Borda Count and an Impossible Task</a></li>
+</ul></li>
+<li><a href="transitivity-and-completeness.html#limitations-and-key-take-aways"><span class="toc-section-number">3.6</span> Limitations and Key Take Aways</a></li>
+<li><a href="transitivity-and-completeness.html#exercises-2">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#utilities"><span class="toc-section-number">4</span> Utilities</a><ul>
+<li><a href="utilities.html#creating-an-interval-scale"><span class="toc-section-number">4.1</span> Creating an Interval Scale</a></li>
+<li class="has-sub"><a href="utilities.html#what-do-the-numbers-mean"><span class="toc-section-number">4.2</span> What do the numbers mean?</a><ul>
+<li><a href="utilities.html#material-and-money"><span class="toc-section-number">4.2.1</span> Material and money</a></li>
+<li><a href="utilities.html#hedonism-and-experience-based-theories"><span class="toc-section-number">4.2.2</span> Hedonism and Experience-based Theories</a></li>
+<li><a href="utilities.html#objective-list-theories"><span class="toc-section-number">4.2.3</span> Objective List Theories</a></li>
+<li><a href="utilities.html#preference-based-theories"><span class="toc-section-number">4.2.4</span> Preference-based Theories</a></li>
+</ul></li>
+<li class="has-sub"><a href="utilities.html#applications-and-challenges"><span class="toc-section-number">4.3</span> Applications and Challenges</a><ul>
+<li><a href="utilities.html#minimize-regret"><span class="toc-section-number">4.3.1</span> Minimize Regret</a></li>
+<li><a href="utilities.html#multiattribute-approach"><span class="toc-section-number">4.3.2</span> Multiattribute Approach</a></li>
+</ul></li>
+<li><a href="utilities.html#more-challenges-and-final-remarks"><span class="toc-section-number">4.4</span> More Challenges and Final Remarks</a></li>
+<li><a href="utilities.html#exercises-3">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="expected-utilities.html#expected-utilities"><span class="toc-section-number">5</span> Expected Utilities</a><ul>
+<li class="has-sub"><a href="expected-utilities.html#expected-utility-by-example"><span class="toc-section-number">5.1</span> Expected Utility by Example</a><ul>
+<li><a href="expected-utilities.html#step-one-compute-eu-of-each-option"><span class="toc-section-number">5.1.1</span> Step One: Compute EU of each option</a></li>
+<li><a href="expected-utilities.html#step-two-find-maximum-eu"><span class="toc-section-number">5.1.2</span> Step Two: Find maximum EU</a></li>
+</ul></li>
+<li><a href="expected-utilities.html#meu-maximize-expected-utility-strategy"><span class="toc-section-number">5.2</span> (MEU) Maximize Expected Utility Strategy</a></li>
+<li><a href="expected-utilities.html#application-combining-meu-and-the-multi-attribute-approach"><span class="toc-section-number">5.3</span> Application: Combining MEU and the Multi-Attribute Approach</a></li>
+<li><a href="expected-utilities.html#pascals-wager"><span class="toc-section-number">5.4</span> Pascal’s Wager</a></li>
+<li><a href="expected-utilities.html#key-take-aways"><span class="toc-section-number">5.5</span> Key Take Aways</a></li>
+<li><a href="expected-utilities.html#exercises-4">Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-about-meu"><span class="toc-section-number">6</span> Arguments about MEU</a><ul>
+<li><a href="arguments-about-meu.html#the-domain-of-meu"><span class="toc-section-number">6.1</span> The Domain of MEU</a></li>
+<li><a href="arguments-about-meu.html#long-run-arguments-for-meu"><span class="toc-section-number">6.2</span> Long Run Arguments for MEU</a></li>
+<li><a href="arguments-about-meu.html#two-kinds-of-arguments-against-meu"><span class="toc-section-number">6.3</span> Two Kinds of Arguments Against MEU</a></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-normative-meu"><span class="toc-section-number">6.4</span> Arguments Against Normative MEU</a><ul>
+<li><a href="arguments-about-meu.html#allais-paradox"><span class="toc-section-number">6.4.1</span> Allais Paradox</a></li>
+<li><a href="arguments-about-meu.html#ellsbergs-paradox"><span class="toc-section-number">6.4.2</span> Ellsberg’s Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-sure-thing-principle"><span class="toc-section-number">6.4.3</span> The Sure Thing Principle</a></li>
+<li><a href="arguments-about-meu.html#st-petersburg-paradox"><span class="toc-section-number">6.4.4</span> St Petersburg Paradox</a></li>
+<li><a href="arguments-about-meu.html#the-two-envelope-paradox"><span class="toc-section-number">6.4.5</span> The Two Envelope Paradox</a></li>
+</ul></li>
+<li class="has-sub"><a href="arguments-about-meu.html#arguments-against-descriptive-meu"><span class="toc-section-number">6.5</span> Arguments Against Descriptive MEU</a><ul>
+<li><a href="arguments-about-meu.html#risk-aversion"><span class="toc-section-number">6.5.1</span> Risk Aversion</a></li>
+<li><a href="arguments-about-meu.html#loss-aversion"><span class="toc-section-number">6.5.2</span> Loss Aversion</a></li>
+<li><a href="arguments-about-meu.html#endowment-effect"><span class="toc-section-number">6.5.3</span> Endowment Effect</a></li>
+<li><a href="arguments-about-meu.html#prospect-theory"><span class="toc-section-number">6.5.4</span> Prospect Theory</a></li>
+<li><a href="arguments-about-meu.html#weighting-effects-and-why-they-matter"><span class="toc-section-number">6.5.5</span> Weighting Effects and Why They Matter</a></li>
+</ul></li>
+<li><a href="arguments-about-meu.html#summary-1"><span class="toc-section-number">6.6</span> Summary</a></li>
+<li><a href="arguments-about-meu.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="intervention.html#intervention"><span class="toc-section-number">7</span> Intervention</a><ul>
+<li><a href="intervention.html#causal-models"><span class="toc-section-number">7.1</span> Causal Models</a></li>
+<li><a href="intervention.html#common-causes"><span class="toc-section-number">7.2</span> Common Causes</a></li>
+<li><a href="intervention.html#application-to-newcomb-like-problems"><span class="toc-section-number">7.3</span> Application to Newcomb-like Problems</a></li>
+<li><a href="intervention.html#the-locus-of-choice-and-types-of-decision-theories"><span class="toc-section-number">7.4</span> The Locus of Choice and Types of Decision Theories</a></li>
+<li><a href="intervention.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#probabilities"><span class="toc-section-number">8</span> Probabilities</a><ul>
+<li><a href="probabilities.html#measures"><span class="toc-section-number">8.1</span> Measures</a></li>
+<li><a href="probabilities.html#normalized-measures"><span class="toc-section-number">8.2</span> Normalized Measures</a></li>
+<li class="has-sub"><a href="probabilities.html#possibilities-and-truth-tables"><span class="toc-section-number">8.3</span> Possibilities and Truth Tables</a><ul>
+<li><a href="probabilities.html#tautologies"><span class="toc-section-number">8.3.1</span> Tautologies</a></li>
+<li><a href="probabilities.html#equivalence"><span class="toc-section-number">8.3.2</span> Equivalence</a></li>
+<li><a href="probabilities.html#inconsistency"><span class="toc-section-number">8.3.3</span> Inconsistency</a></li>
+<li><a href="probabilities.html#logic-probabilities"><span class="toc-section-number">8.3.4</span> Logic Probabilities</a></li>
+</ul></li>
+<li class="has-sub"><a href="probabilities.html#exercises-7"><span class="toc-section-number">8.4</span> Exercises</a><ul>
+<li><a href="probabilities.html#proporitions-to-probabilities"><span class="toc-section-number">8.4.1</span> Proporitions to Probabilities</a></li>
+<li><a href="probabilities.html#the-conjunction-fallacy"><span class="toc-section-number">8.4.2</span> The Conjunction Fallacy</a></li>
+<li><a href="probabilities.html#atomic-vs-conjunctions"><span class="toc-section-number">8.4.3</span> Atomic vs Conjunctions</a></li>
+<li><a href="probabilities.html#disjunction"><span class="toc-section-number">8.4.4</span> Disjunction</a></li>
+<li><a href="probabilities.html#conjunctions-and-disjunctions"><span class="toc-section-number">8.4.5</span> Conjunctions and Disjunctions</a></li>
+<li><a href="probabilities.html#linda-again"><span class="toc-section-number">8.4.6</span> Linda (again)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="odds-and-actions.html#odds-and-actions"><span class="toc-section-number">9</span> Odds and Actions</a></li>
+<li><a href="conditional-probabilities-and-likelihoods.html#conditional-probabilities-and-likelihoods"><span class="toc-section-number">10</span> Conditional Probabilities and Likelihoods</a></li>
+<li><a href="base-rates-priors-and-bayes-rule.html#base-rates-priors-and-bayes-rule"><span class="toc-section-number">11</span> Base Rates, Priors, and Bayes Rule</a></li>
+<li><a href="learning-and-motivated-reasoning.html#learning-and-motivated-reasoning"><span class="toc-section-number">12</span> Learning and Motivated Reasoning</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="arguments-about-meu" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Arguments about MEU</h1>
+<p>We’ve been developing a theory of decision making called Maximize Expected Utility (MEU). As with the development of any theory, it is a good idea to take a step back and consider: i) what is the domain/range/scope of the theory? ii) what are some reasons for thinking the theory is true? iii) what are some reasons for thinking the theory is false? This chapter will examine some preliminary answers to these questions.</p>
+<div id="the-domain-of-meu" class="section level2">
+<h2><span class="header-section-number">6.1</span> The Domain of MEU</h2>
+<p>When we ask about the domain, range, or scope of a theory, we’re asking what a theory is about. Number theory is a theory about numbers, it is not a theory about fashion, social justice, or economic systems. Jeremy Bentham’s Utilitarianism, or Immanuel Kant’s Deontology, are theories about ethical actions, they are not theories about the movement of celestial bodies, logical entailment, or the grammar of German.</p>
+<p>Maximize expected utility is a theory of decision making. We need to take some care in what we take to count as a decision, such that MEU is a theory of it. For example, perhaps there are “choices” that we make that we don’t think fall under the purview of decision making, and thus MEU isn’t an analysis of that. Some examples that are, at best, fringe cases of decisions may include: when to fall asleep, being surprised at the sight of a snake, whether and when to hiccup, when to get hungry or dehydrated, etc.<label for="tufte-sn-52" class="margin-toggle sidenote-number">52</label><input type="checkbox" id="tufte-sn-52" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">52</span> Even these examples are a bit tricky, since we do seem to have some indirect way of nudging the times at which these things happen. E.g., if I eat at noon but then nothing else, there’s a good chance I’m going to get hungry between 4pm and 7pm. But still, I don’t really seem to choose the moment I get hungry.</span></p>
+<p>Relatedly, we need to also recognize that MEU is a mathematically precise theory of phenomena that are not typically so precise. That by itself is neither a point for nor against it. We have all sorts of examples where theories are more process than the real world applications require. Think of theories behind baking: it won’t matter much whether your oven is 350 or 351 degrees for the cake to bake. What matters is that the theory (or in this case recipe) is an idealized version of something that is more approximate, and so that to the extent that the approximation is close enough, the theory gets the right answer or prediction.<label for="tufte-sn-53" class="margin-toggle sidenote-number">53</label><input type="checkbox" id="tufte-sn-53" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">53</span> We make all sorts of idealizations. Think of distances between cities: Is it really exactly 32 miles?</span></p>
+<p>For the domain in question, there are all sorts of ways that ordinary people make decisions that aren’t exactly like what MEU describes or prescribes, but are close enough. We almost never, for example, have in mind utility values that can be represented numerically. We also have mistaken beliefs about how the world works and our probability tables will not perfectly match the truth. Such imperfections are to be expected.</p>
+<p>So what is MEU a theory of? It is a theory of choices that are made when we determine the approximate value of each relevant outcome, determine the approximate probability of each of these outcomes, and then use that information to estimate the expected value of each option. To the extent that choices are made in this way, is the extent to which MEU applies. Call these kinds of choices instances of <strong>standard decision making</strong>.</p>
+<p>Standard decision making is closely connected with, and sometimes treated the same as, the concept of rationality. Rationality is a normative concept. As such, there is a three way distinction. There is the domain of the non-rational (or arational), the irrational, and the rational. The non-rational are those behaviors or decisions that we take to be outside the scope of rationality. This is the class of things where we think normative considerations are not applicable; it includes those things that we think are neither rational nor irrational. As an extreme example, the fact that unsupported pens fall to the ground is neither rational nor irrational - it is non-rational.<label for="tufte-sn-54" class="margin-toggle sidenote-number">54</label><input type="checkbox" id="tufte-sn-54" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">54</span> Some authors use ‘arational’ to mean the same thing.</span> Similarly, the examples we listed above, like the very moment we fall asleep, whether or when we hiccup, etc., are not the sorts of behaviors we would ascribe rationality to, and hence are non-rational.</p>
+<p>While many behaviors are non-rational, there is a set of behaviors for which we are willing to ascribe reasons, i.e., that can be scrutinized with an eye towards justifying (or failing to justify). That is the domain to which standard decision making applies and that MEU is a theory of. Here, when a choice is made with a good reason, that should be consistent with what MEU recommends. On the other hand, if a choice is made with a bad reason, then that should be at odds with what MEU recommends. To this end, we can understand MEU as a kind of theory of rationality (or, standard decision making).</p>
+<p>There are interesting cases where it seems that choices are not made in the standard decision making way, and thus MEU does not apply. The philosopher L.A. Paul has argued that the decision to have a first child is one such example.<label for="tufte-sn-55" class="margin-toggle sidenote-number">55</label><input type="checkbox" id="tufte-sn-55" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">55</span> See her paper “What You Can’t Expect When You’re Expecting” and her later book <em>Transformative Experiences</em>.</span> Many websites, life-coaches, and family advisors give the impression that the decision to have a first child is a quintessential example of standard decision making that MEU is about: you are encouraged to think about the utilities of outcomes (how much satisfaction do you expect to get from being a parent?) and weight them by their probabilities (what are the chances that you will have a healthy child?) to estimate the expectations of the options to have a child or not. But L.A. Paul argues that contrary to such impressions, the decision to have a child is not like this at all. In fact, she argues that the decision to have a child is not a rational one. To be clear, she is not saying it is <em>irrational</em> to have a child (or not to). She is saying that it is a choice that is very different than the types of decisions that we make that MEU is intended to be a theory of. Or in our terminology: the choice to have a first child is a non-standard decision, and arguably non-rational.</p>
+<p>Her argument boils down to the following. There are two types of <em>transformations</em> that can occur from the time before you have your first child to after. One is called an <em>epistemic</em> transformation. The claim here is that no one knows what it is like to experience having a child until they have had one. It doesn’t matter if you’ve babysit a lot and taken care of children generally. The claim is that you simply do not have access to the relevant experience of having <em>your own</em> child. Perhaps you will like it, perhaps you will feel depressed, you simply don’t know. Moreover, you have no guides to predicting what your experience will be like, no matter what experiences you have had so far - that’s the idea behind the event being <em>transformative</em>. If you believe that epistemic transformations are possible and that having one’s first child is an instance of it, then it is not possible for you to even get approximate utility values for the outcomes of your decision. So the choice of whether to be a child is not an instance of standard decision making.</p>
+<p>The second kind of transformation is <em>personal</em>. In a personal transformation, an event changes you in a profound way such that your core preferences are affected. Having your first child is often said to produce personal transformations in some people, and often in unpredictable ways. If you believe that personal transformations are possible and that having your first child is an example of that, then again you have no way to use your current preferences as a guide for thinking about what your preferences will be in the outcomes of where you have your first child.</p>
+<p>There is, L.A. Paul admits, a workaround that can convert the choice to have a child so that it comes really close to being a standard decision. The only thing we need to do in this workaround is not use your current preferences, but instead use only “external” considerations. Strictly speaking, the absence of using your current preferences as guides for approximating utility values makes this workaround non-standard. Even if it is non-standard, we might still want to qualify it as a kind of “rational” deliberation - but let’s leave that to the side for a moment. What matters here is that this non-standard approach makes use of all the tools we have been describing as part of standard decision making. So what is this workaround?</p>
+<p>Let’s imagine there are four relevant groups that we will use as our external considerations: i) Lucky Parents, ii) Unlucky Parents, iii) Lucky Child-frees, and iv) Unlucky Child-frees. The Lucky Parents class includes those individuals that chose to have a child and it turns out that this outcome has an overall value that is higher than had they remained childless. The Unlucky Parents are those people who had a child but the value of this outcome is lower than had they remained childless. Similarly, the Lucky Child-frees is the class of individuals who remained childless and the value of that outcome is higher than if they had had a child. And finally, the Unlucky Child-frees are those individuals who remained childless but the value of this outcome is lower than had they had a child.</p>
+<p>Using these four groups, we can ask what the empirical evidence is about their sizes. You could then use that information as a guide to estimate which group you’re most likely to fall into. We’ll assume, for the sake of illustration, that your preference is to be in the largest group.<label for="tufte-sn-56" class="margin-toggle sidenote-number">56</label><input type="checkbox" id="tufte-sn-56" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">56</span> As we’ll see later, this is probably not the right way to make the inference. What matters is the <em>relative</em> sizes of the groups. Reasoning about (causal) effectivness is tricky and we’ll learn how to do it better in later chapters.</span></p>
+<p>What does the empirical literature say? It is, as with a lot of science, a bit mixed and in some cases controversial. But we can say at least this much. There is little to no evidence that suggests that Lucky Parents is much larger than Unlucky Parents, nor is there evidence that Unlucky Child-frees is much larger than Lucky Child-frees. Moreover, there is evidence that suggests that overall well-being is likely to go down if you choose to have a child.<label for="tufte-sn-57" class="margin-toggle sidenote-number">57</label><input type="checkbox" id="tufte-sn-57" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">57</span> See McClanahan and Adams (1989), Simon (2008), and Evenson and Simon 2005. Some reports say that fathers enjoy higher levels of life satisfaction, but mothers do not (Nelson et al. 2013).</span></p>
+<p>The takeaway of L.A. Paul’s argument is not about the rationality or irrationality of having a first child. Her argument is an illustration of what is and is not in the scope of a theory. She is arguing against a common conception that the choice to have a first child is an instance of standard decision making. As such an instance, there are either good justifications or poor justifications and the choice is either rational or irrational. But according to her argument, this way of thinking of the choice is mistaken. Instead, she’s arguing that this choice is either non-rational or at best non-standard. In either case, her point is that the choice to have a first child is outside the scope of MEU.</p>
+<p>For the rest of the chapter, we’re going to narrow in on the domain of standard decision making and consider reasons for thinking MEU is a good theory of it.</p>
+</div>
+<div id="long-run-arguments-for-meu" class="section level2">
+<h2><span class="header-section-number">6.2</span> Long Run Arguments for MEU</h2>
+<p>Let’s assume that we’re considering any example of standard decision making. Some of the most common arguments that MEU is a good theory of such decision making are called “long run” argument. Long run arguments claim that you will be better off in the long run if you make decisions by maximizing expected utility. This argument is based on the law of large numbers. Suppose that an outcome has a probability <span class="math inline">\(p\)</span> of occurring, e.g., the chance of rolling a one with a fair six-sided die is <span class="math inline">\(1/6=0.167\)</span>. Then the law of large numbers says that as the number of rolls (or `random experiments’) <span class="math inline">\(n\)</span> increases towards infinity, the proportion of rolls that lead to one will be 0.167. If you roll only a few times, you might never see one, or you might see it a high number of times, but as you roll the die hundreds of times, the fraction of times you see one relative to the other numbers becomes increasingly closer to 1/6.</p>
+<p>When we apply this idea to decision making, we are saying that if you face the same decision over and over again and use the maximize expected utility strategy, then the utilities you will get on average will converge to the maximum expected utility. For example, suppose that you have a choice between getting $1 for sure, or getting $3 if a fair coin lands heads and nothing if it lands tails. The expected utility of the coin toss choice is $1.5, which is higher than the expected $1 of the ‘for sure’ choice. If you only get to flip the coin once, then there’s a 50% chance you’ll get nothing at all. But the law of large numbers says that if you get to flip the coin many times, on average you’ll get $1.5. So while choosing the ‘for sure’ option 100 times will lead to $100, choosing the ‘flip coin’ option 100 times will, on average, yield $150. For this reason, MEU recommends the ‘flip coin’ option.</p>
+<p>How good is the long run argument? There is a famous phrase from Keynes: “in the long run we’re all dead.”<label for="tufte-sn-58" class="margin-toggle sidenote-number">58</label><input type="checkbox" id="tufte-sn-58" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">58</span> Around the same time as Keynes, Frank Ramsey had the following to say: “In time the world will cool and everything will die; but that is a long time off still, and its present value at compound discount is almost nothing. Nor is the present less valuable because the future will be blank. Humanity, which fills the foreground of my picture, I find interesting and on the whole admirable. I find, just now at least, the world a pleasant and exciting place. You may find it depressing; I am sorry for you, and you despise me….On the other hand, I pity you with reason, because it is pleasanter to be thrilled than to be depressed, and not merely pleasanter but better for all one’s activities.”</span> Let’s unpack how this could be turned into an objection against the long run argument. One way of thinking about the law of large numbers is that we have to do infinitely many experiments (e.g., coin flips) for the average payoff to converge to the expected utility. Since we don’t actually have an infinite amount of time, one could say that the use of the mathematical result shouldn’t be used in this context.</p>
+<p>There are, however, many places where mathematical idealizations don’t map onto the world but are nevertheless good enough approximations. We need not get bogged down here. The long run argument needn’t necessarily require that infinitely many experiments are done. It is sufficient to notice that over time the amount of variation is expected to decrease and there is a tendency to converge towards the expected utility. If you flip a coin twice, there are four possible sequences: HH, HT, TH, and TT. In two of the four we get 50% heads, in one we get 100% heads, and in the last one we get 0% heads. As we increase the number of flips, there is only one way to get 100% heads, but the number of ways to get a sequence of around 50% heads increases.<label for="tufte-sn-59" class="margin-toggle sidenote-number">59</label><input type="checkbox" id="tufte-sn-59" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">59</span> Note this point is not to be confused with the Gambler’s Fallacy, which we turn to later.</span></p>
+<p>Perhaps a different way of making the objection is that for many of our decisions we will only make them once or a few times. Whether or not to go to war or whom to marry are decisions that happen infrequently enough that the law of large numbers doesn’t seem to apply (leaving aside considerations about whether these are instances of transformative experiences, as discussed above). In fact, some of our decision making behaviors seem to indicate that when we are faced with uncertainty in a decision we will only make once, we prefer <em>not</em> to go the route of maximize expected utility but rather with an option where we are more certain about the outcome. We’ll see this point when we talk about risk aversion.</p>
+</div>
+<div id="two-kinds-of-arguments-against-meu" class="section level2">
+<h2><span class="header-section-number">6.3</span> Two Kinds of Arguments Against MEU</h2>
+<!-- This should cover both paradoxes and the empirical literature. The goal is to set up the next chapter, which asks us to think more closely about intervention. That in turn should help us think about probabilities. -->
+<p>There are two styles of argument against the strategy of maximizing expected utility. One style of argument against MEU is to show that its assumptions can be used to generate paradoxes, i.e., conclusions that are at best unintuitive and at worst contradictory. Conclusions that are unintuitive are not necessarily surefire objections - one can always “bite the bullet” and accept that some consequences are quite surprising. But at the very least one must accept that these are ``costs" of accepting the position. To be clear, these arguments we’re going to consider target the Maximize Expected Utility principle as a normative theory. That is, we’ll look at examples where we’re considering how we think that an ideal agent should reason, and show that MEU is not consistent with such an ideal agent.</p>
+<p>The Maximize Expected Utility principle is sometimes interpreted as a normative rule. As such, failing to behave in accordance with it is evidence of non-rationality or even irrationality (assuming the behavior is within the scope of MEU). MEU can also be interpreted as a description of how reasoning is done, at least when it’s done at its best. In this case, if we make sure to set up situations where decision making hangs only on the variables in question, but agents fail to make decisions as predicted by MEU, then that is evidence that MEU is false.</p>
+<p>Evaluating MEU from a descriptive standpoint can be a bit tricky and it’s easy to slide back and forth between the normative and descriptive divide. Here is a helpful example.<label for="tufte-sn-60" class="margin-toggle sidenote-number">60</label><input type="checkbox" id="tufte-sn-60" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">60</span> Thanks to Trevor Woodward for bringing this to my attention. You can find the original case <a href="https://interestingengineering.com/understanding-hyatt-regency-walkway-collapse">here.</a></span> Suppose some engineers come up with a principle about building bridges. If a bridge collapses, it is possible to lay blame on the construction of the bridge, not on the principle, e.g. perhaps the joints weren’t secured properly and that’s what caused the collapse. On the other hand, if a bridge is built with all the appropriate specifications and counts as a good representation of a bridge, and yet it still collapses, that can be treated as evidence that there’s something wrong about the principle governing bridge building. In the same way, by carefully constructing experiments so that humans are good representations of “rational decision making”, we can test whether MEU is a good description of it.</p>
+<p>So we are also going to look at a few popular examples of how human reasoning appears to be at odds with MEU from a descriptive perspective. In order to keep things simple, we’ll work with monetary amounts. As we’ve seen, the utility of money has a diminishing effect. As long as we keep this caveat in mind, it’s simpler to represent the examples with money. But rest assured that the actual experiments will have controlled appropriately for some of these complications.</p>
+</div>
+<div id="arguments-against-normative-meu" class="section level2">
+<h2><span class="header-section-number">6.4</span> Arguments Against Normative MEU</h2>
+<div id="allais-paradox" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Allais Paradox</h3>
+<p>The Allais Paradox is named after its discoverer, Maurice Allais, a Nobel Prize winning economist. Consider the four following gamble options in a lottery that has exactly 100 tickets.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Ticket 1</th>
+<th align="center">Tickets 2-11</th>
+<th align="center">Tickets 12-100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gamble 1</td>
+<td align="center">$1M</td>
+<td align="center">$1M</td>
+<td align="center">$1M</td>
+</tr>
+<tr class="even">
+<td>Gamble 2</td>
+<td align="center">$0</td>
+<td align="center">$5M</td>
+<td align="center">$1M</td>
+</tr>
+<tr class="odd">
+<td>Gamble 3</td>
+<td align="center">$1M</td>
+<td align="center">$1M</td>
+<td align="center">$0</td>
+</tr>
+<tr class="even">
+<td>Gamble 4</td>
+<td align="center">$0</td>
+<td align="center">$5M</td>
+<td align="center">$0</td>
+</tr>
+</tbody>
+</table>
+<p>Some decision theorists have suggested that it is perfectly reasonable to prefer Gamble 1 over Gamble 2. Even though Gamble 2 has an expected utility of $1.39M, if ticket 1 is drawn you get nothing at all. Gamble 1, on the other hand, makes winning $1M a sure thing. If you only get to play this lottery once and you’re averse to taking risk, Gamble 1 seems the way to go.</p>
+<p>In addition, those same decision theorists say it is perfectly reasonable to prefer Gamble 4 over Gamble 3. Gamble 3 has an expected utility of $0.11M while Gamble 4 has an expected utility of $0.5M.</p>
+<p>As a matter of empirical fact, people tend to prefer 1 over 2, and 4 over 3. But even if people didn’t, some argue that an ideal agent with these preferences is still rational.</p>
+<p>Here’s the problem: There is no utility function that can produce the result that Gamble 1 <span class="math inline">\(\succ\)</span> Gamble 2 and Gamble 4 <span class="math inline">\(\succ\)</span> Gamble 3. We can actually prove this. To do so, we need to show that the difference in expected utility between Gamble 1 and Gamble 2 is the same as the difference between Gamble 3 and 4. If that difference is the same, then there’s no way that Gamble 1 <span class="math inline">\(\succ\)</span> Gamble 2 and Gamble 4 <span class="math inline">\(\succ\)</span> Gamble 3 (although there’s the limiting case where they are equal, but that would mean indifference, which is not what we’re after). Note that the probability of drawing ticket 1 is 0.01, the probability of drawing one of tickets 2-11 is 0.1, and the probability of drawing one of tickets 12-100 is 0.89. Also, keeping in mind that utility doesn’t correspond directly to money, let’s say <span class="math inline">\(u\)</span> is a utility function that takes money as input (like in our discussion of marginal utilities). If we plug these probabilities into the expected utility equations, we can calculate the following differences:</p>
+<p><span class="math display">\[
+\begin{split}
+&amp; Exp(\text{Gamble 1}) - Exp(\text{Gamble 2}) \\
+&amp;= u(1\text{M}) - [0.01u(0\text{M}) + 0.1u(5\text{M}) + 0.89u(1\text{M})] \\
+&amp;= 0.11u(1\text{M}) - [0.01u(0)+0.1u(5\text{M})]
+\end{split}
+\]</span></p>
+<p><span class="math display">\[
+\begin{split}
+&amp; Exp(\text{Gamble 3}) - Exp(\text{Gamble 4})  \\
+&amp;= [0.11u(1\text{M}) + 0.89u(0)]-[0.9u(0\text{M})+0.1u(5\text{M})]\\
+&amp;= 0.11u(1\text{M}) - [0.01u(0)+0.1u(5\text{M})]
+\end{split}
+\]</span></p>
+<p>Note that final lines of the equations show that the differences between Gamble 1 and Gamble 2, and Gamble 3 and 4, are exactly the same. That means that no matter what utility function you give for money, there’s simply no way to make Gamble 1 have a higher expected utility than Gamble 2 and simultaneously have a higher expected utility for Gamble 4 than Gamble 3.</p>
+<p>It’s worth pointing out that the situation we are working in is a decision under risk. That is, this is a situation where, although we are uncertain about which outcomes will occur, we can at least assign probabilities to those outcomes. What the Allais Paradox highlights, at the very least, is that we tend to be (and, we think ideal agents should be) averse to risk even when we know what those risks are.</p>
+<p>The next paradox will show that our aversion is not only to known risks, but also to unknown risks.</p>
+</div>
+<div id="ellsbergs-paradox" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Ellsberg’s Paradox</h3>
+<p>The Ellsberg’s Paradox is named after Daniel Ellsberg, who discovered it while being a Ph.D. student in economics at Harvard in the 1950s.</p>
+<p>In this example, let’s suppose that there is an urn filled with 90 balls, numbered 1 through 90. We’ll assume that balls 1-30 are red. Further, we’ll assume that balls 31-90 are either black or yellow, but we leave it unknown what the proportion between black and yellow is. One ball will be blindly drawn from the urn. Given this setup, consider the following gambles and their payouts given the color of the ball that will be drawn.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Balls 1-30</th>
+<th align="right">Balls 31…</th>
+<th align="left">…through 90</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="center">Red</td>
+<td align="right">Black</td>
+<td align="left">Yellow</td>
+</tr>
+<tr class="even">
+<td>Gamble 1</td>
+<td align="center">100</td>
+<td align="right">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td>Gamble 2</td>
+<td align="center">0</td>
+<td align="right">100</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td>Gamble 3</td>
+<td align="center">100</td>
+<td align="right">0</td>
+<td align="left">100</td>
+</tr>
+<tr class="odd">
+<td>Gamble 4</td>
+<td align="center">0</td>
+<td align="right">100</td>
+<td align="left">100</td>
+</tr>
+</tbody>
+</table>
+<p>Along the same lines as the Allais paradox, if we’re averse to risk, it seems reasonable to prefer Gamble 1 over Gamble 2. That’s because, even though drawing a red ball is not guaranteed (there’s a 30/90 = 33% chance of drawing red) we at least know what that risk is, whereas the probability of drawing a black ball is unknown (except that it’s somewhere between 0/90 and 60/90). It will turn out, however, even if you believe that there are more black balls than red balls (which means your odds of picking a black ball is higher than a red ball), we’ll still get the paradox. For simplicity’s sake, let’s assume Gamble 1<span class="math inline">\(\succ\)</span>Gamble 2.</p>
+<p>If we look at Gamble 4 we notice that the chances of winning $100 is 60/90 because, even though it is unknown what proportion of black to yellow balls there are, we get $100 whether the ball is black or yellow (but nothing if it’s red). Gamble 3, on the other hand, has a 30/90 chance of paying out $100 (when red is draw) <em>plus</em> an unknown chance of paying out $100 if the ball is yellow. For all you know, this chance could be 0/90 and upwards of 60/90. Indeed, if all the balls from 31 through 90 are yellow, then Gamble 3 would pay out $100 with a 100% chance. But again, you don’t know the proportion of black to yellow. So, if we consider risk aversion again, it seems that Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3.</p>
+<p>The problem is that there is no utility function that can recommend both Gamble 1<span class="math inline">\(\succ\)</span>Gamble 2 and Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3. We can demonstrate this by showing that Gamble 2<span class="math inline">\(\succ\)</span>Gamble 1 if and only if Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3. To demonstrate this, we calculate the difference in expected utilities between Gambles 1 and 2, and Gambles 3 and 4. For simplicity, we’ll use M to represent the utility of $100 and assume that the utility of $0 is 0. We’ll use B to represent the number of black balls.</p>
+<p><span class="math display">\[
+\begin{split}
+&amp; Exp(\text{Gamble 1}) - Exp(\text{Gamble 2})  \\
+&amp;= 30/90\text{M} - \text{B}/90\text{M}  \\
+&amp;= 30\text{M} - \text{BM}
+\end{split}
+\]</span></p>
+<p><span class="math display">\[
+\begin{split}
+&amp; Exp(\text{Gamble 3}) - Exp(\text{Gamble 4})  \\
+&amp;= 30/90\text{M} + (60-\text{B})/90\text{M}-60/90\text{M}  \\
+&amp;= 30\text{M} + (60-\text{B})\text{M} - 60\text{M} \\
+&amp;= 30\text{M} - \text{BM}
+\end{split}
+\]</span></p>
+<p>Notice that the differences in expected utilities in the pairs of gambles are identical. That means there’s no way for Gamble 1<span class="math inline">\(\succ\)</span>Gamble 2 and simultaneously Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3. Moreover, if we were to insist that Gamble 2<span class="math inline">\(\succ\)</span>Gamble 1, then that will force us to commit to Gamble 3<span class="math inline">\(\succ\)</span>Gamble 4; a situation where we are avoiding known risks and preferring unknown risks.</p>
+<p>The Ellsberg and Allais paradoxes have the same flavor, but they illustrate a subtle difference. Recall that in addition to decisions under certainty, we distinguished between two different kinds of <em>un</em>certainty: known risk (i.e., decisions under risk) and unknown risk (i.e., decision under ignorance). The Allais paradox is an illustration of our preference for options that are certain over options with known risk. The Ellsberg paradox illustrates that we prefer known risk to unknown risk. The Maximize Expected Utility principle, however, does not distinguish between these three kinds of options. It treats certainty, known risk, and unknown risk as all the same - all that matters is the expected utility of the option.</p>
+<p>What the Ellsberg and Allais paradoxes have in common is that they invite us to violate a rule known as the <strong>Sure Thing Principle</strong>, which we discuss in the next section.</p>
+</div>
+<div id="the-sure-thing-principle" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> The Sure Thing Principle</h3>
+<p>Consider again the table from the Allais paradox. Notice that Gambles 1 and 2 have the same outcome for tickets 12-100. Notice also that Gambles 3 and 4 agree on tickets 12-100.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Ticket 1</th>
+<th align="center">Tickets 2-11</th>
+<th align="center">Tickets 12-100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gamble 1</td>
+<td align="center"><strong>$1M</strong></td>
+<td align="center"><strong>$1M</strong></td>
+<td align="center"><em>$1M</em></td>
+</tr>
+<tr class="even">
+<td>Gamble 2</td>
+<td align="center"><strong>$0</strong></td>
+<td align="center"><strong>$5M</strong></td>
+<td align="center"><em>$1M</em></td>
+</tr>
+<tr class="odd">
+<td>Gamble 3</td>
+<td align="center"><strong>$1M</strong></td>
+<td align="center"><strong>$1M</strong></td>
+<td align="center"><em>$0</em></td>
+</tr>
+<tr class="even">
+<td>Gamble 4</td>
+<td align="center"><strong>$0</strong></td>
+<td align="center"><strong>$5M</strong></td>
+<td align="center"><em>$0</em></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Sure Thing Principle</strong> says that when you compare two options, like Gambles 1 and 2, you can ignore the states on which they agree (in italics) and compare them only on the states in which they disagree (boldfaced). In this case, the Sure Thing Principle says that when comparing Gambles 1 and 2, we need don’t need to consider tickets 12-100, we can just look at the states of ticket 1 and tickets 2-11. The same goes for comparing gambles 3 and 4.</p>
+<p>If we ignore the last column, as the Sure Thing Principle says we can, we’ll notice that the comparison between gambles 1 and 2 is <em>exactly</em> the same as the comparison between gambles 3 and 4. That is, from the perspective of ticket 1 and tickets 2-11, Gamble 1 is the same as Gamble 3, and Gamble 2 is the same as Gamble 4.</p>
+<p>The Maximize Expected Utility rule entails the Sure Thing Principle. That is, any violation of the Sure Thing Principle will also be a violation of Maximize Expected Utility. Or put differently again, if you like MEU, then you also should like the Sure Thing Principle. In the above Allais table, the Sure Thing Principle effectively says that the comparison between gambles 1 and 2 is the same comparison as gambles 3 and 4. By these lights, the recommendation by MEU is correct. That means that our intuition that Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3 but Gamble 1<span class="math inline">\(\succ\)</span>Gamble 2 is mistaken. The Allais paradox, according to this analysis, is starting off on the wrong foot.</p>
+<p>A similar analysis of the Ellsberg paradox tells us that our intuition that Gamble 4<span class="math inline">\(\succ\)</span>Gamble 3 and Gamble 1<span class="math inline">\(\succ\)</span>Gamble 2 must be mistaken. In this case, the state that the Sure Thing Principle says we can ignore is when the ball is yellow. By doing so, we see that the comparison between gambles 1 and 2 is the same as the comparison between gambles 3 and 4.</p>
+<p>Given that our initial intuitions about the gambles are at odds with the Sure Thing Principle, it is perfectly reasonable to ask which one we should adopt. Should we trust our intuitions, or should we trust the Sure Thing Principle? When addressing the Allais Paradox, Leonard Savage had this to say in favor of the Sure Thing Principle:</p>
+<blockquote>
+<p>if one of the tickets number from 12 through 100 is drawn, it does not matter, in either situation which gamble I choose. I therefore focus on the possibility that one of the tickets numbered from 1 through 11 will be drawn, in which case [the choice between Gamble 1 and Gamble 2 and between Gamble 3 and Gamble 4] are exactly parallel <span class="math inline">\(\ldots\)</span> It seem to be that in reversing my preference between [Gamble 3 and Gamble 4] I have corrected an error. (Savage 1954: 103)</p>
+</blockquote>
+<p>Not everyone is convinced, however. In fact, in Savage’s axiomatization of the expected utility principle, the most controversial axiom is the Sure Thing Principle. At the very least, one thing we can say is that neither the Allais and Ellsberg paradoxes are knock-down arguments against Maximize Expected Utility. Another thing we can say is that we’ve uncovered an important assumption about MEU, namely that if it’s true, the Sure Thing Principle has to be true as well.</p>
+</div>
+<div id="st-petersburg-paradox" class="section level3">
+<h3><span class="header-section-number">6.4.4</span> St Petersburg Paradox</h3>
+<p>Consider the St. Petersburg game. The game starts by flipping a fair coin. If it lands tails you flip the coin again. When it lands heads up the game is over. The idea is to play for as long as you can. There’s a prize worth <span class="math inline">\(2^n\)</span> units of utility, where <span class="math inline">\(n\)</span> is the number of times the coin was flipped. So, if your first flip was heads, then the prize would be 2 units of utility. If you flip the coin 4 times where you get three tails and then a heads, i.e., TTTH, then the prize is <span class="math inline">\(2^4=2\times2\times2\times2=16\)</span>. How much would you be willing to pay to play the St. Petersburg game?</p>
+<p>According to MEU, you should be willing to pay any finite amount of utility to play the St. Petersburg game. Here’s why. The probability of flipping a coin <span class="math inline">\(n\)</span> times, where <span class="math inline">\(n\)</span> is the first time that the coin lands heads, is <span class="math inline">\((\frac{1}{2})^n\)</span>. The payoff for flipping the coin <span class="math inline">\(n\)</span> times is <span class="math inline">\(2^n\)</span>. The expected utility rule says to weight the utility of each possible outcome according to its probability, and then sum them up. This gives us the following sequence of possible series of flips:</p>
+<p>In other words, the expected utility of the St. Peterburg game is infinitely many utilities. So, we should be willing to pay any amount that is less than infinitely many utilities. Most people think it is absurd to pay any large finite amount. It’s unlikely that you’re willing to pay even a few hundred units of utility. The probability of getting a large sequence of tails before a heads is diminishingly small.</p>
+<p>This paradox was discovered by Daniel Bernoulli (1700-1782), a Swiss mathematician that was working in St. Petersburg at the time. In response to the paradox, some, like Buffon did in 1745, argue that some outcomes should be ignored if they are beyond reasonable or practical concern, if they are “morally impossible”.</p>
+<p>There is a closely related idea to Buffon’s suggestion, known as <em>de minimis</em> risk. In risk analysis, sufficiently improbable outcomes, like a comet strike, are ignored because their probabilities are too low to play a significant role in risk analysis.</p>
+<p>If we ignore sufficiently improbable events, then we can block the St. Peterburg paradox. Say that we only consider outcomes that have at least a 5% chance of happening (5% is actually still quite high from a risk analysis perspective, we’re just using this number to illustrate a point). Then the last outcome you would consider in the sequence of possible series of coin flips is TTTH, which has a probability of <span class="math inline">\(0.5^4=0.0625\)</span> or a 6.25% chance. In other words, you would ignore all sequences where there are 5 or more flips. That is, you would only consider the follow sequence:</p>
+<p>There are two related concerns with this solution. One, we haven’t provided any reason for why 5% should be the minimum probability that an outcome needs to have to be considered. Any such line is likely to be ad hoc. Two, and more generally, why would it be rational to ignore highly improbably outcomes, especially if the corresponding utilities have large magnitudes?</p>
+<p>Another resolution to the paradox is to try to put an upper limit on the utility scale of the decision maker. It seems reasonable to accept that utilities are bounded, that utilities for an individual cannot grow indefinitely. That is, there might be some kind of “hedonic plateau”.<label for="tufte-sn-61" class="margin-toggle sidenote-number">61</label><input type="checkbox" id="tufte-sn-61" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">61</span> This phrase is attributed to Trevor Woodward in the Fall 2020 Decision Theory class.</span> To see how this idea can be used to resolve the St. Peterburg paradox, suppose that <span class="math inline">\(L\)</span> is the finite upper limit of utility. Then at some point in the sequence of possible outcomes the amount of utilities gained no longer grow, even though the probabilities continue to get smaller:
+<span class="math display">\[
+\left[\frac{1}{2}\times 2\right] + \left[ \frac{1}{4}\times 4 \right] + \left[\frac{1}{8}\times 8 \right] + \cdots + \left[\frac{1}{2^k}\times L\right] + \left[\frac{1}{2^{k+1}} \times L\right] + \cdots
+\]</span>
+We can think of the sequence of consisting of two parts. The first part of the sequence consists of all the utilities before the upper bound <span class="math inline">\(L\)</span> is reached. Let’s say <span class="math inline">\(k\)</span> is the position where the upper bound <span class="math inline">\(L\)</span> is first reached. Then the first part of the sequence ends at <span class="math inline">\(k-1\)</span>. Since we are taking the sum of products, we can express it succinctly as:<label for="tufte-sn-62" class="margin-toggle sidenote-number">62</label><input type="checkbox" id="tufte-sn-62" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">62</span> I know, we said we’d keep things not-so technical. It just takes up so much page space! If you’re not familiar with this notation, <a href="https://mathinsight.org/definition/summation_symbol">see this explanation.</a></span>
+<span class="math display">\[
+\sum_{i=1}^{k-1} (1/2)^i \times 2^i
+\]</span>
+Note that this sum is finite.</p>
+<p>The second part of the sequence consists of all the utilities where the upper bound <span class="math inline">\(L\)</span> is reached. We can express this as:
+<span class="math display">\[
+\sum_{i=k}^{\infty} (1/2)^i \times L
+\]</span>
+Notice that even though this sequence continues indefinitely and is infinite, each addition later in the sequence becomes smaller than the previous one, approaching zero in the limit. Hence, this sum will also be finite.</p>
+<p>The result of adding the finite sum from the first part of the sequence that’s below the upper bound <span class="math inline">\(L\)</span> and the finite sum of the second part of the sequence is itself going to be finite. Let’s say that amount is <span class="math inline">\(C\)</span>. The amount you should be willing to pay to play the St. Petersburg game is now anything up to the amount <span class="math inline">\(C\)</span>, but no more. We thereby avoid the paradox.<label for="tufte-sn-63" class="margin-toggle sidenote-number">63</label><input type="checkbox" id="tufte-sn-63" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">63</span> This solution goes back to the 19th century mathematician Cramer and was also endorsed by the Nobel Prize winner Kenneth Arrow.</span></p>
+<p>If the first resolution to the paradox is ad hoc, where we use the idea of <em>de minimis</em> risk, then this second resolution where we introduce an upper bound to utilities also seems ad hoc. Moreover, the paradox can be reformulated without requiring that the sequence of flips is infinite. It is enough to recreate the paradox just in case the expected utility of the game is unreasonably high in comparison to how much we think it is reasonable to pay to play.</p>
+<p>There are other angles to approaching the St. Peterburg paradox. Richard C. Jeffrey, for example, pointed out that whoever is offering the game is committing themselves to possibly paying the player an indefinite amount of money. But no one has such an indefinitely large bank and thereby cannot possibly fulfill such a commitment. This means that the assumptions of the game cannot be valid.</p>
+<p>Note that the success of Jeffrey’s response depends on there being some limit on what is possible to pay out to a player. If a bank has access to a Nozick-style experience machine, they might offer payouts in the form of intensely happy experiences. Here too, however, we can ask whether there is some natural upper bound on utilities. If there is, then that would not only support Jeffrey’s solution, but it would also be a way to address the `ad hoc’ objection given to the second resolution above (where we posited some upper bound <span class="math inline">\(L\)</span> on utilities).</p>
+</div>
+<div id="the-two-envelope-paradox" class="section level3">
+<h3><span class="header-section-number">6.4.5</span> The Two Envelope Paradox</h3>
+</div>
+</div>
+<div id="arguments-against-descriptive-meu" class="section level2">
+<h2><span class="header-section-number">6.5</span> Arguments Against Descriptive MEU</h2>
+<p>The Maximize Expected Utility principle is sometimes interpreted as a normative rule. As such, failing to behave in accordance with it is evidence of non-rationality or even irrationality (assuming the behavior is within the scope of MEU). MEU can also be interpreted as a description of how reasoning is done, at least when it’s done at its best. In this case, if we make sure to set up situations where decision making hangs only on the variables in question, but agents fail to make decisions as predicted by MEU, then that is evidence that MEU is false.</p>
+<p>Evaluating MEU from a descriptive standpoint can be a bit tricky and it’s easy to slide back and forth between the normative and descriptive divide. Here is a helpful example. Suppose some engineers come up with a principle about building bridges. If a bridge collapses, it is possible to lay blame on the construction of the bridge, not on the principle, e.g. perhaps the joints weren’t secured properly and that’s what caused the collapse. On the other hand, if a bridge is built with all the appropriate specifications and counts as a good representation of a bridge, and yet it still collapses, that can be treated as evidence that there’s something wrong about the principle governing bridge building. In the same way, by carefully constructing experiments so that humans are good representations of ``rational decision making’’, we can test whether MEU is a good description of it.</p>
+<p>In this section we’re going to look at just a few popular examples of how human reasoning appears to be at odds with MEU. In order to keep things simple, we’ll work with monetary amounts. As we’ve seen, the utility of money has a diminishing effect. As long as we keep this caveat in mind, it’s simpler to represent the examples with money. But rest assured that the actual experiments will have controlled appropriately for some of these complications.</p>
+<div id="risk-aversion" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Risk Aversion</h3>
+<p>We have seen the topic of risk aversion in the examples of the Allais and Ellsberg paradoxes. There, it was assumed that an ideal agent prefers options with less risk over options with more risk, even if the expected utilities of the options are identical. It turns out that humans appear to behave the same way.</p>
+<p>Consider the following decision matrix that describes payouts for a fair coin flip.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Heads</th>
+<th align="center">Tails</th>
+<th align="center">Expected Utility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Option A</td>
+<td align="center">$50</td>
+<td align="center">$50</td>
+<td align="center">$50</td>
+</tr>
+<tr class="even">
+<td>Option B</td>
+<td align="center">$0</td>
+<td align="center">$100</td>
+<td align="center">$50</td>
+</tr>
+</tbody>
+</table>
+<p>When given these options, most people will have a preference for Option A. According to MEU, however, we should be indifferent between A and B. The reason we should be indifferent is that the expected utilities for both options is $50.</p>
+<p>MEU does not take into account the range of possible outcomes, except insofar as they contribute to the calculation of the expected utility. For example, we can increase the expected utility of Option B by increasing the payout for Tails. But so long as we increase all the payouts for option A to match the increased expected utility of B accordingly, the two options will be equally preferred by MEU. Humans tend not to be indifferent, however.</p>
+<p>In fact, up to a certain point, it seems humans prefer a lesser expectation if it is more certain than a higher expectation that is less certain. For example, in the table below Gamble 1 has an expectation of $2,400 for sure, while Gamble 2 has an expectation of $2,409. While MEU recommends Gamble 2, humans typically prefer Gamble 1.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Tickets 1-33</th>
+<th align="center">Tickets 34-00</th>
+<th align="center">Ticket 100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gamble 1</td>
+<td align="center">$2,400</td>
+<td align="center">$2,400</td>
+<td align="center">$2,400</td>
+</tr>
+<tr class="even">
+<td>Gamble 2</td>
+<td align="center">$2,500</td>
+<td align="center">$2,400</td>
+<td align="center">$0</td>
+</tr>
+</tbody>
+</table>
+<p>To make the case that it really is risk aversion that seems to be driving the decision making here, as opposed to something about utility functions, experimenters can inject some risk into the decision but keep the utilities relatively stable. For example, Gamble 3 is just like Gamble 1 except now there is uncertainty in the form of known risk: tickets 34 through 99 do not have a payout. The expected utility of Gamble 3 is $816. We make the same kind of change to Gamble 2 in order to create Gamble 4, which now has an expected utility of $825. When Gamble 3 is compared to Gamble 4, now people typically prefer Gamble 4 over Gamble 3.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Tickets 1-33</th>
+<th align="center">Tickets 34-00</th>
+<th align="center">Ticket 100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gamble 1</td>
+<td align="center">$2,400</td>
+<td align="center">$2,400</td>
+<td align="center">$2,400</td>
+</tr>
+<tr class="even">
+<td>Gamble 2</td>
+<td align="center">$2,500</td>
+<td align="center">$2,400</td>
+<td align="center">$0</td>
+</tr>
+<tr class="odd">
+<td>Gamble 3</td>
+<td align="center">$2,400</td>
+<td align="center">$0</td>
+<td align="center">$2,400</td>
+</tr>
+<tr class="even">
+<td>Gamble 4</td>
+<td align="center">$2,500</td>
+<td align="center">$0</td>
+<td align="center">$0</td>
+</tr>
+</tbody>
+</table>
+<p>If the table containing Gambles 1-4 seems familiar, it’s because it has the same structure as the Allais paradox. The main difference here is that in the case of the Allais paradox we were concerned with whether an idealized rational agent would have preferences: Gamble 1 <span class="math inline">\(\succ\)</span> Gamble 2, and Gamble 4 <span class="math inline">\(\succ\)</span> Gamble 3. Here we are evaluating MEU as a descriptive theory, so we are comparing what MEU predicts against what the empirical data says. MEU predicts that both Gamble 2 <span class="math inline">\(\succ\)</span> Gamble 1, and Gamble 4 <span class="math inline">\(\succ\)</span> Gamble 3. According to a classic experiment done by Kahneman and Tverksy, 82% of participants preferred Gamble 1 over Gamble 2, and using the same experimental participants, 83% preferred Gamble 4 over Gamble 3. These findings have been reproduced by many researchers all over the world. This seems to be a clear mark against MEU as a descriptive theory.</p>
+</div>
+<div id="loss-aversion" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Loss Aversion</h3>
+<p>In addition to being averse to risk, humans tend also be averse to loss. To illustrate this, we can set up a situation where the only two options are both risky. However, in one of the options, there’s a possibility of actually losing some utilities. In order to compensate for this possible loss, the payout for the ``winning’’ situation is increased by the same amount. Here’s an example.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Heads</th>
+<th align="center">Tails</th>
+<th align="center">Expected Utility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Option A</td>
+<td align="center">$0</td>
+<td align="center">$100</td>
+<td align="center">$50</td>
+</tr>
+<tr class="even">
+<td>Option B</td>
+<td align="center">-$10</td>
+<td align="center">$110</td>
+<td align="center">$50</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that the expected utilities of the two options are identical, so MEU does not have a recommendation (i.e., we should be indifferent). People, however, tend to prefer Option A over Option B because in the latter they have to actually pay $10 if the coin lands Heads, whereas they don’t lose any money if they go with Option A. And yes, that preference holds even though Option B would have a $10 higher payout than Option A if the coin landed Tails.</p>
+</div>
+<div id="endowment-effect" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Endowment Effect</h3>
+<p>Suppose half the students in the class are given a mug. Not all the students that got a mug really need it, and many of the students that didn’t get a mug could really use one, and lots of students will be indifferent to mugs. In order to try to sort out the situation, we set up a little marketplace for people to exchange things. Before the mugs go into the marketplace, however, we ask every student what they think the dollar value of a mug is.</p>
+<p>On the “classical view” of MEU, it shouldn’t matter whether someone was a mug recipient or not when they provide an assessment of a mug’s value. Of course we expect there to be some variation among students in how much they think a mug is worth. But what we don’t expect is that there is a systematic pattern in the dollar amounts they give that reliably partitions the class into those that received the mugs and those that didn’t.</p>
+<p>And yet, that’s exactly what we tend to find. Students who are given a mug will tend to think that a mug is worth a higher amount than those who were not given a mug. This is known as the <em>endowment effect</em>. Humans will more highly estimate the value of something simply because they possess it than if they were not in possession of it. There’s a good chance that if you’ve bought and sold a car you may have experienced this already: when you own the car, you are likely to think its value is higher than if you’re the one trying to buy the car.</p>
+<p>Here’s another way of illustrating the endowment effect. Suppose Option A is that you get no money and then flip a coin, while Option B is that you are given $100 and then flip a coin. The payouts for the options given the coin flips are described in the following table.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Heads</th>
+<th align="center">Tails</th>
+<th align="center">Expected Utility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A: Given $0 and flip</td>
+<td align="center">$0</td>
+<td align="center">$100</td>
+<td align="center">$50</td>
+</tr>
+<tr class="even">
+<td>B: Given $100 and flip</td>
+<td align="center">-$100</td>
+<td align="center">$0</td>
+<td align="center">$50</td>
+</tr>
+</tbody>
+</table>
+<p>The expected utilities for both options are exactly the same ($50), and so according to MEU we should be indifferent between A and B. However, empirical data shows that humans have a preference for option A. Even though we stand to gain the same amount with either option, we seem to dislike having to give up something we are endowed with. In other words, we seem to prefer maintaining our utilities with the possibility of increasing them over the option to increase them with the possibility of losing them. In some ways, the endowment effect combines our aversion to risk and loss.</p>
+</div>
+<div id="prospect-theory" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Prospect Theory</h3>
+<p>A common theme between risk aversion, loss aversion, and the endowment effect is that they are reference dependent: people’s decision making seems to depend on a reference point rather than from some absolute perspective or a “view from nowhere”. That is, when people make a decision, they take into account information about their current situation. If we were to think of these decisions in absolute terms, as MEU assumes that we do, then all that is relevant is the position we can expect our future selves to be in after the decision. For example, in the endowment effect, both option A and B have the same future expectation: on average I can expect to be $50 richer. And yet, when I actually do my decision making, I seem to also consider my past and present situation, in addition to the future.</p>
+<p><strong>Prospect Theory</strong> was developed by Kahnemann and Tversky<label for="tufte-sn-64" class="margin-toggle sidenote-number">64</label><input type="checkbox" id="tufte-sn-64" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">64</span> (CITE 1979 Prospect Theory)</span> to explain these and other related effects of human decision making. The main idea is that decision making happens in two stages. In the first stage, there is a process called <em>editing</em>. Here, the outcomes of a decision are ordered using some heuristics (``rules of thumb’’). For example, one heuristic to decide how dangerous or risky an action might be is to assess how easy it is to think of examples of where that action goes wrong. An example that is commonly brought up is comparing the dangers of air travel vs automobile travel. Airplane crashes are typically horrific and brought up in the news, making it easy for us to recall such examples. But car accidents are typically not headline worthy, even if they are more prevalent. That’s the idea behind salience: by any statistical measure, the option to drive across the United States is more dangerous than the option to fly across it, and yet many people at least <em>feel</em> like flying is more dangerous because it is easier to recall the negative outcomes of flying. Kahnemann and Tversky, along with many researchers since, have explored many of the systematic ways humans tend to rely on heuristics, as well as biases, to help simplify decision making.</p>
+<p>The second stage of human decision making, according to Prospect Theory, is called the <em>evaluation</em> phase. Here people combine information about the probabilities of outcomes with the value or utility of those outcomes - much like we’ve described in calculating expected utilities. However, unlike standard expected utility theory, the expected utility function in Prospect Theory passes through a reference point. In a similar way that money has a diminishing marginal utility, so does the Prospect utility function, except when losses are being considered, the S-shaped function is asymmetrical. That is, losses will have lower absolute values of utility than their gains counterpart. For example, gaining $0.05 might have utility 17, but losing $0.05 would have a utility of -40.</p>
+<p>To what extent is Prospect Theory an alternative to Maximize Expected Utility? It depends in part how we characterize the relationship between the theories. Here is an optimistic characterization.</p>
+<p>Notice that in the second stage, the evaluation phase, Prospect Theory claims that decisions makers run the outcomes through a process where they weight the probability of the outcome with the utility assigned to the outcome. That is exactly what MEU also does. If we are minimalistic about the commitments of MEU, we could say that MEU is not committed to how utilities are assigned and whether they go through a reference point or not. That is, one could reasonably argue that the main thrust of MEU is that we compare options by taking the sum of the weighted probabilities (or equivalently, the weighted utilities) of their outcomes.</p>
+<p>In other words, if maximize expected utility makes no commitments about the nature of the utility function, but Prospect Theory does, then Prospect Theory is a refinement of MEU.</p>
+<p>Not everyone will agree with this characterization of the relationship between MEU and Prospect Theory. But at the very least we can say that there is a way for MEU to salvage itself as a descriptive theory, at least for the observations we’ve concern ourselves with so far. The next result, however, is difficult for MEU to salvage itself from.</p>
+</div>
+<div id="weighting-effects-and-why-they-matter" class="section level3">
+<h3><span class="header-section-number">6.5.5</span> Weighting Effects and Why They Matter</h3>
+<p>Consider the following prospects.</p>
+<ul>
+<li><p>Prospect 1: $6,000 with 45%</p></li>
+<li><p>Prospect 2: $3,000 with 90%</p></li>
+<li><p>Prospect 3: $6,000 with 0.1%</p></li>
+<li><p>Prospect 4: $3,000 with 0.2%</p></li>
+</ul>
+<p>In a classic experiment of 66 participants, 86% said they preferred Prospect 2 over Prospect 1, whereas 73% preferred Prospect 3 over Prospect 4. From the perspective of MEU, this is puzzling becasue Prospects 1 and 2 have the same expected utility, as do Prospects 3 and 4. Moreover, the relationship between 1 and 2 is that Prospect 2 has twice the chance of getting half the amount in Prospect 1, and that is also true of how 4 relates to 3. So at the very least we would expect that if people prefer Prospect 2 over 1, then for the same reason theoretical considerations would lead us to predict a preference for 4 over 3. And yet, that’s not what we find empirically.</p>
+<p>What explains why people prefer 2 over 1, but 3 over 4? The most agreed upon hypothesis is that we are typically poor at reasoning with low probabilities. While it is relatively straightforward to perceive that 90% is twice as much as 45%, the percentages of Prospects 3 and 4 are so low that we don’t pay much attention to their relative sizes. Sure, we might think, strictly speaking 0.2% is twice as high as 0.1%, but both are so low in terms of chances of winning that we treat them as being similar enough. Contrast that with the comparison of $6,000 and $3,000, where it is very easy to appreciate that one is twice the amount as the other. In brief, our inability to distinguish or appreciate differences in small probabilities is thought to explain what goes wrong here.</p>
+<p>Prospect Theory takes seriously this feature of human reasoning. On the one hand, people typically underestimate moderate and large probabilities, but overestimate small probabilities. To incorporate this in a theory of decision making, Prospect Theory adds a weighting function to the probability function. That is, whereas MEU takes probabilities at their face value, the weighting function will manipulate lower probabilities to make them seem higher than they are, and make moderate and high probabilities seem lower than they are.</p>
+<p>In our characterization of the relationship between MEU and Prospect Theory, we said that MEU might not be committed to a particular utility function. That is, there doesn’t seem to be anything inconsistent with letting MEU be open to the kind of asymmetric function that Prospect Theory proposes. The same cannot be said when it comes to probabilities. Here Prospect Theory seems to be making adjustments that are at the very least in tension with the spirit of MEU. The tension can be seen by asking ourselves, are humans making a mistake when they are reasoning with probabilities?</p>
+<p>We have to be very careful here about how we think of the word ‘mistake’.. It is not intended to signal a normative-descriptive divide. Our bridge building example will be helpful here. When a bridge collapses, we can try to figure out what the cause was. Was there a mistake in the design of the bridge, in which case the cause of the collapse was in the engineering (the theory)? Or was there a mistake in the construction of the bridge, in which case the cause of the collapse was in the application of the design or poor materials (the experiments or observations).</p>
+<p>Prospect theory says that the cause of the collapse was in the engineering. What humans do is systematic and should be taken as an expression of rationality. We need to therefore update our theory of rational decision making in order to make it account for humans. MEU, on the other hand, says that the cause of the collapse was in the application. When humans are tired or drunk, for example, they don’t always choose the same options as they would when they are clear and sober. There are lots of instances where people are arational or irrational. MEU sees weighting effects as an example of  expressing rationality.</p>
+<p>In short, Prospect Theory says to take the experiments seriously and update the theory. MEU says to take the theory seriously and recognize that the experiments are done when humans are not at their best, or even approximations of it. What should we decide?</p>
+<p>Let us take a step back and consider what we want out of a theory of decision making. There are at least two things we might care about. On the one hand, we might care about making predictions about how humans make decisions. On the other hand, we might care about having a theory that we can use as a guide to making decisions.</p>
+<p>With respect to making predictions, it seems that Prospect Theory is superior to its ancestor, MEU. In fact, Prospect Theory has done so well that it has spawned an entire cottage industry of researchers that study heuristics (or “rules of thumb”) in decision making. In turn, these heuristics can be used to nudge people in their decisions. Sometimes this is for the better, sometimes for the worse. Here is an example of the better, assuming that being an organ donor is a good thing from society’s perspective. The driver’s license office can offer you the same choice (to be an organ donor or not) in two different ways: you opt in to be a donor, or you opt out of being a donor. Notice that you are just as free to make the choice either way, but there is a certain amount of “work” you have to do for one of the options, and which option that is differs in the two contexts. In the context where the organ donor option is the default and people can opt out, more people are likely to be an organ donor than if they had to do the work of “opting in” to be one.</p>
+<p>As you can imagine, however, once it can be predicted how people make decisions, this can also be used in ways that will not necessarily benefit us. Advertising is the primary example of how our decisions are influenced by interests that may not be in line with our own.</p>
+<p>Maybe the engineers are right though, and what we need to do is become better bridge builders. To that end, Prospect Theory is not necessarily a theory that we want, if what we want is a theory that helps guide our decision making in a way that improves our chances of fulfilling our interests or preferences. As we said in earlier chapters, MEU is silent on what those preferences should be. But it is not silent on how we should reason with probabilities. Prospect Theory adds extra machinery in order to make a theory of decision making that fits with systematic observations of humans. MEU thinks that humans are better than that. And where they are not, there are opportunities for us to train ourselves to become better.</p>
+<p>In other words, Prospect Theory, in its capacity to capture human decision making, can be used to both improve our choices, but can also introduce maladies. Maximize expected utility theory, by contrast, can be seen as a way to help us remedy those maladies. The place to start is with training ourselves to think about probabilities correctly. We will learn some of the basics of probability theory soon.</p>
+</div>
+</div>
+<div id="summary-1" class="section level2">
+<h2><span class="header-section-number">6.6</span> Summary</h2>
+<p>The goal of this chapter was to answer three questions. First, what is the scope of MEU? Here we answered that MEU is a theory of what we called standard decision making. We looked at clear cases of standard decision making, clear cases outside of it, and an example (choosing to have a child) that can be described as being in between, which we called an instance on non-standard decision making. These considerations help us understand what sorts of examples of decision making we should be thinking of when we say that MEU is a theory of it.</p>
+<p>The second question was about reasons in favor of MEU given its scope. Here we considered a “long run” argument, which says that MEU is a good theory of standard decision making because in the long run MEU will provide higher payoffs than the alternatives, just as we would expect that good standard decision making will produce higher payoffs in the long run.</p>
+<p>The third question was about arguments against MEU. We divided these in to two. The first set of objections are theoretical in that they attempt to demonstrate that the internal workings of MEU are not coherent. These objections apply directly to normative versions of the theory, and perhaps to some extent descriptive versions of MEU as well. The second set of objections came from empirical considerations. These objections were primarily focused on MEU as a descriptive theory, but they can also be turned into arguments against the normative version of it as well under careful characterizations.</p>
+</div>
+<div id="exercises-5" class="section level2">
+<h2><span class="header-section-number">6.7</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Suppose, contra L.A. Paul, that we <em>could</em> set up the decision to have a child as a standard decision (pretend like the experience is not transformative). Using the four relevant grous (Luck Parents, etc.) to build a decision table. What utilities would you assign to each outcome? What probabilities do you think these get? And what are the expected utilities for the two choices?</p></li>
+<li><p>In the movie <em>The Matrix</em> Neo must choose between the red pill and the blue pill. Is Neo’s choice an instance of standard decision making, or is it more like L.A. Paul’s idea of a transformative experience? Explain. (If you haven’t seen the movie, think of another example that might count as a transformative experience and present some reasons for thinking why it is one and why it might not be one.)</p></li>
+<li><p>Which objection against normative MEU do you find most compelling? Does the long run argument have a response to that objection?</p></li>
+<li><p>Which objection against descriptive MEU do you find most compelling? To what extent are you convinced (or not) that Prospect Theory can salvage MEU? Or is Prospect Theory too different that you think we should consider it to be a different theory?</p></li>
+</ol>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="expected-utilities.html"><button class="btn btn-default">Previous</button></a>
+<a href="intervention.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
