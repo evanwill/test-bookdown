@@ -1,3 +1,7 @@
+html_document: 
+  mathjax: "default"
+  self_contained: false
+  lib_dir: libs
 bookdown::tufte_html_book:
   toc: yes
   css: 
