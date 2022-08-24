@@ -18,6 +18,7 @@ header-includes:
   - \usepackage{tikz}
   - \usepackage{pgfplots}
 site: bookdown::bookdown_site
+url: https://evanwill.github.io/test-bookdown/index.html
 documentclass: book
 # bibliography:
 # - book.bib
