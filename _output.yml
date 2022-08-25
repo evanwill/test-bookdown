@@ -4,6 +4,8 @@ bookdown::tufte_html_book:
     - toc.css
     #- custom.css 
   split_by: chapter
+  mathjax: local
+  self_contained: false
 
 #bookdown::pdf_book:
 #  base_format: tufte::tufte_book
